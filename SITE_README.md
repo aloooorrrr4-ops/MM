@@ -14,3 +14,6 @@
 - `index.html` الصفحة الرئيسية.
 - `category.html?type=restaurants` مثال قسم المطاعم.
 - `demo.html?type=restaurants&style=1` مثال قالب مطعم.
+
+
+<!-- GitHub Pages publish trigger: 2026-10-03 02:30 +03 -->
