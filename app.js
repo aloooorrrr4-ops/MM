@@ -159,41 +159,41 @@ const SITE_DATA = {
 function q(n){return new URLSearchParams(location.search).get(n)}
 function dataFor(t){return SITE_DATA[t]||SITE_DATA.restaurants}
 function navLinks(d){
-  return \`<nav class="full-demo-nav">
+  return `<nav class="full-demo-nav">
     <a href="#home">الرئيسية</a>
     <a href="#about">من نحن</a>
-    <a href="#sections">\${d.sectionLabel}</a>
+    <a href="#sections">${d.sectionLabel}</a>
     <a href="#offers">العروض</a>
     <a href="#gallery">المعرض</a>
     <a href="#reviews">الآراء</a>
     <a href="#contact">تواصل</a>
-  </nav>\`;
+  </nav>`;
 }
 function commonSections(d, variant){
   return {
-    about:\`<section id="about" class="full-about \${variant}">
-      <div><span class="mini-kicker">ABOUT</span><h2>\${d.aboutTitle}</h2></div>
-      <p>\${d.aboutText}</p>
-    </section>\`,
-    offer:\`<section id="offers" class="full-offer \${variant}">
-      <div><span>عرض مميز</span><h2>\${d.offer[0]}</h2><p>\${d.offer[1]}</p></div><strong>\${d.offer[2]}</strong>
-    </section>\`,
-    gallery:\`<section id="gallery" class="full-gallery \${variant}">
+    about:`<section id="about" class="full-about ${variant}">
+      <div><span class="mini-kicker">ABOUT</span><h2>${d.aboutTitle}</h2></div>
+      <p>${d.aboutText}</p>
+    </section>`,
+    offer:`<section id="offers" class="full-offer ${variant}">
+      <div><span>عرض مميز</span><h2>${d.offer[0]}</h2><p>${d.offer[1]}</p></div><strong>${d.offer[2]}</strong>
+    </section>`,
+    gallery:`<section id="gallery" class="full-gallery ${variant}">
       <div class="full-section-title"><span>GALLERY</span><h2>المعرض</h2></div>
-      <div class="gallery-grid">\${d.gallery.map((x,i)=>\`<img src="\${x}" alt="صورة \${i+1}">\`).join("")}</div>
-    </section>\`,
-    reviews:\`<section id="reviews" class="full-reviews \${variant}">
+      <div class="gallery-grid">${d.gallery.map((x,i)=>`<img src="${x}" alt="صورة ${i+1}">`).join("")}</div>
+    </section>`,
+    reviews:`<section id="reviews" class="full-reviews ${variant}">
       <div class="full-section-title"><span>REVIEWS</span><h2>آراء العملاء</h2></div>
       <div class="review-grid">
         <article><b>★★★★★</b><p>الموقع مرتب جدًا وسهل الوصول لكل شيء.</p><span>— عميل</span></article>
         <article><b>★★★★★</b><p>الصور والأسعار واضحة والتواصل مباشر.</p><span>— عميل</span></article>
         <article><b>★★★★★</b><p>تجربة جميلة على الجوال وسريعة.</p><span>— عميل</span></article>
       </div>
-    </section>\`,
-    contact:\`<section id="contact" class="full-contact \${variant}">
+    </section>`,
+    contact:`<section id="contact" class="full-contact ${variant}">
       <div><span class="mini-kicker">VISIT US</span><h2>زورونا أو تواصلوا معنا</h2><p>يوميًا من 9:00 ص إلى 12:00 ص</p></div>
-      <div class="contact-card"><p>📍 الموقع على الخريطة</p><p>☎ 05XXXXXXXX</p><a href="https://wa.me/" target="_blank">\${d.actionLabel}</a></div>
-    </section>\`
+      <div class="contact-card"><p>📍 الموقع على الخريطة</p><p>☎ 05XXXXXXXX</p><a href="https://wa.me/" target="_blank">${d.actionLabel}</a></div>
+    </section>`
   };
 }
 
@@ -202,74 +202,74 @@ function renderCategoryPage(){
   document.title=d.title+" | MM Studio";
   document.getElementById("catTitle").textContent=d.title;
   document.getElementById("catDesc").textContent=d.intro;
-  document.getElementById("templatesGrid").innerHTML=d.templates.map(t=>\`
-    <article class="template-card layout-\${t.layout}">
-      <div class="template-preview" style="background-image:url('\${t.img}')">
-        <div><span class="template-no">0\${t.id}</span><h3>\${t.name}</h3><p>\${t.style}</p></div>
+  document.getElementById("templatesGrid").innerHTML=d.templates.map(t=>`
+    <article class="template-card layout-${t.layout}">
+      <div class="template-preview" style="background-image:url('${t.img}')">
+        <div><span class="template-no">0${t.id}</span><h3>${t.name}</h3><p>${t.style}</p></div>
       </div>
       <div class="template-body">
-        <p class="template-desc">\${t.desc}</p>
-        <div class="template-sections"><span>الرئيسية</span><span>من نحن</span><span>\${d.sectionLabel}</span><span>العروض</span><span>المعرض</span><span>الآراء</span><span>التواصل</span></div>
-        <a class="template-btn" href="demo.html?type=\${type}&style=\${t.id}">فتح الموقع كاملًا</a>
+        <p class="template-desc">${t.desc}</p>
+        <div class="template-sections"><span>الرئيسية</span><span>من نحن</span><span>${d.sectionLabel}</span><span>العروض</span><span>المعرض</span><span>الآراء</span><span>التواصل</span></div>
+        <a class="template-btn" href="demo.html?type=${type}&style=${t.id}">فتح الموقع كاملًا</a>
       </div>
-    </article>\`).join("");
+    </article>`).join("");
 }
 
 function luxePage(d,t){
  const c=commonSections(d,"v-luxe");
- return \`<section class="full-demo luxe-full">
-  <header class="demo-site-head"><a href="#home" class="demo-logo">\${t.name}</a>\${navLinks(d)}<a class="demo-head-action" href="#contact">\${d.actionLabel}</a></header>
-  <section id="home" class="luxe-full-hero" style="background-image:url('\${t.img}')">
+ return `<section class="full-demo luxe-full">
+  <header class="demo-site-head"><a href="#home" class="demo-logo">${t.name}</a>${navLinks(d)}<a class="demo-head-action" href="#contact">${d.actionLabel}</a></header>
+  <section id="home" class="luxe-full-hero" style="background-image:url('${t.img}')">
     <div class="hero-shade"></div>
-    <div class="luxe-full-copy"><span>PREMIUM EXPERIENCE</span><h1>\${t.name}</h1><p>\${t.desc}</p><a href="#sections">استكشف \${d.sectionLabel}</a></div>
+    <div class="luxe-full-copy"><span>PREMIUM EXPERIENCE</span><h1>${t.name}</h1><p>${t.desc}</p><a href="#sections">استكشف ${d.sectionLabel}</a></div>
   </section>
-  \${c.about}
+  ${c.about}
   <section id="sections" class="full-products v-luxe">
-    <div class="full-section-title"><span>EXPLORE</span><h2>\${d.sectionLabel}</h2></div>
-    <div class="category-band">\${d.categories.map(x=>\`<span>\${x}</span>\`).join("")}</div>
-    <div class="luxe-product-grid">\${d.items.map(it=>\`<article><img src="\${it[3]}"><div><small>\${it[4]}</small><h3>\${it[0]}</h3><p>\${it[1]}</p><strong>\${it[2]}</strong></div></article>\`).join("")}</div>
+    <div class="full-section-title"><span>EXPLORE</span><h2>${d.sectionLabel}</h2></div>
+    <div class="category-band">${d.categories.map(x=>`<span>${x}</span>`).join("")}</div>
+    <div class="luxe-product-grid">${d.items.map(it=>`<article><img src="${it[3]}"><div><small>${it[4]}</small><h3>${it[0]}</h3><p>${it[1]}</p><strong>${it[2]}</strong></div></article>`).join("")}</div>
   </section>
-  \${c.offer}\${c.gallery}\${c.reviews}\${c.contact}
-  <footer class="full-footer"><b>\${t.name}</b><span>© 2026</span></footer>
- </section>\`;
+  ${c.offer}${c.gallery}${c.reviews}${c.contact}
+  <footer class="full-footer"><b>${t.name}</b><span>© 2026</span></footer>
+ </section>`;
 }
 
 function appPage(d,t){
  const c=commonSections(d,"v-app");
- return \`<section class="full-demo app-full">
-  <header class="app-full-head"><div><b>\${t.name}</b><small>● متاح الآن</small></div><a href="#contact">\${d.actionLabel}</a></header>
+ return `<section class="full-demo app-full">
+  <header class="app-full-head"><div><b>${t.name}</b><small>● متاح الآن</small></div><a href="#contact">${d.actionLabel}</a></header>
   <section id="home" class="app-full-home">
-    <div class="app-promo"><div><span>عرض اليوم</span><h1>\${d.offer[0]}</h1><p>\${d.offer[1]}</p><a href="#sections">ابدأ التصفح</a></div><img src="\${t.img}"></div>
+    <div class="app-promo"><div><span>عرض اليوم</span><h1>${d.offer[0]}</h1><p>${d.offer[1]}</p><a href="#sections">ابدأ التصفح</a></div><img src="${t.img}"></div>
     <div class="app-search">⌕ ابحث داخل الموقع…</div>
-    <div class="app-cat-scroll">\${d.categories.map(x=>\`<span>\${x}</span>\`).join("")}</div>
+    <div class="app-cat-scroll">${d.categories.map(x=>`<span>${x}</span>`).join("")}</div>
   </section>
-  \${c.about}
+  ${c.about}
   <section id="sections" class="app-products">
-    <div class="full-section-title"><span>POPULAR</span><h2>\${d.sectionLabel}</h2></div>
-    <div class="app-product-grid">\${d.items.map(it=>\`<article><img src="\${it[3]}"><div><small>\${it[4]}</small><h3>\${it[0]}</h3><p>\${it[1]}</p><footer><strong>\${it[2]}</strong><button>+</button></footer></div></article>\`).join("")}</div>
+    <div class="full-section-title"><span>POPULAR</span><h2>${d.sectionLabel}</h2></div>
+    <div class="app-product-grid">${d.items.map(it=>`<article><img src="${it[3]}"><div><small>${it[4]}</small><h3>${it[0]}</h3><p>${it[1]}</p><footer><strong>${it[2]}</strong><button>+</button></footer></div></article>`).join("")}</div>
   </section>
-  \${c.offer}\${c.gallery}\${c.reviews}\${c.contact}
+  ${c.offer}${c.gallery}${c.reviews}${c.contact}
   <div class="app-bottom-nav"><a href="#home">الرئيسية</a><a href="#sections">الأقسام</a><a href="#offers">العروض</a><a href="#contact">تواصل</a></div>
- </section>\`;
+ </section>`;
 }
 
 function editorialPage(d,t){
  const c=commonSections(d,"v-editorial");
- return \`<section class="full-demo editorial-full">
-  <header class="editorial-head"><a href="#home">\${t.name}</a>\${navLinks(d)}</header>
+ return `<section class="full-demo editorial-full">
+  <header class="editorial-head"><a href="#home">${t.name}</a>${navLinks(d)}</header>
   <section id="home" class="editorial-full-hero">
-    <div class="editorial-hero-copy"><span>ISSUE 01 • 2026</span><h1>\${t.name}</h1><p>\${t.desc}</p><a href="#about">اكتشف القصة ↓</a></div>
-    <div class="editorial-hero-image" style="background-image:url('\${t.img}')"></div>
+    <div class="editorial-hero-copy"><span>ISSUE 01 • 2026</span><h1>${t.name}</h1><p>${t.desc}</p><a href="#about">اكتشف القصة ↓</a></div>
+    <div class="editorial-hero-image" style="background-image:url('${t.img}')"></div>
   </section>
-  \${c.about}
+  ${c.about}
   <section id="sections" class="editorial-products">
-    <div class="full-section-title"><span>COLLECTION</span><h2>\${d.sectionLabel}</h2></div>
-    <div class="editorial-category-list">\${d.categories.map((x,i)=>\`<div><b>0\${i+1}</b><span>\${x}</span></div>\`).join("")}</div>
-    <div class="editorial-product-list">\${d.items.map((it,i)=>\`<article><span>0\${i+1}</span><img src="\${it[3]}"><div><small>\${it[4]}</small><h3>\${it[0]}</h3><p>\${it[1]}</p></div><strong>\${it[2]}</strong></article>\`).join("")}</div>
+    <div class="full-section-title"><span>COLLECTION</span><h2>${d.sectionLabel}</h2></div>
+    <div class="editorial-category-list">${d.categories.map((x,i)=>`<div><b>0${i+1}</b><span>${x}</span></div>`).join("")}</div>
+    <div class="editorial-product-list">${d.items.map((it,i)=>`<article><span>0${i+1}</span><img src="${it[3]}"><div><small>${it[4]}</small><h3>${it[0]}</h3><p>${it[1]}</p></div><strong>${it[2]}</strong></article>`).join("")}</div>
   </section>
-  \${c.offer}\${c.gallery}\${c.reviews}\${c.contact}
-  <footer class="full-footer editorial"><b>\${t.name}</b><span>Designed as a full business website</span></footer>
- </section>\`;
+  ${c.offer}${c.gallery}${c.reviews}${c.contact}
+  <footer class="full-footer editorial"><b>${t.name}</b><span>Designed as a full business website</span></footer>
+ </section>`;
 }
 
 function renderDemoPage(){
