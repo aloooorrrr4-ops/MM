@@ -1,141 +1,281 @@
-const SITE_DATA={
-restaurants:{
-title:"نماذج المطاعم",desc:"ثلاثة اتجاهات مختلفة فعليًا: مطعم فاخر، تطبيق طلب سريع، ومجلة بصرية راقية.",
-templates:[
-{id:1,name:"ليالي",style:"Fine Dining فاخر",layout:"luxury",tags:["Hero سينمائي","منيو راقٍ","هوية فاخرة"],img:"https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=85"},
-{id:2,name:"Quick Bite",style:"تطبيق طلب سريع",layout:"delivery",tags:["بحث","تصنيفات","سلة"],img:"https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1200&q=85"},
-{id:3,name:"سُفرة",style:"Editorial / مجلة",layout:"editorial",tags:["قصة المطعم","صور كبيرة","عرض راقٍ"],img:"https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1200&q=85"}],
-items:[
-["ستيك مشوي","قطعة لحم مختارة مع صوص خاص.","79 ر.س","https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=700&q=80"],
-["ريزوتو","أرز كريمي مع الفطر والبارميزان.","48 ر.س","https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=700&q=80"],
-["برجر كلاسيك","لحم مشوي، جبنة وصوص المنزل.","24 ر.س","https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"],
-["بيتزا خاصة","موزاريلا، طماطم وإضافات مختارة.","31 ر.س","https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=700&q=80"],
-["لاتيه بارد","إسبريسو مع الحليب والثلج.","16 ر.س","https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=700&q=80"],
-["تشيز كيك","كريمي مع صوص التوت.","19 ر.س","https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=700&q=80"]
-]},
-buffets:{
-title:"نماذج البوفيهات",desc:"واجهات مناسبة للوجبات السريعة والفطور والمشروبات.",
-templates:[
-{id:1,name:"السريع",style:"Fast Food",tags:["وجبات","عروض","طلب"],img:"https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=1200&q=82"},
-{id:2,name:"لقمة",style:"Clean Menu",tags:["فطور","ساندوتشات"],img:"https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=82"},
-{id:3,name:"صباح",style:"Breakfast",tags:["فطور","قهوة"],img:"https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=1200&q=82"}],
-items:[
-["ساندوتش دجاج","دجاج متبل وخضار وصوص خاص.","12 ر.س","https://images.unsplash.com/photo-1553909489-cd47e0907980?auto=format&fit=crop&w=700&q=80"],
-["برجر دجاج","دجاج مقرمش مع جبنة.","15 ر.س","https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=700&q=80"],
-["عصير مانجو","مانجو طازج.","8 ر.س","https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?auto=format&fit=crop&w=700&q=80"],
-["فطور عربي","بيض، جبنة وفول.","18 ر.س","https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=700&q=80"]
-]},
-salons:{
-title:"نماذج الصوالين",desc:"خدمات وأسعار وحجز مباشر بصور وهوية قوية.",
-templates:[
-{id:1,name:"لمسة",style:"Beauty",tags:["خدمات","حجز"],img:"https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=82"},
-{id:2,name:"ستايل",style:"Barbershop",tags:["قص","عناية"],img:"https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1200&q=82"},
-{id:3,name:"Serenity",style:"Spa",tags:["باقات","عناية"],img:"https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1200&q=82"}],
-items:[
-["قص وتصفيف","جلسة قص وتصفيف كاملة.","60 ر.س","https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=700&q=80"],
-["عناية بالشعر","ترطيب وعناية مكثفة.","85 ر.س","https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=700&q=80"],
-["صبغة كاملة","استشارة واختيار لون.","180 ر.س","https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=700&q=80"],
-["باقة مناسبة","تجهيز كامل للمناسبة.","220 ر.س","https://images.unsplash.com/photo-1487412912498-0447578fcca8?auto=format&fit=crop&w=700&q=80"]
-]},
-groceries:{
-title:"نماذج البقالات",desc:"متجر مصغر وعروض يومية وطلب سريع.",
-templates:[
-{id:1,name:"الخير",style:"Storefront",tags:["منتجات","عروض"],img:"https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1200&q=82"},
-{id:2,name:"ماركت 24",style:"Quick Shop",tags:["أقسام","طلب"],img:"https://images.unsplash.com/photo-1578916171728-46686eac8d58?auto=format&fit=crop&w=1200&q=82"},
-{id:3,name:"سلة",style:"Deals",tags:["عروض","خصومات"],img:"https://images.unsplash.com/photo-1604719312566-8912e9227c6a?auto=format&fit=crop&w=1200&q=82"}],
-items:[
-["مياه","كرتون مياه شرب.","12 ر.س","https://images.unsplash.com/photo-1564419320461-6870880221ad?auto=format&fit=crop&w=700&q=80"],
-["حليب","حليب كامل الدسم.","7 ر.س","https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=700&q=80"],
-["قهوة","قهوة محمصة.","22 ر.س","https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=700&q=80"],
-["منظف","متعدد الاستخدام.","14 ر.س","https://images.unsplash.com/photo-1583947215259-38e31be8751f?auto=format&fit=crop&w=700&q=80"]
-]},
-tailors:{
-title:"نماذج الخياطة",desc:"Lookbook وخدمات وحجز قياس.",
-templates:[
-{id:1,name:"إبرة وخيط",style:"Lookbook",tags:["موديلات","قياس"],img:"https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=1200&q=82"},
-{id:2,name:"الثوب الراقي",style:"Luxury",tags:["أقمشة","تفصيل"],img:"https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=82"},
-{id:3,name:"خياط المدينة",style:"Service",tags:["خدمات","أسعار"],img:"https://images.unsplash.com/photo-1520975954732-35dd22299614?auto=format&fit=crop&w=1200&q=82"}],
-items:[
-["تفصيل ثوب","تفصيل حسب المقاس.","180 ر.س","https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=700&q=80"],
-["تعديل مقاس","تقصير وتوسيع.","35 ر.س","https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=700&q=80"],
-["تفصيل بدلة","بدلة حسب القياس.","450 ر.س","https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=700&q=80"],
-["موعد قياس","حجز موعد قياس.","مجاني","https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=700&q=80"]
-]}};
+
+const SITE_DATA = {
+  restaurants: {
+    title: "نماذج المطاعم",
+    singular: "مطعم",
+    intro: "كل نموذج هنا موقع مطعم كامل: واجهة، قصة المطعم، أقسام المنيو، الأصناف، العروض، المعرض، آراء العملاء، الموقع والتواصل.",
+    sectionLabel: "أقسام المنيو",
+    actionLabel: "اطلب عبر واتساب",
+    aboutTitle: "قصة المكان",
+    aboutText: "نمزج بين الوصفات المألوفة والتقديم العصري، ونبني تجربة تبدأ من أول زيارة للموقع وتستمر حتى آخر لقمة.",
+    templates: [
+      {id:1,name:"ليالي",style:"Luxury Dining",layout:"luxe",desc:"مطعم راقٍ بهوية داكنة وصور سينمائية.",img:"https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1400&q=85"},
+      {id:2,name:"Quick Bite",style:"Order App",layout:"app",desc:"واجهة سريعة تشبه تطبيقات الطلب والتوصيل.",img:"https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1400&q=85"},
+      {id:3,name:"سُفرة",style:"Editorial Story",layout:"editorial",desc:"موقع بصري يبيع تجربة المطعم وقصته.",img:"https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1400&q=85"}
+    ],
+    categories:["الأكثر طلبًا","المقبلات","الأطباق الرئيسية","البرجر","المشروبات","الحلويات"],
+    items:[
+      ["ستيك مشوي","لحم مختار مع صوص خاص وخضار موسمية.","79 ر.س","https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80","الأطباق الرئيسية"],
+      ["برجر كلاسيك","لحم مشوي، جبنة، خس وصوص المنزل.","24 ر.س","https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80","البرجر"],
+      ["بيتزا خاصة","موزاريلا، طماطم وإضافات مختارة.","31 ر.س","https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=800&q=80","الأطباق الرئيسية"],
+      ["سلطة سيزر","خس طازج، دجاج، بارميزان وصوص سيزر.","22 ر.س","https://images.unsplash.com/photo-1546793665-c74683f339c1?auto=format&fit=crop&w=800&q=80","المقبلات"],
+      ["لاتيه بارد","إسبريسو مع الحليب والثلج.","16 ر.س","https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=800&q=80","المشروبات"],
+      ["تشيز كيك","تشيز كيك كريمي مع صوص التوت.","19 ر.س","https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=800&q=80","الحلويات"]
+    ],
+    offer:["عرض العائلة","4 وجبات + بطاطس + مشروبات","99 ر.س"],
+    gallery:[
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80"
+    ]
+  },
+
+  buffets: {
+    title:"نماذج البوفيهات",
+    singular:"بوفيه",
+    intro:"كل نموذج موقع كامل للبوفيه: فطور، سندوتشات، وجبات سريعة، مشروبات، عروض، معرض وتواصل.",
+    sectionLabel:"أقسام البوفيه",
+    actionLabel:"اطلب الآن",
+    aboutTitle:"سريع، طازج، واضح",
+    aboutText:"واجهة مناسبة للطلب اليومي؛ توصل العميل إلى الوجبة والسعر ورقم الطلب بأقل عدد من الخطوات.",
+    templates:[
+      {id:1,name:"Street Bite",style:"Bold Fast Food",layout:"luxe",desc:"تصميم قوي للوجبات السريعة والعروض.",img:"https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=1400&q=85"},
+      {id:2,name:"لقمة",style:"Quick Order",layout:"app",desc:"طلب سريع وتصنيفات واضحة على الجوال.",img:"https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1400&q=85"},
+      {id:3,name:"صباح",style:"Breakfast Editorial",layout:"editorial",desc:"تصميم هادئ للفطور والقهوة.",img:"https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=1400&q=85"}
+    ],
+    categories:["الفطور","السندوتشات","البرجر","العصائر","القهوة"],
+    items:[
+      ["ساندوتش دجاج","دجاج متبل وخضار وصوص خاص.","12 ر.س","https://images.unsplash.com/photo-1553909489-cd47e0907980?auto=format&fit=crop&w=800&q=80","السندوتشات"],
+      ["برجر دجاج","دجاج مقرمش مع جبنة وصوص.","15 ر.س","https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=800&q=80","البرجر"],
+      ["فطور عربي","بيض، جبنة، فول وخبز طازج.","18 ر.س","https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=800&q=80","الفطور"],
+      ["عصير مانجو","مانجو طازج محضر يوميًا.","8 ر.س","https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?auto=format&fit=crop&w=800&q=80","العصائر"],
+      ["قهوة اليوم","قهوة سوداء طازجة.","7 ر.س","https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80","القهوة"],
+      ["ساندوتش بيض","بيض وجبن وخضار.","9 ر.س","https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&w=800&q=80","الفطور"]
+    ],
+    offer:["عرض الصباح","فطور + قهوة + عصير","25 ر.س"],
+    gallery:[
+      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1484723091739-30a097e8f929?auto=format&fit=crop&w=900&q=80"
+    ]
+  },
+
+  salons: {
+    title:"نماذج الصوالين",
+    singular:"صالون",
+    intro:"كل نموذج موقع صالون كامل: الخدمات، الأسعار، الباقات، معرض الأعمال، آراء العميلات، الحجز، الموقع والتواصل.",
+    sectionLabel:"الخدمات",
+    actionLabel:"احجز موعدك",
+    aboutTitle:"الجمال في التفاصيل",
+    aboutText:"نقدم تجربة عناية متكاملة تبدأ باختيار الخدمة وتنتهي بحجز الموعد مباشرة من الموقع.",
+    templates:[
+      {id:1,name:"لمسة",style:"Beauty Luxe",layout:"luxe",desc:"هوية أنثوية فاخرة مع صور كبيرة.",img:"https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1400&q=85"},
+      {id:2,name:"ستايل",style:"Booking App",layout:"app",desc:"خدمات وأسعار وحجز سريع من الجوال.",img:"https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1400&q=85"},
+      {id:3,name:"Serenity",style:"Spa Editorial",layout:"editorial",desc:"تصميم هادئ للباقات والعناية والسبا.",img:"https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1400&q=85"}
+    ],
+    categories:["قص وتصفيف","عناية الشعر","الصبغات","المكياج","الباقات"],
+    items:[
+      ["قص وتصفيف","جلسة قص وتصفيف كاملة.","60 ر.س","https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=800&q=80","قص وتصفيف"],
+      ["عناية بالشعر","جلسة ترطيب وعناية مكثفة.","85 ر.س","https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80","عناية الشعر"],
+      ["صبغة كاملة","اختيار لون واستشارة قبل التنفيذ.","180 ر.س","https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=800&q=80","الصبغات"],
+      ["مكياج سهرة","مكياج كامل للمناسبات.","150 ر.س","https://images.unsplash.com/photo-1487412912498-0447578fcca8?auto=format&fit=crop&w=800&q=80","المكياج"],
+      ["باقة العروس","تجهيز شامل للعروس.","650 ر.س","https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=800&q=80","الباقات"],
+      ["سبا شعر","غسيل وعلاج وترطيب.","110 ر.س","https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80","عناية الشعر"]
+    ],
+    offer:["باقة المناسبات","شعر + مكياج + عناية","299 ر.س"],
+    gallery:[
+      "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=900&q=80"
+    ]
+  },
+
+  groceries: {
+    title:"نماذج البقالات",
+    singular:"بقالة",
+    intro:"كل نموذج متجر بقالة كامل: الأقسام، المنتجات، العروض، الأكثر طلبًا، التوصيل، معلومات المتجر والتواصل.",
+    sectionLabel:"أقسام المتجر",
+    actionLabel:"اطلب واتساب",
+    aboutTitle:"احتياجاتك اليومية في مكان واحد",
+    aboutText:"واجهة خفيفة وسريعة تعرض الأقسام والمنتجات والعروض اليومية مع إمكانية الطلب المباشر.",
+    templates:[
+      {id:1,name:"الخير",style:"Fresh Market",layout:"luxe",desc:"تصميم بصري للأقسام والمنتجات الطازجة.",img:"https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1400&q=85"},
+      {id:2,name:"ماركت 24",style:"Quick Cart",layout:"app",desc:"متجر جوال سريع مع سلة وتصنيفات.",img:"https://images.unsplash.com/photo-1578916171728-46686eac8d58?auto=format&fit=crop&w=1400&q=85"},
+      {id:3,name:"سلة",style:"Weekly Deals",layout:"editorial",desc:"واجهة عروض وخصومات أسبوعية.",img:"https://images.unsplash.com/photo-1604719312566-8912e9227c6a?auto=format&fit=crop&w=1400&q=85"}
+    ],
+    categories:["العروض","المشروبات","الألبان","المعلبات","المنظفات"],
+    items:[
+      ["مياه 24 حبة","كرتون مياه شرب.","12 ر.س","https://images.unsplash.com/photo-1564419320461-6870880221ad?auto=format&fit=crop&w=800&q=80","المشروبات"],
+      ["حليب طازج","حليب كامل الدسم.","7 ر.س","https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=800&q=80","الألبان"],
+      ["قهوة عربية","عبوة قهوة محمصة.","22 ر.س","https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=800&q=80","العروض"],
+      ["منظف منزلي","منظف متعدد الاستخدام.","14 ر.س","https://images.unsplash.com/photo-1583947215259-38e31be8751f?auto=format&fit=crop&w=800&q=80","المنظفات"],
+      ["عصير برتقال","عبوة عصير بارد.","8 ر.س","https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=800&q=80","المشروبات"],
+      ["تونة","تونة معلبة.","6 ر.س","https://images.unsplash.com/photo-1584263347416-85a696b4eda7?auto=format&fit=crop&w=800&q=80","المعلبات"]
+    ],
+    offer:["عروض الأسبوع","خصومات حتى 30%","وفر الآن"],
+    gallery:[
+      "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1578916171728-46686eac8d58?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1534723452862-4c874018d66d?auto=format&fit=crop&w=900&q=80"
+    ]
+  },
+
+  tailors: {
+    title:"نماذج الخياطة",
+    singular:"محل خياطة",
+    intro:"كل نموذج موقع خياطة كامل: الموديلات، الخدمات، الأسعار، الأقمشة، معرض الأعمال، حجز القياس والموقع.",
+    sectionLabel:"الخدمات والموديلات",
+    actionLabel:"احجز قياس",
+    aboutTitle:"تفصيل يليق بذوقك",
+    aboutText:"نحوّل خبرة الخياط إلى معرض رقمي يعرض الموديلات والأقمشة والخدمات ويختصر رحلة حجز القياس.",
+    templates:[
+      {id:1,name:"Atelier",style:"Tailor Luxe",layout:"luxe",desc:"هوية فاخرة للتفصيل والبدلات.",img:"https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1400&q=85"},
+      {id:2,name:"إبرة وخيط",style:"Measurement App",layout:"app",desc:"خدمات وأسعار وحجز قياس سريع.",img:"https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=1400&q=85"},
+      {id:3,name:"Lookbook",style:"Fashion Editorial",layout:"editorial",desc:"معرض موديلات بصري مثل مجلات الأزياء.",img:"https://images.unsplash.com/photo-1520975954732-35dd22299614?auto=format&fit=crop&w=1400&q=85"}
+    ],
+    categories:["تفصيل الثياب","البدلات","التعديلات","الأقمشة","مواعيد القياس"],
+    items:[
+      ["تفصيل ثوب","تفصيل حسب المقاس مع خيارات متعددة.","180 ر.س","https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=800&q=80","تفصيل الثياب"],
+      ["تفصيل بدلة","بدلة مفصلة حسب القياس.","450 ر.س","https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80","البدلات"],
+      ["تعديل مقاس","تقصير وتوسيع وتعديل احترافي.","35 ر.س","https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80","التعديلات"],
+      ["قماش فاخر","تشكيلة أقمشة موسمية.","حسب النوع","https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=800&q=80","الأقمشة"],
+      ["موعد قياس","احجز موعد القياس مباشرة.","مجاني","https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80","مواعيد القياس"],
+      ["تفصيل جاكيت","جاكيت رجالي حسب الطلب.","320 ر.س","https://images.unsplash.com/photo-1555069519-127aadedf1ee?auto=format&fit=crop&w=800&q=80","البدلات"]
+    ],
+    offer:["عرض الموسم","تفصيل ثوبين بسعر خاص","وفر 15%"],
+    gallery:[
+      "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1520975954732-35dd22299614?auto=format&fit=crop&w=900&q=80"
+    ]
+  }
+};
 
 function q(n){return new URLSearchParams(location.search).get(n)}
 function dataFor(t){return SITE_DATA[t]||SITE_DATA.restaurants}
+function navLinks(d){
+  return \`<nav class="full-demo-nav">
+    <a href="#home">الرئيسية</a>
+    <a href="#about">من نحن</a>
+    <a href="#sections">\${d.sectionLabel}</a>
+    <a href="#offers">العروض</a>
+    <a href="#gallery">المعرض</a>
+    <a href="#reviews">الآراء</a>
+    <a href="#contact">تواصل</a>
+  </nav>\`;
+}
+function commonSections(d, variant){
+  return {
+    about:\`<section id="about" class="full-about \${variant}">
+      <div><span class="mini-kicker">ABOUT</span><h2>\${d.aboutTitle}</h2></div>
+      <p>\${d.aboutText}</p>
+    </section>\`,
+    offer:\`<section id="offers" class="full-offer \${variant}">
+      <div><span>عرض مميز</span><h2>\${d.offer[0]}</h2><p>\${d.offer[1]}</p></div><strong>\${d.offer[2]}</strong>
+    </section>\`,
+    gallery:\`<section id="gallery" class="full-gallery \${variant}">
+      <div class="full-section-title"><span>GALLERY</span><h2>المعرض</h2></div>
+      <div class="gallery-grid">\${d.gallery.map((x,i)=>\`<img src="\${x}" alt="صورة \${i+1}">\`).join("")}</div>
+    </section>\`,
+    reviews:\`<section id="reviews" class="full-reviews \${variant}">
+      <div class="full-section-title"><span>REVIEWS</span><h2>آراء العملاء</h2></div>
+      <div class="review-grid">
+        <article><b>★★★★★</b><p>الموقع مرتب جدًا وسهل الوصول لكل شيء.</p><span>— عميل</span></article>
+        <article><b>★★★★★</b><p>الصور والأسعار واضحة والتواصل مباشر.</p><span>— عميل</span></article>
+        <article><b>★★★★★</b><p>تجربة جميلة على الجوال وسريعة.</p><span>— عميل</span></article>
+      </div>
+    </section>\`,
+    contact:\`<section id="contact" class="full-contact \${variant}">
+      <div><span class="mini-kicker">VISIT US</span><h2>زورونا أو تواصلوا معنا</h2><p>يوميًا من 9:00 ص إلى 12:00 ص</p></div>
+      <div class="contact-card"><p>📍 الموقع على الخريطة</p><p>☎ 05XXXXXXXX</p><a href="https://wa.me/" target="_blank">\${d.actionLabel}</a></div>
+    </section>\`
+  };
+}
 
 function renderCategoryPage(){
- const type=q("type")||"restaurants",d=dataFor(type);
- document.title=d.title+" | MM Studio";
- document.getElementById("catTitle").textContent=d.title;
- document.getElementById("catDesc").textContent=d.desc;
- document.getElementById("templatesGrid").innerHTML=d.templates.map(t=>`
- <article class="template-card ${type==="restaurants"?"restaurant-card layout-"+t.layout:""}">
-   <div class="template-preview" style="background-image:url('${t.img}')">
-     <div><h3>${t.name}</h3><p>${t.style}</p></div>
-   </div>
-   <div class="template-body">
-     <div class="template-tags">${t.tags.map(x=>`<span>${x}</span>`).join("")}</div>
-     <a class="template-btn" href="demo.html?type=${type}&style=${t.id}">معاينة التصميم كاملًا</a>
-   </div>
- </article>`).join("");
+  const type=q("type")||"restaurants",d=dataFor(type);
+  document.title=d.title+" | MM Studio";
+  document.getElementById("catTitle").textContent=d.title;
+  document.getElementById("catDesc").textContent=d.intro;
+  document.getElementById("templatesGrid").innerHTML=d.templates.map(t=>\`
+    <article class="template-card layout-\${t.layout}">
+      <div class="template-preview" style="background-image:url('\${t.img}')">
+        <div><span class="template-no">0\${t.id}</span><h3>\${t.name}</h3><p>\${t.style}</p></div>
+      </div>
+      <div class="template-body">
+        <p class="template-desc">\${t.desc}</p>
+        <div class="template-sections"><span>الرئيسية</span><span>من نحن</span><span>\${d.sectionLabel}</span><span>العروض</span><span>المعرض</span><span>الآراء</span><span>التواصل</span></div>
+        <a class="template-btn" href="demo.html?type=\${type}&style=\${t.id}">فتح الموقع كاملًا</a>
+      </div>
+    </article>\`).join("");
 }
 
-function luxuryRestaurant(d){
- const items=d.items.slice(0,4);
- return `<section class="demo-site luxury-site">
- <div class="luxury-nav"><span>RESERVATIONS</span><b>L A Y A L I</b><span>JAZAN • KSA</span></div>
- <div class="luxury-hero" style="background-image:url('${d.templates[0].img}')">
-  <div class="luxury-copy"><small>FINE ARABIAN DINING</small><h1>ليالي</h1><p>تجربة طعام هادئة، قائمة مختارة، وتفاصيل مصممة بذوق.</p></div>
- </div>
- <div class="luxury-menu">
-  <div class="luxury-menu-head"><div><small>THE MENU</small><h2>اختيارات الشيف</h2></div><p>قائمة موسمية — الأسعار تشمل الضريبة</p></div>
-  <div class="luxury-grid">${items.map(it=>`<article class="luxury-item"><img src="${it[3]}"><div><h3>${it[0]}</h3><p>${it[1]}</p></div><strong>${it[2]}</strong></article>`).join("")}</div>
- </div></section>`;
+function luxePage(d,t){
+ const c=commonSections(d,"v-luxe");
+ return \`<section class="full-demo luxe-full">
+  <header class="demo-site-head"><a href="#home" class="demo-logo">\${t.name}</a>\${navLinks(d)}<a class="demo-head-action" href="#contact">\${d.actionLabel}</a></header>
+  <section id="home" class="luxe-full-hero" style="background-image:url('\${t.img}')">
+    <div class="hero-shade"></div>
+    <div class="luxe-full-copy"><span>PREMIUM EXPERIENCE</span><h1>\${t.name}</h1><p>\${t.desc}</p><a href="#sections">استكشف \${d.sectionLabel}</a></div>
+  </section>
+  \${c.about}
+  <section id="sections" class="full-products v-luxe">
+    <div class="full-section-title"><span>EXPLORE</span><h2>\${d.sectionLabel}</h2></div>
+    <div class="category-band">\${d.categories.map(x=>\`<span>\${x}</span>\`).join("")}</div>
+    <div class="luxe-product-grid">\${d.items.map(it=>\`<article><img src="\${it[3]}"><div><small>\${it[4]}</small><h3>\${it[0]}</h3><p>\${it[1]}</p><strong>\${it[2]}</strong></div></article>\`).join("")}</div>
+  </section>
+  \${c.offer}\${c.gallery}\${c.reviews}\${c.contact}
+  <footer class="full-footer"><b>\${t.name}</b><span>© 2026</span></footer>
+ </section>\`;
 }
 
-function deliveryRestaurant(d){
- return `<section class="demo-site delivery-site">
- <header class="delivery-head"><div class="delivery-head-inner"><div class="delivery-logo"><i>Q</i><div><b>Quick Bite</b><div style="font-size:10px;color:#888">برجر • بيتزا • مشروبات</div></div></div><span class="delivery-status">● مفتوح الآن</span></div></header>
- <main class="delivery-main">
-  <section class="delivery-banner"><div><small>عرض اليوم</small><h1>وجبتك المفضلة<br>أسرع مما تتوقع.</h1><p>خصم 20% على الوجبات المختارة.</p></div><img src="${d.items[2][3]}"></section>
-  <div class="search-box">⌕ ابحث عن برجر، بيتزا، مشروب…</div>
-  <div class="app-chips"><span>🔥 الأكثر طلبًا</span><span>🍔 برجر</span><span>🍕 بيتزا</span><span>🥤 مشروبات</span><span>🍰 حلويات</span></div>
-  <div class="delivery-grid">${d.items.map(it=>`<article class="delivery-product"><img src="${it[3]}"><div><h3>${it[0]}</h3><p>${it[1]}</p><footer><strong>${it[2]}</strong><button>+</button></footer></div></article>`).join("")}</div>
- </main>
- <div class="floating-cart"><span>2 أصناف</span><b>عرض السلة • 55 ر.س</b></div>
- </section>`;
+function appPage(d,t){
+ const c=commonSections(d,"v-app");
+ return \`<section class="full-demo app-full">
+  <header class="app-full-head"><div><b>\${t.name}</b><small>● متاح الآن</small></div><a href="#contact">\${d.actionLabel}</a></header>
+  <section id="home" class="app-full-home">
+    <div class="app-promo"><div><span>عرض اليوم</span><h1>\${d.offer[0]}</h1><p>\${d.offer[1]}</p><a href="#sections">ابدأ التصفح</a></div><img src="\${t.img}"></div>
+    <div class="app-search">⌕ ابحث داخل الموقع…</div>
+    <div class="app-cat-scroll">\${d.categories.map(x=>\`<span>\${x}</span>\`).join("")}</div>
+  </section>
+  \${c.about}
+  <section id="sections" class="app-products">
+    <div class="full-section-title"><span>POPULAR</span><h2>\${d.sectionLabel}</h2></div>
+    <div class="app-product-grid">\${d.items.map(it=>\`<article><img src="\${it[3]}"><div><small>\${it[4]}</small><h3>\${it[0]}</h3><p>\${it[1]}</p><footer><strong>\${it[2]}</strong><button>+</button></footer></div></article>\`).join("")}</div>
+  </section>
+  \${c.offer}\${c.gallery}\${c.reviews}\${c.contact}
+  <div class="app-bottom-nav"><a href="#home">الرئيسية</a><a href="#sections">الأقسام</a><a href="#offers">العروض</a><a href="#contact">تواصل</a></div>
+ </section>\`;
 }
 
-function editorialRestaurant(d){
- const items=d.items.slice(0,4);
- return `<section class="demo-site editorial-site">
- <div class="editorial-cover">
-  <div class="editorial-copy"><small>EST. 2026 • JAZAN</small><h1>سُفرة</h1><p>ليس مجرد منيو. مساحة تحكي قصة المكان، المكونات، والأطباق قبل أن تصل إلى الطاولة.</p></div>
-  <div class="editorial-cover-img" style="background-image:url('${d.templates[2].img}')"></div>
- </div>
- <section class="editorial-story"><h2>نكهة لها<br>قصة.</h2><p>نختار المكونات بعناية، ونقدم وصفات عربية بروح حديثة. هذا النوع من المواقع مناسب للمطاعم التي تريد أن تبيع التجربة والهوية، وليس فقط قائمة الأسعار.</p></section>
- <section class="editorial-dishes">${items.map((it,i)=>`<article class="editorial-dish"><span>0${i+1}</span><h3>${it[0]}</h3><p>${it[1]}</p><strong>${it[2]}</strong></article>`).join("")}</section>
- </section>`;
-}
-
-function genericDemo(type,d,style){
- const t=d.templates[(style-1)%d.templates.length];
- return `<section class="demo-site generic-site">
- <div class="generic-hero" style="background-image:url('${t.img}')"><div><small>${t.style}</small><h1>${t.name}</h1><p>${d.desc}</p></div></div>
- <div class="generic-content"><div class="generic-grid">${d.items.map(it=>`<article class="generic-item"><img src="${it[3]}"><div><h3>${it[0]}</h3><p>${it[1]}</p><strong>${it[2]}</strong></div></article>`).join("")}</div></div>
- </section>`;
+function editorialPage(d,t){
+ const c=commonSections(d,"v-editorial");
+ return \`<section class="full-demo editorial-full">
+  <header class="editorial-head"><a href="#home">\${t.name}</a>\${navLinks(d)}</header>
+  <section id="home" class="editorial-full-hero">
+    <div class="editorial-hero-copy"><span>ISSUE 01 • 2026</span><h1>\${t.name}</h1><p>\${t.desc}</p><a href="#about">اكتشف القصة ↓</a></div>
+    <div class="editorial-hero-image" style="background-image:url('\${t.img}')"></div>
+  </section>
+  \${c.about}
+  <section id="sections" class="editorial-products">
+    <div class="full-section-title"><span>COLLECTION</span><h2>\${d.sectionLabel}</h2></div>
+    <div class="editorial-category-list">\${d.categories.map((x,i)=>\`<div><b>0\${i+1}</b><span>\${x}</span></div>\`).join("")}</div>
+    <div class="editorial-product-list">\${d.items.map((it,i)=>\`<article><span>0\${i+1}</span><img src="\${it[3]}"><div><small>\${it[4]}</small><h3>\${it[0]}</h3><p>\${it[1]}</p></div><strong>\${it[2]}</strong></article>\`).join("")}</div>
+  </section>
+  \${c.offer}\${c.gallery}\${c.reviews}\${c.contact}
+  <footer class="full-footer editorial"><b>\${t.name}</b><span>Designed as a full business website</span></footer>
+ </section>\`;
 }
 
 function renderDemoPage(){
- const type=q("type")||"restaurants",style=Number(q("style")||1),d=dataFor(type),t=d.templates[(style-1)%d.templates.length];
- document.title=t.name+" | MM Studio";
- document.getElementById("demoToolbarTitle").textContent=t.name+" — "+t.style;
- let html="";
- if(type==="restaurants"&&style===1) html=luxuryRestaurant(d);
- else if(type==="restaurants"&&style===2) html=deliveryRestaurant(d);
- else if(type==="restaurants"&&style===3) html=editorialRestaurant(d);
- else html=genericDemo(type,d,style);
- document.getElementById("demoRoot").innerHTML=html;
+  const type=q("type")||"restaurants",style=Number(q("style")||1),d=dataFor(type),t=d.templates[(style-1)%d.templates.length];
+  document.title=t.name+" | MM Studio";
+  document.getElementById("demoToolbarTitle").textContent=t.name+" — موقع كامل";
+  let html=t.layout==="luxe"?luxePage(d,t):t.layout==="app"?appPage(d,t):editorialPage(d,t);
+  document.getElementById("demoRoot").innerHTML=html;
 }
