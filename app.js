@@ -215,9 +215,36 @@ function renderCategoryPage(){
     </article>`).join("");
 }
 
-function luxePage(d,t){
+
+function industrySection(type,d){
+  const blocks={
+    restaurants:`<section class="industry-section restaurant-extra">
+      <div><span class="mini-kicker">CHEF'S NOTE</span><h2>اختيارات الشيف</h2><p>أطباق موسمية مختارة بعناية، مع إمكانية إبراز طبق اليوم أو الوجبة المميزة.</p></div>
+      <div class="industry-cards"><article><b>طبق اليوم</b><span>يتغير يوميًا</span></article><article><b>حجز طاولة</b><span>واتساب أو اتصال</span></article><article><b>طلبات المناسبات</b><span>تنسيق مسبق</span></article></div>
+    </section>`,
+    buffets:`<section class="industry-section buffet-extra">
+      <div><span class="mini-kicker">QUICK ORDER</span><h2>اطلبها بسرعة</h2><p>قسم مصمم للطلبات السريعة: اختر الوجبة، الإضافة والمشروب ثم انتقل مباشرة للتواصل.</p></div>
+      <div class="industry-cards"><article><b>وجبة فردية</b><span>جاهزة خلال دقائق</span></article><article><b>وجبة عائلية</b><span>أوفر للعائلة</span></article><article><b>طلبات الشركات</b><span>كميات وتجهيز مسبق</span></article></div>
+    </section>`,
+    salons:`<section class="industry-section salon-extra">
+      <div><span class="mini-kicker">BOOKING</span><h2>اختاري خدمتك وموعدك</h2><p>واجهة حجز واضحة تعرض الخدمات والباقات قبل التواصل مع الصالون.</p></div>
+      <div class="industry-cards"><article><b>اليوم</b><span>4 م · 6 م · 8 م</span></article><article><b>غدًا</b><span>12 م · 5 م · 9 م</span></article><article><b>الباقات</b><span>مناسبة · عروس · عناية</span></article></div>
+    </section>`,
+    groceries:`<section class="industry-section grocery-extra">
+      <div><span class="mini-kicker">DELIVERY</span><h2>توصيل الحي</h2><p>اعرض مناطق التوصيل والحد الأدنى للطلب والعروض اليومية بوضوح.</p></div>
+      <div class="industry-cards"><article><b>توصيل سريع</b><span>داخل الحي</span></article><article><b>طلب أدنى</b><span>ابتداءً من 30 ر.س</span></article><article><b>عروض يومية</b><span>تتحدث باستمرار</span></article></div>
+    </section>`,
+    tailors:`<section class="industry-section tailor-extra">
+      <div><span class="mini-kicker">MEASUREMENT</span><h2>رحلة التفصيل</h2><p>من اختيار القماش إلى القياس ثم البروفة والاستلام، كلها واضحة للعميل داخل الموقع.</p></div>
+      <div class="industry-cards"><article><b>1. اختيار الموديل</b><span>من المعرض</span></article><article><b>2. أخذ القياس</b><span>موعد في المحل</span></article><article><b>3. الاستلام</b><span>بعد البروفة</span></article></div>
+    </section>`
+  };
+  return blocks[type]||"";
+}
+
+function luxePage(type,d,t){
  const c=commonSections(d,"v-luxe");
- return `<section class="full-demo luxe-full">
+ return `<section class="full-demo luxe-full type-${type}">
   <header class="demo-site-head"><a href="#home" class="demo-logo">${t.name}</a>${navLinks(d)}<a class="demo-head-action" href="#contact">${d.actionLabel}</a></header>
   <section id="home" class="luxe-full-hero" style="background-image:url('${t.img}')">
     <div class="hero-shade"></div>
@@ -229,14 +256,14 @@ function luxePage(d,t){
     <div class="category-band">${d.categories.map(x=>`<span>${x}</span>`).join("")}</div>
     <div class="luxe-product-grid">${d.items.map(it=>`<article><img src="${it[3]}"><div><small>${it[4]}</small><h3>${it[0]}</h3><p>${it[1]}</p><strong>${it[2]}</strong></div></article>`).join("")}</div>
   </section>
-  ${c.offer}${c.gallery}${c.reviews}${c.contact}
+  ${c.offer}${industrySection(type,d)}${c.gallery}${c.reviews}${c.contact}
   <footer class="full-footer"><b>${t.name}</b><span>© 2026</span></footer>
  </section>`;
 }
 
-function appPage(d,t){
+function appPage(type,d,t){
  const c=commonSections(d,"v-app");
- return `<section class="full-demo app-full">
+ return `<section class="full-demo app-full type-${type}">
   <header class="app-full-head"><div><b>${t.name}</b><small>● متاح الآن</small></div><a href="#contact">${d.actionLabel}</a></header>
   <section id="home" class="app-full-home">
     <div class="app-promo"><div><span>عرض اليوم</span><h1>${d.offer[0]}</h1><p>${d.offer[1]}</p><a href="#sections">ابدأ التصفح</a></div><img src="${t.img}"></div>
@@ -248,14 +275,14 @@ function appPage(d,t){
     <div class="full-section-title"><span>POPULAR</span><h2>${d.sectionLabel}</h2></div>
     <div class="app-product-grid">${d.items.map(it=>`<article><img src="${it[3]}"><div><small>${it[4]}</small><h3>${it[0]}</h3><p>${it[1]}</p><footer><strong>${it[2]}</strong><button>+</button></footer></div></article>`).join("")}</div>
   </section>
-  ${c.offer}${c.gallery}${c.reviews}${c.contact}
+  ${c.offer}${industrySection(type,d)}${c.gallery}${c.reviews}${c.contact}
   <div class="app-bottom-nav"><a href="#home">الرئيسية</a><a href="#sections">الأقسام</a><a href="#offers">العروض</a><a href="#contact">تواصل</a></div>
  </section>`;
 }
 
-function editorialPage(d,t){
+function editorialPage(type,d,t){
  const c=commonSections(d,"v-editorial");
- return `<section class="full-demo editorial-full">
+ return `<section class="full-demo editorial-full type-${type}">
   <header class="editorial-head"><a href="#home">${t.name}</a>${navLinks(d)}</header>
   <section id="home" class="editorial-full-hero">
     <div class="editorial-hero-copy"><span>ISSUE 01 • 2026</span><h1>${t.name}</h1><p>${t.desc}</p><a href="#about">اكتشف القصة ↓</a></div>
@@ -267,7 +294,7 @@ function editorialPage(d,t){
     <div class="editorial-category-list">${d.categories.map((x,i)=>`<div><b>0${i+1}</b><span>${x}</span></div>`).join("")}</div>
     <div class="editorial-product-list">${d.items.map((it,i)=>`<article><span>0${i+1}</span><img src="${it[3]}"><div><small>${it[4]}</small><h3>${it[0]}</h3><p>${it[1]}</p></div><strong>${it[2]}</strong></article>`).join("")}</div>
   </section>
-  ${c.offer}${c.gallery}${c.reviews}${c.contact}
+  ${c.offer}${industrySection(type,d)}${c.gallery}${c.reviews}${c.contact}
   <footer class="full-footer editorial"><b>${t.name}</b><span>Designed as a full business website</span></footer>
  </section>`;
 }
@@ -276,6 +303,6 @@ function renderDemoPage(){
   const type=q("type")||"restaurants",style=Number(q("style")||1),d=dataFor(type),t=d.templates[(style-1)%d.templates.length];
   document.title=t.name+" | MM Studio";
   document.getElementById("demoToolbarTitle").textContent=t.name+" — موقع كامل";
-  let html=t.layout==="luxe"?luxePage(d,t):t.layout==="app"?appPage(d,t):editorialPage(d,t);
+  let html=t.layout==="luxe"?luxePage(type,d,t):t.layout==="app"?appPage(type,d,t):editorialPage(type,d,t);
   document.getElementById("demoRoot").innerHTML=html;
 }
