@@ -83,3 +83,31 @@ img{max-width:100%}
 .lazy-bg:not(.loaded){opacity:.72}
 .lazy-bg.loaded{opacity:1}
 .market-hero{contain:layout paint style}
+
+
+/* Interactive category filters */
+[hidden]{display:none!important}
+.category-band button,.app-cat-scroll button,.editorial-category-list button{
+  font:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent
+}
+.category-band button{
+  white-space:nowrap;border:1px solid #322a23;background:transparent;color:#bba995;
+  padding:9px 12px;font-size:10px
+}
+.category-band button.active{
+  background:#c39a6b;color:#17100b;border-color:#c39a6b;font-weight:800
+}
+.app-cat-scroll button{
+  white-space:nowrap;background:#fff;border:1px solid #e1e3e6;border-radius:999px;
+  padding:9px 13px;font-size:10px;color:#555
+}
+.app-cat-scroll button.active{
+  background:#17191c;color:#fff;border-color:#17191c;font-weight:800
+}
+.editorial-category-list button{
+  appearance:none;text-align:right;background:transparent;color:inherit;border:0;
+  border-bottom:1px solid #bfb5a8;padding:18px 0;display:flex;gap:15px;align-items:center
+}
+.editorial-category-list button b{color:#9a8d7e}
+.editorial-category-list button.active span{font-weight:900}
+.editorial-category-list button.active{background:rgba(0,0,0,.035)}
