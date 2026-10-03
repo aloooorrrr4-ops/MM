@@ -186,3 +186,32 @@ img{max-width:100%}
   .board-offer h2{font-size:32px}.board-offer strong{display:block;margin-top:14px;font-size:28px}
   .board-contact{padding:40px 18px;display:block}.board-contact>a{display:inline-block;margin-top:15px}
 }
+
+
+/* ===== New sector identities: materials, contracting, hotels ===== */
+.type-buildingmaterials.luxe-full{background:#171716}
+.type-buildingmaterials .luxe-full-copy>a,.type-buildingmaterials .v-luxe.full-offer{background:#d3a443;color:#191714}
+.type-buildingmaterials .v-luxe.full-about,.type-buildingmaterials .v-luxe.full-reviews,.type-buildingmaterials .v-luxe.full-contact{background:#22211f}
+.type-buildingmaterials .materials-extra{background:#eee8dd}
+.type-buildingmaterials .materials-extra article{background:#fff;border-color:#ddd1bd}
+.type-buildingmaterials.app-full .app-promo,.type-buildingmaterials .app-product-grid button,.type-buildingmaterials .app-full-head>a{background:#b77a21}
+.type-buildingmaterials.editorial-full{background:#ece8df}
+.type-buildingmaterials .editorial-head{background:rgba(236,232,223,.95)}
+
+.type-contracting.luxe-full{background:#0f1822}
+.type-contracting .luxe-full-copy>a,.type-contracting .v-luxe.full-offer{background:#e68a2e;color:#131b23}
+.type-contracting .v-luxe.full-about,.type-contracting .v-luxe.full-reviews,.type-contracting .v-luxe.full-contact{background:#152331}
+.type-contracting .contracting-extra{background:#eaf0f5}
+.type-contracting .contracting-extra article{background:#fff;border-color:#d4dde6}
+.type-contracting.app-full .app-promo,.type-contracting .app-product-grid button,.type-contracting .app-full-head>a{background:#d76f24}
+.type-contracting.editorial-full{background:#e9edf1}
+.type-contracting .editorial-head{background:rgba(233,237,241,.95)}
+
+.type-hotels.luxe-full{background:#17120f}
+.type-hotels .luxe-full-copy>a,.type-hotels .v-luxe.full-offer{background:#c7a56b;color:#211b15}
+.type-hotels .v-luxe.full-about,.type-hotels .v-luxe.full-reviews,.type-hotels .v-luxe.full-contact{background:#211b17}
+.type-hotels .hotels-extra{background:#f3eee6}
+.type-hotels .hotels-extra article{background:#fff;border-color:#e3d7c8}
+.type-hotels.app-full .app-promo,.type-hotels .app-product-grid button,.type-hotels .app-full-head>a{background:#87684a}
+.type-hotels.editorial-full{background:#f2eee8}
+.type-hotels .editorial-head{background:rgba(242,238,232,.95)}
