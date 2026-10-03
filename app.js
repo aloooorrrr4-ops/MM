@@ -152,6 +152,118 @@ const SITE_DATA = {
     ]
   },
 
+
+  buildingmaterials: {
+    title:"نماذج مواد البناء",
+    singular:"متجر مواد بناء",
+    intro:"مواقع كاملة لمواد البناء: الأقسام، المنتجات، الأسعار، طلب الكميات، التوصيل، العروض والتواصل.",
+    sectionLabel:"أقسام مواد البناء",
+    actionLabel:"اطلب عرض سعر",
+    aboutTitle:"كل احتياج المشروع في مكان واحد",
+    aboutText:"اعرض الحديد والأسمنت والبلوك والأدوات الصحية والكهرباء والعوازل بطريقة واضحة مع طلب كمية أو عرض سعر مباشرة.",
+    templates:[
+      {id:1,name:"بنيان",style:"Industrial Luxe",layout:"luxe",desc:"واجهة قوية لمعرض مواد بناء ومشاريع كبيرة.",img:"https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=900&q=60"},
+      {id:2,name:"مواد بلس",style:"Catalog App",layout:"app",desc:"كتالوج منتجات سريع مع أقسام وطلب كمية.",img:"https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=900&q=60"},
+      {id:3,name:"المعمار",style:"Project Editorial",layout:"editorial",desc:"عرض راقٍ للمنتجات والمشاريع والعلامات التجارية.",img:"https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=60"}
+    ],
+    categories:["الحديد","الأسمنت","البلوك","الأدوات الصحية","الكهرباء","العوازل"],
+    items:[
+      ["حديد تسليح 12 مم","حديد تسليح للمشاريع الإنشائية.","حسب الطن","https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=520&q=45","الحديد",true],
+      ["شبك تسليح","شبك حديد للأرضيات والخرسانة.","حسب الكمية","https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=520&q=45","الحديد",false],
+      ["أسمنت بورتلاندي","أكياس أسمنت للاستخدام العام.","حسب الكمية","https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=520&q=45","الأسمنت",true],
+      ["أسمنت مقاوم","مناسب للأساسات والبيئات الصعبة.","حسب الكمية","https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=520&q=45","الأسمنت",false],
+      ["بلوك أسمنتي","مقاسات متعددة للمباني.","حسب الألف","https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=520&q=45","البلوك",true],
+      ["بلوك عازل","عزل حراري وخفة وزن.","حسب الألف","https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=520&q=45","البلوك",false],
+      ["خلاط مغسلة","خلاطات وتشطيبات صحية.","من 120 ر.س","https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=520&q=45","الأدوات الصحية",false],
+      ["طقم حمام","أطقم صحية بموديلات متعددة.","حسب الموديل","https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=520&q=45","الأدوات الصحية",true],
+      ["أسلاك كهرباء","مقاسات ومواصفات متعددة.","حسب اللفة","https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=520&q=45","الكهرباء",false],
+      ["قواطع كهربائية","قواطع ولوحات توزيع.","حسب النوع","https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=520&q=45","الكهرباء",true],
+      ["عازل مائي","مواد عزل للأسطح والخزانات.","حسب العبوة","https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=520&q=45","العوازل",false],
+      ["عازل حراري","ألواح ومواد عزل حراري.","حسب المساحة","https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=520&q=45","العوازل",true]
+    ],
+    offer:["عرض المشاريع","أسعار خاصة للكميات والمقاولين","اطلب تسعيرة"],
+    gallery:[
+      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=700&q=55",
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=700&q=55",
+      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=700&q=55",
+      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=700&q=55"
+    ]
+  },
+
+  contracting: {
+    title:"نماذج المقاولات",
+    singular:"مؤسسة مقاولات",
+    intro:"مواقع شركات ومؤسسات المقاولات: الخدمات، المشاريع السابقة، طلب عرض سعر، معرض الأعمال، العملاء والتواصل.",
+    sectionLabel:"خدمات المقاولات",
+    actionLabel:"اطلب عرض سعر",
+    aboutTitle:"نبني من الفكرة إلى التسليم",
+    aboutText:"موقع احترافي يوضح خبرة المؤسسة، تخصصاتها، مشاريعها السابقة وطريقة طلب معاينة أو عرض سعر.",
+    templates:[
+      {id:1,name:"قمم الإنشاء",style:"Corporate Construction",layout:"luxe",desc:"تصميم قوي للشركات والمشاريع الكبيرة.",img:"https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=60"},
+      {id:2,name:"مقاول بلس",style:"Service App",layout:"app",desc:"خدمات واضحة وطلب معاينة أو عرض سعر بسرعة.",img:"https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=900&q=60"},
+      {id:3,name:"أركان",style:"Portfolio Editorial",layout:"editorial",desc:"معرض مشاريع بصري مناسب للمقاولين والاستشارات.",img:"https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=60"}
+    ],
+    categories:["مقاولات عامة","العظم","التشطيب","الترميم","الكهرباء والسباكة","إدارة المشاريع"],
+    items:[
+      ["مقاولات عامة","تنفيذ مبانٍ سكنية وتجارية متكاملة.","طلب عرض","https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=520&q=45","مقاولات عامة",true],
+      ["فلل سكنية","تنفيذ فلل من البداية حتى التسليم.","طلب عرض","https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=520&q=45","مقاولات عامة",false],
+      ["تنفيذ عظم","قواعد، أعمدة، أسقف ومباني.","طلب عرض","https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=520&q=45","العظم",true],
+      ["هياكل خرسانية","أعمال خرسانة وتسليح.","طلب عرض","https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=520&q=45","العظم",false],
+      ["تشطيب كامل","دهانات، أرضيات، أسقف وتشطيبات.","طلب عرض","https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=520&q=45","التشطيب",true],
+      ["واجهات وديكور","تنفيذ واجهات وديكورات داخلية.","طلب عرض","https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=520&q=45","التشطيب",false],
+      ["ترميم مبانٍ","معالجة وإعادة تأهيل المباني.","طلب معاينة","https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=520&q=45","الترميم",false],
+      ["تجديد محلات","تجديد وتشطيب المحلات التجارية.","طلب معاينة","https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=520&q=45","الترميم",true],
+      ["كهرباء","تمديدات ولوحات واختبارات.","طلب عرض","https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=520&q=45","الكهرباء والسباكة",false],
+      ["سباكة","تمديدات مياه وصرف وصيانة.","طلب عرض","https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=520&q=45","الكهرباء والسباكة",false],
+      ["إدارة مشروع","جدولة ومتابعة جودة وتكاليف.","استشارة","https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=520&q=45","إدارة المشاريع",true],
+      ["إشراف هندسي","متابعة الموقع والتقارير المرحلية.","استشارة","https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=520&q=45","إدارة المشاريع",false]
+    ],
+    offer:["معاينة أولية","احجز زيارة للموقع واطلب تسعير مشروعك","احجز الآن"],
+    gallery:[
+      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=700&q=55",
+      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=700&q=55",
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=700&q=55",
+      "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=700&q=55"
+    ]
+  },
+
+  hotels: {
+    title:"نماذج الفنادق",
+    singular:"فندق",
+    intro:"مواقع فنادق كاملة: الغرف والأجنحة، الأسعار، المرافق، العروض، معرض الصور، الحجز والموقع.",
+    sectionLabel:"الغرف والخدمات",
+    actionLabel:"احجز الآن",
+    aboutTitle:"إقامة تبدأ قبل الوصول",
+    aboutText:"اعرض الغرف والأجنحة والمرافق والباقات بطريقة تساعد الضيف على الاختيار والتواصل للحجز مباشرة.",
+    templates:[
+      {id:1,name:"رويال سويت",style:"Hotel Luxury",layout:"luxe",desc:"هوية فندقية فاخرة للغرف والأجنحة والمرافق.",img:"https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900&q=60"},
+      {id:2,name:"Stay Now",style:"Booking App",layout:"app",desc:"واجهة حجز سريعة لاختيار الغرفة والعرض.",img:"https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=900&q=60"},
+      {id:3,name:"دار الضيافة",style:"Travel Editorial",layout:"editorial",desc:"تجربة بصرية تعرض الفندق والمدينة والخدمات.",img:"https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=900&q=60"}
+    ],
+    categories:["الغرف","الأجنحة","المرافق","المطعم","العروض","الحجوزات"],
+    items:[
+      ["غرفة قياسية","سرير مزدوج، واي فاي وإطلالة مدينة.","280 ر.س","https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=520&q=45","الغرف",true],
+      ["غرفة ديلوكس","مساحة أكبر وإطلالة مميزة.","390 ر.س","https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=520&q=45","الغرف",false],
+      ["جناح تنفيذي","غرفة نوم وصالة وخدمات إضافية.","650 ر.س","https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=520&q=45","الأجنحة",true],
+      ["جناح عائلي","مساحة مناسبة للعائلة وإقامة مريحة.","780 ر.س","https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=520&q=45","الأجنحة",false],
+      ["مسبح","مسبح للضيوف مع منطقة استرخاء.","ضمن الإقامة","https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=520&q=45","المرافق",true],
+      ["نادي رياضي","أجهزة لياقة وخدمات للضيوف.","ضمن الإقامة","https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=520&q=45","المرافق",false],
+      ["إفطار بوفيه","إفطار يومي بتشكيلة متنوعة.","65 ر.س","https://images.unsplash.com/photo-1496412705862-e0088f16f791?auto=format&fit=crop&w=520&q=45","المطعم",true],
+      ["عشاء","قائمة عربية وعالمية.","حسب الطلب","https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=520&q=45","المطعم",false],
+      ["عرض نهاية الأسبوع","ليلتان مع إفطار.","وفر 20%","https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=520&q=45","العروض",true],
+      ["عرض شهر العسل","جناح وتجهيز خاص وإفطار.","باقة خاصة","https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=520&q=45","العروض",false],
+      ["حجز مباشر","تأكيد الحجز عبر واتساب أو اتصال.","متاح","https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=520&q=45","الحجوزات",true],
+      ["حجز مجموعات","أسعار خاصة للمجموعات والشركات.","اطلب عرض","https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=520&q=45","الحجوزات",false]
+    ],
+    offer:["عرض نهاية الأسبوع","ليلتان مع إفطار وخصم خاص","وفر 20%"],
+    gallery:[
+      "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=700&q=55",
+      "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=700&q=55",
+      "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=700&q=55",
+      "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=700&q=55"
+    ]
+  },
+
   tailors: {
     title:"نماذج الخياطة",
     singular:"محل خياطة",
@@ -294,6 +406,18 @@ function industrySection(type,d){
     groceries:`<section class="industry-section grocery-extra">
       <div><span class="mini-kicker">DELIVERY</span><h2>توصيل الحي</h2><p>اعرض مناطق التوصيل والحد الأدنى للطلب والعروض اليومية بوضوح.</p></div>
       <div class="industry-cards"><article><b>توصيل سريع</b><span>داخل الحي</span></article><article><b>طلب أدنى</b><span>ابتداءً من 30 ر.س</span></article><article><b>عروض يومية</b><span>تتحدث باستمرار</span></article></div>
+    </section>`,
+    buildingmaterials:`<section class="industry-section materials-extra">
+      <div><span class="mini-kicker">BULK ORDERS</span><h2>توريد المشاريع</h2><p>طلبات كميات، توصيل للموقع، وتسعير خاص للمقاولين والمشاريع.</p></div>
+      <div class="industry-cards"><article><b>طلب كمية</b><span>حديد · أسمنت · بلوك</span></article><article><b>توصيل للموقع</b><span>حسب المنطقة</span></article><article><b>عرض سعر</b><span>للكميات والمشاريع</span></article></div>
+    </section>`,
+    contracting:`<section class="industry-section contracting-extra">
+      <div><span class="mini-kicker">PROJECTS</span><h2>من المعاينة إلى التسليم</h2><p>اعرض الخدمات والمشاريع السابقة وخطوات التنفيذ واطلب بيانات المشروع من العميل.</p></div>
+      <div class="industry-cards"><article><b>1. معاينة</b><span>زيارة الموقع</span></article><article><b>2. تسعير</b><span>عرض فني ومالي</span></article><article><b>3. تنفيذ</b><span>متابعة وتسليم</span></article></div>
+    </section>`,
+    hotels:`<section class="industry-section hotels-extra">
+      <div><span class="mini-kicker">BOOK YOUR STAY</span><h2>اختر إقامتك</h2><p>الغرف والأجنحة والمرافق والعروض والحجز المباشر في تجربة واحدة.</p></div>
+      <div class="industry-cards"><article><b>غرف</b><span>قياسية · ديلوكس</span></article><article><b>أجنحة</b><span>تنفيذي · عائلي</span></article><article><b>حجز مباشر</b><span>واتساب أو اتصال</span></article></div>
     </section>`,
     tailors:`<section class="industry-section tailor-extra">
       <div><span class="mini-kicker">MEASUREMENT</span><h2>رحلة التفصيل</h2><p>من اختيار القماش إلى القياس ثم البروفة والاستلام، كلها واضحة للعميل داخل الموقع.</p></div>
