@@ -164,7 +164,8 @@ const SITE_DATA = {
     templates:[
       {id:1,name:"بنيان",style:"Industrial Luxe",layout:"luxe",desc:"واجهة قوية لمعرض مواد بناء ومشاريع كبيرة.",img:"https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=900&q=60"},
       {id:2,name:"مواد بلس",style:"Catalog App",layout:"app",desc:"كتالوج منتجات سريع مع أقسام وطلب كمية.",img:"https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=900&q=60"},
-      {id:3,name:"المعمار",style:"Project Editorial",layout:"editorial",desc:"عرض راقٍ للمنتجات والمشاريع والعلامات التجارية.",img:"https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=60"}
+      {id:3,name:"المعمار",style:"Project Editorial",layout:"editorial",desc:"عرض راقٍ للمنتجات والمشاريع والعلامات التجارية.",img:"https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=60"},
+      {id:4,name:"مخزن برو",style:"Industrial Catalog",layout:"materials",desc:"كتالوج صناعي للكميات والأسعار وطلبات المشاريع.",img:"https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=900&q=60"}
     ],
     categories:["الحديد","الأسمنت","البلوك","الأدوات الصحية","الكهرباء","العوازل"],
     items:[
@@ -201,7 +202,8 @@ const SITE_DATA = {
     templates:[
       {id:1,name:"قمم الإنشاء",style:"Corporate Construction",layout:"luxe",desc:"تصميم قوي للشركات والمشاريع الكبيرة.",img:"https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=60"},
       {id:2,name:"مقاول بلس",style:"Service App",layout:"app",desc:"خدمات واضحة وطلب معاينة أو عرض سعر بسرعة.",img:"https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=900&q=60"},
-      {id:3,name:"أركان",style:"Portfolio Editorial",layout:"editorial",desc:"معرض مشاريع بصري مناسب للمقاولين والاستشارات.",img:"https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=60"}
+      {id:3,name:"أركان",style:"Portfolio Editorial",layout:"editorial",desc:"معرض مشاريع بصري مناسب للمقاولين والاستشارات.",img:"https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=60"},
+      {id:4,name:"بناة",style:"Project Portfolio",layout:"projects",desc:"تصميم مشاريع احترافي يبرز الإنجازات ومراحل التنفيذ.",img:"https://images.unsplash.com/photo-1541971875076-8f970d573be6?auto=format&fit=crop&w=900&q=60"}
     ],
     categories:["مقاولات عامة","العظم","التشطيب","الترميم","الكهرباء والسباكة","إدارة المشاريع"],
     items:[
@@ -238,7 +240,8 @@ const SITE_DATA = {
     templates:[
       {id:1,name:"رويال سويت",style:"Hotel Luxury",layout:"luxe",desc:"هوية فندقية فاخرة للغرف والأجنحة والمرافق.",img:"https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900&q=60"},
       {id:2,name:"Stay Now",style:"Booking App",layout:"app",desc:"واجهة حجز سريعة لاختيار الغرفة والعرض.",img:"https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=900&q=60"},
-      {id:3,name:"دار الضيافة",style:"Travel Editorial",layout:"editorial",desc:"تجربة بصرية تعرض الفندق والمدينة والخدمات.",img:"https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=900&q=60"}
+      {id:3,name:"دار الضيافة",style:"Travel Editorial",layout:"editorial",desc:"تجربة بصرية تعرض الفندق والمدينة والخدمات.",img:"https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=900&q=60"},
+      {id:4,name:"نُزل",style:"Direct Booking",layout:"booking",desc:"واجهة حجز فندقي مباشرة مع الغرف والمرافق والعروض.",img:"https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=900&q=60"}
     ],
     categories:["الغرف","الأجنحة","المرافق","المطعم","العروض","الحجوزات"],
     items:[
@@ -522,11 +525,71 @@ function boardPage(type,d,t){
   </section>`;
 }
 
+
+function shareBar(title){
+  const u=encodeURIComponent(location.href),txt=encodeURIComponent(title+" - "+location.href);
+  return `<div class="share-strip"><span>مشاركة</span><a href="https://wa.me/?text=${txt}" target="_blank" rel="noopener">واتساب</a><a href="https://www.facebook.com/sharer/sharer.php?u=${u}" target="_blank" rel="noopener">فيسبوك</a><a href="https://t.me/share/url?url=${u}&text=${encodeURIComponent(title)}" target="_blank" rel="noopener">تليجرام</a><button type="button" onclick="navigator.share?navigator.share({title:'${title.replace(/'/g,"")} ',url:location.href}):navigator.clipboard&&navigator.clipboard.writeText(location.href)">مشاركة عامة</button></div>`;
+}
+
+function materialsPage(type,d,t){
+  const featured=d.items.filter(x=>x[5]).slice(0,6);
+  return `<section class="full-demo materials-site">
+    <header class="materials-head">
+      <a href="#home" class="materials-logo"><b>${t.name}</b><small>مواد بناء وتوريد مشاريع</small></a>
+      <nav><a href="#catalog">الكتالوج</a><a href="#bulk">طلبات الكميات</a><a href="#gallery">المشاريع</a><a href="#contact">تواصل</a></nav>
+      <a class="materials-quote" href="#bulk">اطلب تسعيرة</a>
+    </header>
+    <section id="home" class="materials-hero">
+      <div class="materials-hero-copy"><span>BUILD • SUPPLY • DELIVER</span><h1>مواد مشروعك<br>من مصدر واحد.</h1><p>حديد، أسمنت، بلوك، كهرباء، أدوات صحية وعوازل مع تسعير للكميات وتوصيل للموقع.</p><div><a href="#catalog">تصفح المنتجات</a><a href="#bulk">طلب كمية</a></div></div>
+      <div class="materials-hero-img" style="background-image:url('${t.img}')"><div class="materials-stock"><b>+1200</b><span>منتج متاح</span></div></div>
+    </section>
+    <section class="materials-stats"><article><b>6</b><span>أقسام رئيسية</span></article><article><b>24h</b><span>تجهيز عروض السعر</span></article><article><b>موقعك</b><span>توصيل للمشاريع</span></article><article><b>كميات</b><span>أسعار خاصة</span></article></section>
+    <section id="catalog" class="materials-catalog">
+      <div class="materials-title"><span>CATALOG</span><h2>المنتجات الرئيسية</h2><p>واجهة كتالوج مناسبة لمتاجر مواد البناء والموردين.</p></div>
+      <div class="materials-category-rail">${d.categories.map(x=>`<span>${x}</span>`).join("")}</div>
+      <div class="materials-grid">${featured.map(it=>`<article><img src="${it[3]}" alt="${it[0]}" loading="lazy" decoding="async"><div><small>${it[4]}</small><h3>${it[0]}</h3><p>${it[1]}</p><footer><strong>${it[2]}</strong><a href="#bulk">طلب سعر</a></footer></div></article>`).join("")}</div>
+    </section>
+    <section id="bulk" class="materials-bulk"><div><span>BULK ORDER</span><h2>عندك مشروع؟ أرسل الكمية ونجهز لك التسعيرة.</h2><p>اسم المادة • الكمية • موقع المشروع • رقم التواصل.</p></div><a href="#contact">ابدأ طلب عرض السعر</a></section>
+    <section id="gallery" class="materials-brands"><div class="materials-title"><span>PROJECT SUPPLY</span><h2>توريد للمشاريع</h2></div><div class="materials-projects">${d.gallery.map((x,i)=>`<img src="${x}" alt="مشروع ${i+1}" loading="lazy" decoding="async">`).join("")}</div></section>
+    <section id="contact" class="materials-contact"><div><small>للطلب والتوريد</small><h2>05XXXXXXXX</h2><p>واتساب • اتصال • إرسال قائمة كميات</p></div><a href="https://wa.me/" target="_blank">تواصل واتساب</a></section>
+    ${shareBar(t.name)}
+  </section>`;
+}
+
+function projectsPage(type,d,t){
+  const projects=d.gallery.slice(0,4);
+  return `<section class="full-demo projects-site">
+    <header class="projects-head"><a href="#home"><b>${t.name}</b><small>مقاولات وإنشاء</small></a><nav><a href="#services">الخدمات</a><a href="#projects">المشاريع</a><a href="#process">مراحل العمل</a><a href="#contact">تواصل</a></nav><a class="projects-cta" href="#contact">طلب معاينة</a></header>
+    <section id="home" class="projects-hero" style="background-image:url('${t.img}')"><div class="projects-overlay"></div><div class="projects-copy"><span>CONSTRUCTION / 2026</span><h1>نبني مشاريع<br>تعيش طويلًا.</h1><p>من العظم إلى التشطيب وإدارة المشروع، مع عرض واضح للخبرات والمشاريع السابقة.</p><a href="#projects">شاهد مشاريعنا ↓</a></div></section>
+    <section class="projects-numbers"><article><b>12+</b><span>سنة خبرة</span></article><article><b>86</b><span>مشروع منجز</span></article><article><b>14</b><span>مشروع قائم</span></article><article><b>100%</b><span>متابعة وجودة</span></article></section>
+    <section id="services" class="projects-services"><div class="projects-section-title"><span>SERVICES</span><h2>من المخطط إلى المفتاح</h2></div><div class="projects-service-grid">${d.items.filter((x,i)=>i%2===0).slice(0,6).map((it,i)=>`<article><span>0${i+1}</span><h3>${it[0]}</h3><p>${it[1]}</p><a href="#contact">${it[2]} ←</a></article>`).join("")}</div></section>
+    <section id="projects" class="projects-showcase"><div class="projects-section-title"><span>SELECTED WORK</span><h2>مشاريع مختارة</h2></div><div class="projects-gallery">${projects.map((x,i)=>`<article style="background-image:url('${x}')"><div><small>PROJECT 0${i+1}</small><h3>${["فيلا سكنية","مبنى تجاري","تشطيب داخلي","ترميم وتطوير"][i]}</h3><span>عرض المشروع ↗</span></div></article>`).join("")}</div></section>
+    <section id="process" class="projects-process"><div class="projects-section-title"><span>PROCESS</span><h2>طريقة العمل</h2></div><div class="projects-steps"><article><b>01</b><h3>معاينة الموقع</h3><p>نجمع المتطلبات ونفهم نطاق المشروع.</p></article><article><b>02</b><h3>عرض السعر</h3><p>بنود واضحة وتكلفة وجدول زمني.</p></article><article><b>03</b><h3>التنفيذ</h3><p>متابعة مرحلية وتقارير جودة.</p></article><article><b>04</b><h3>التسليم</h3><p>فحص نهائي وتسليم المشروع.</p></article></div></section>
+    <section id="contact" class="projects-contact"><div><span>START A PROJECT</span><h2>عندك مشروع جديد؟</h2><p>أرسل الموقع ونوع العمل ونرتب المعاينة.</p></div><a href="https://wa.me/" target="_blank">طلب معاينة واتساب</a></section>
+    ${shareBar(t.name)}
+  </section>`;
+}
+
+function bookingPage(type,d,t){
+  const rooms=d.items.filter(x=>x[4]==="الغرف"||x[4]==="الأجنحة").slice(0,4);
+  return `<section class="full-demo hotel-booking-site">
+    <header class="hotel-head"><a href="#home"><b>${t.name}</b><small>HOTEL & SUITES</small></a><nav><a href="#rooms">الغرف</a><a href="#amenities">المرافق</a><a href="#gallery">الصور</a><a href="#contact">تواصل</a></nav><a href="#booking" class="hotel-head-book">احجز الآن</a></header>
+    <section id="home" class="hotel-booking-hero" style="background-image:url('${t.img}')"><div class="hotel-hero-shade"></div><div class="hotel-hero-copy"><span>WELCOME TO ${t.name}</span><h1>إقامة أهدأ.<br>حجز أسهل.</h1><p>غرف وأجنحة ومرافق الفندق في موقع واحد، مع حجز مباشر بدون تعقيد.</p></div></section>
+    <section id="booking" class="hotel-booking-bar"><label><span>تسجيل الدخول</span><input type="date"></label><label><span>تسجيل الخروج</span><input type="date"></label><label><span>الضيوف</span><select><option>2 بالغين</option><option>1 بالغ</option><option>2 بالغين + طفل</option><option>عائلة</option></select></label><button type="button">تحقق من الغرف</button></section>
+    <section id="rooms" class="hotel-rooms"><div class="hotel-section-title"><span>STAY</span><h2>اختر غرفتك</h2><p>أسعار واضحة وصور ومزايا كل غرفة.</p></div><div class="hotel-room-grid">${rooms.map(it=>`<article><img src="${it[3]}" alt="${it[0]}" loading="lazy" decoding="async"><div><small>${it[4]}</small><h3>${it[0]}</h3><p>${it[1]}</p><footer><strong>${it[2]}</strong><a href="#booking">احجز</a></footer></div></article>`).join("")}</div></section>
+    <section id="amenities" class="hotel-amenities"><div class="hotel-section-title"><span>AMENITIES</span><h2>كل ما تحتاجه أثناء الإقامة</h2></div><div><article><b>🏊</b><span>مسبح</span></article><article><b>☕</b><span>إفطار</span></article><article><b>⌁</b><span>واي فاي</span></article><article><b>🏋</b><span>نادي رياضي</span></article><article><b>🚗</b><span>مواقف</span></article><article><b>24/7</b><span>استقبال</span></article></div></section>
+    <section id="gallery" class="hotel-booking-gallery">${d.gallery.map((x,i)=>`<img src="${x}" alt="الفندق ${i+1}" loading="lazy" decoding="async">`).join("")}</section>
+    <section class="hotel-special"><div><small>SPECIAL OFFER</small><h2>${d.offer[0]}</h2><p>${d.offer[1]}</p></div><strong>${d.offer[2]}</strong></section>
+    <section id="contact" class="hotel-booking-contact"><div><small>RESERVATIONS</small><h2>الحجز والاستفسار</h2><p>05XXXXXXXX • يوميًا على مدار الساعة</p></div><a href="https://wa.me/" target="_blank">تواصل للحجز</a></section>
+    ${shareBar(t.name)}
+  </section>`;
+}
+
 function renderDemoPage(){
   const type=q("type")||"restaurants",style=Number(q("style")||1),d=dataFor(type),t=d.templates[(style-1)%d.templates.length];
   document.title=t.name+" | MM Studio";
   document.getElementById("demoToolbarTitle").textContent=t.name+" — موقع كامل";
-  let html=t.layout==="luxe"?luxePage(type,d,t):t.layout==="app"?appPage(type,d,t):t.layout==="board"?boardPage(type,d,t):editorialPage(type,d,t);
+  let html=t.layout==="luxe"?luxePage(type,d,t):t.layout==="app"?appPage(type,d,t):t.layout==="board"?boardPage(type,d,t):t.layout==="materials"?materialsPage(type,d,t):t.layout==="projects"?projectsPage(type,d,t):t.layout==="booking"?bookingPage(type,d,t):editorialPage(type,d,t);
   document.getElementById("demoRoot").innerHTML=html;
   bindCategoryFilters(document.getElementById("demoRoot"));
 }
