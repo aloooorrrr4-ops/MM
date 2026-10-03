@@ -15,12 +15,25 @@ const SITE_DATA = {
     ],
     categories:["الأكثر طلبًا","المقبلات","الأطباق الرئيسية","البرجر","المشروبات","الحلويات"],
     items:[
-      ["ستيك مشوي","لحم مختار مع صوص خاص وخضار موسمية.","79 ر.س","https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=55","الأطباق الرئيسية"],
-      ["برجر كلاسيك","لحم مشوي، جبنة، خس وصوص المنزل.","24 ر.س","https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=55","البرجر"],
-      ["بيتزا خاصة","موزاريلا، طماطم وإضافات مختارة.","31 ر.س","https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=600&q=55","الأطباق الرئيسية"],
-      ["سلطة سيزر","خس طازج، دجاج، بارميزان وصوص سيزر.","22 ر.س","https://images.unsplash.com/photo-1546793665-c74683f339c1?auto=format&fit=crop&w=600&q=55","المقبلات"],
-      ["لاتيه بارد","إسبريسو مع الحليب والثلج.","16 ر.س","https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=600&q=55","المشروبات"],
-      ["تشيز كيك","تشيز كيك كريمي مع صوص التوت.","19 ر.س","https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=600&q=55","الحلويات"]
+      ["حمص الشيف","حمص كريمي بزيت الزيتون والخبز المحمص.","14 ر.س","https://images.unsplash.com/photo-1577805947697-89e18249d767?auto=format&fit=crop&w=520&q=45","المقبلات",true],
+      ["سلطة سيزر","خس طازج، دجاج، بارميزان وصوص سيزر.","22 ر.س","https://images.unsplash.com/photo-1546793665-c74683f339c1?auto=format&fit=crop&w=520&q=45","المقبلات",false],
+      ["بطاطس محملة","بطاطس مقرمشة، جبنة وصوص خاص.","18 ر.س","https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=520&q=45","المقبلات",true],
+
+      ["ستيك مشوي","لحم مختار مع صوص خاص وخضار موسمية.","79 ر.س","https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=520&q=45","الأطباق الرئيسية",true],
+      ["دجاج مشوي","صدر دجاج متبل مع أرز وخضار.","42 ر.س","https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=520&q=45","الأطباق الرئيسية",false],
+      ["بيتزا خاصة","موزاريلا، طماطم وإضافات مختارة.","31 ر.س","https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=520&q=45","الأطباق الرئيسية",true],
+
+      ["برجر كلاسيك","لحم مشوي، جبنة، خس وصوص المنزل.","24 ر.س","https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=520&q=45","البرجر",true],
+      ["برجر دبل","قطعتا لحم، جبنة مزدوجة وصوص مدخن.","32 ر.س","https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=520&q=45","البرجر",false],
+      ["برجر دجاج كرسبي","دجاج مقرمش، خس ومايونيز حار.","27 ر.س","https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=520&q=45","البرجر",true],
+
+      ["لاتيه بارد","إسبريسو مع الحليب والثلج.","16 ر.س","https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=520&q=45","المشروبات",true],
+      ["موهيتو ليمون","ليمون ونعناع وصودا باردة.","15 ر.س","https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=520&q=45","المشروبات",false],
+      ["عصير مانجو","مانجو طازج محضر يوميًا.","14 ر.س","https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?auto=format&fit=crop&w=520&q=45","المشروبات",false],
+
+      ["تشيز كيك","تشيز كيك كريمي مع صوص التوت.","19 ر.س","https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=520&q=45","الحلويات",true],
+      ["براوني شوكولاتة","براوني دافئ مع صوص الشوكولاتة.","18 ر.س","https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=520&q=45","الحلويات",false],
+      ["بان كيك","بان كيك هش مع عسل وفواكه.","21 ر.س","https://images.unsplash.com/photo-1528207776546-365bb710ee93?auto=format&fit=crop&w=520&q=45","الحلويات",false]
     ],
     offer:["عرض العائلة","4 وجبات + بطاطس + مشروبات","99 ر.س"],
     gallery:[
@@ -180,7 +193,9 @@ function bindCategoryFilters(root=document){
   if(!controls.length||!products.length)return;
   const apply=(value,clicked)=>{
     products.forEach(card=>{
-      card.hidden = value!=="الكل" && card.dataset.category!==value;
+      if(value==="الكل") card.hidden=false;
+      else if(value==="الأكثر طلبًا") card.hidden=card.dataset.popular!=="1";
+      else card.hidden=card.dataset.category!==value;
     });
     controls.forEach(btn=>btn.classList.toggle("active",btn===clicked));
     const section=root.querySelector("#sections");
@@ -285,7 +300,7 @@ function luxePage(type,d,t){
   <section id="sections" class="full-products v-luxe">
     <div class="full-section-title"><span>EXPLORE</span><h2>${d.sectionLabel}</h2></div>
     <div class="category-band"><button type="button" class="active" data-menu-filter="الكل">الكل</button>${d.categories.map(x=>`<button type="button" data-menu-filter="${x}">${x}</button>`).join("")}</div>
-    <div class="luxe-product-grid">${d.items.map(it=>`<article data-category="${it[4]}"><img src="${it[3]}" loading="lazy" decoding="async"><div><small>${it[4]}</small><h3>${it[0]}</h3><p>${it[1]}</p><strong>${it[2]}</strong></div></article>`).join("")}</div>
+    <div class="luxe-product-grid">${d.items.map(it=>`<article data-category="${it[4]}" data-popular="${it[5]?"1":"0"}"><img src="${it[3]}" loading="lazy" decoding="async"><div><small>${it[4]}</small><h3>${it[0]}</h3><p>${it[1]}</p><strong>${it[2]}</strong></div></article>`).join("")}</div>
   </section>
   ${c.offer}${industrySection(type,d)}${c.gallery}${c.reviews}${c.contact}
   <footer class="full-footer"><b>${t.name}</b><span>© 2026</span></footer>
@@ -304,7 +319,7 @@ function appPage(type,d,t){
   ${c.about}
   <section id="sections" class="app-products">
     <div class="full-section-title"><span>POPULAR</span><h2>${d.sectionLabel}</h2></div>
-    <div class="app-product-grid">${d.items.map(it=>`<article data-category="${it[4]}"><img src="${it[3]}" loading="lazy" decoding="async"><div><small>${it[4]}</small><h3>${it[0]}</h3><p>${it[1]}</p><footer><strong>${it[2]}</strong><button type="button" aria-label="إضافة">+</button></footer></div></article>`).join("")}</div>
+    <div class="app-product-grid">${d.items.map(it=>`<article data-category="${it[4]}" data-popular="${it[5]?"1":"0"}"><img src="${it[3]}" loading="lazy" decoding="async"><div><small>${it[4]}</small><h3>${it[0]}</h3><p>${it[1]}</p><footer><strong>${it[2]}</strong><button type="button" aria-label="إضافة">+</button></footer></div></article>`).join("")}</div>
   </section>
   ${c.offer}${industrySection(type,d)}${c.gallery}${c.reviews}${c.contact}
   <div class="app-bottom-nav"><a href="#home">الرئيسية</a><a href="#sections">الأقسام</a><a href="#offers">العروض</a><a href="#contact">تواصل</a></div>
@@ -323,7 +338,7 @@ function editorialPage(type,d,t){
   <section id="sections" class="editorial-products">
     <div class="full-section-title"><span>COLLECTION</span><h2>${d.sectionLabel}</h2></div>
     <div class="editorial-category-list"><button type="button" class="active" data-menu-filter="الكل"><b>00</b><span>الكل</span></button>${d.categories.map((x,i)=>`<button type="button" data-menu-filter="${x}"><b>0${i+1}</b><span>${x}</span></button>`).join("")}</div>
-    <div class="editorial-product-list">${d.items.map((it,i)=>`<article data-category="${it[4]}"><span>0${i+1}</span><img src="${it[3]}" loading="lazy" decoding="async"><div><small>${it[4]}</small><h3>${it[0]}</h3><p>${it[1]}</p></div><strong>${it[2]}</strong></article>`).join("")}</div>
+    <div class="editorial-product-list">${d.items.map((it,i)=>`<article data-category="${it[4]}" data-popular="${it[5]?"1":"0"}"><span>0${i+1}</span><img src="${it[3]}" loading="lazy" decoding="async"><div><small>${it[4]}</small><h3>${it[0]}</h3><p>${it[1]}</p></div><strong>${it[2]}</strong></article>`).join("")}</div>
   </section>
   ${c.offer}${industrySection(type,d)}${c.gallery}${c.reviews}${c.contact}
   <footer class="full-footer editorial"><b>${t.name}</b><span>Designed as a full business website</span></footer>
