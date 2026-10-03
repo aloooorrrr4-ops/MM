@@ -174,6 +174,20 @@ function lazyBackgrounds(root=document){
 }
 function q(n){return new URLSearchParams(location.search).get(n)}
 function dataFor(t){return SITE_DATA[t]||SITE_DATA.restaurants}
+function bindCategoryFilters(root=document){
+  const controls=[...root.querySelectorAll("[data-menu-filter]")];
+  const products=[...root.querySelectorAll("[data-category]")];
+  if(!controls.length||!products.length)return;
+  const apply=(value,clicked)=>{
+    products.forEach(card=>{
+      card.hidden = value!=="الكل" && card.dataset.category!==value;
+    });
+    controls.forEach(btn=>btn.classList.toggle("active",btn===clicked));
+    const section=root.querySelector("#sections");
+    if(section) section.scrollIntoView({behavior:"smooth",block:"start"});
+  };
+  controls.forEach(btn=>btn.addEventListener("click",()=>apply(btn.dataset.menuFilter,btn)));
+}
 function navLinks(d){
   return `<nav class="full-demo-nav">
     <a href="#home">الرئيسية</a>
@@ -270,8 +284,8 @@ function luxePage(type,d,t){
   ${c.about}
   <section id="sections" class="full-products v-luxe">
     <div class="full-section-title"><span>EXPLORE</span><h2>${d.sectionLabel}</h2></div>
-    <div class="category-band">${d.categories.map(x=>`<span>${x}</span>`).join("")}</div>
-    <div class="luxe-product-grid">${d.items.map(it=>`<article><img src="${it[3]}" loading="lazy" decoding="async"><div><small>${it[4]}</small><h3>${it[0]}</h3><p>${it[1]}</p><strong>${it[2]}</strong></div></article>`).join("")}</div>
+    <div class="category-band"><button type="button" class="active" data-menu-filter="الكل">الكل</button>${d.categories.map(x=>`<button type="button" data-menu-filter="${x}">${x}</button>`).join("")}</div>
+    <div class="luxe-product-grid">${d.items.map(it=>`<article data-category="${it[4]}"><img src="${it[3]}" loading="lazy" decoding="async"><div><small>${it[4]}</small><h3>${it[0]}</h3><p>${it[1]}</p><strong>${it[2]}</strong></div></article>`).join("")}</div>
   </section>
   ${c.offer}${industrySection(type,d)}${c.gallery}${c.reviews}${c.contact}
   <footer class="full-footer"><b>${t.name}</b><span>© 2026</span></footer>
@@ -285,12 +299,12 @@ function appPage(type,d,t){
   <section id="home" class="app-full-home">
     <div class="app-promo"><div><span>عرض اليوم</span><h1>${d.offer[0]}</h1><p>${d.offer[1]}</p><a href="#sections">ابدأ التصفح</a></div><img src="${t.img}" decoding="async" fetchpriority="high"></div>
     <div class="app-search">⌕ ابحث داخل الموقع…</div>
-    <div class="app-cat-scroll">${d.categories.map(x=>`<span>${x}</span>`).join("")}</div>
+    <div class="app-cat-scroll"><button type="button" class="active" data-menu-filter="الكل">الكل</button>${d.categories.map(x=>`<button type="button" data-menu-filter="${x}">${x}</button>`).join("")}</div>
   </section>
   ${c.about}
   <section id="sections" class="app-products">
     <div class="full-section-title"><span>POPULAR</span><h2>${d.sectionLabel}</h2></div>
-    <div class="app-product-grid">${d.items.map(it=>`<article><img src="${it[3]}" loading="lazy" decoding="async"><div><small>${it[4]}</small><h3>${it[0]}</h3><p>${it[1]}</p><footer><strong>${it[2]}</strong><button>+</button></footer></div></article>`).join("")}</div>
+    <div class="app-product-grid">${d.items.map(it=>`<article data-category="${it[4]}"><img src="${it[3]}" loading="lazy" decoding="async"><div><small>${it[4]}</small><h3>${it[0]}</h3><p>${it[1]}</p><footer><strong>${it[2]}</strong><button type="button" aria-label="إضافة">+</button></footer></div></article>`).join("")}</div>
   </section>
   ${c.offer}${industrySection(type,d)}${c.gallery}${c.reviews}${c.contact}
   <div class="app-bottom-nav"><a href="#home">الرئيسية</a><a href="#sections">الأقسام</a><a href="#offers">العروض</a><a href="#contact">تواصل</a></div>
@@ -308,8 +322,8 @@ function editorialPage(type,d,t){
   ${c.about}
   <section id="sections" class="editorial-products">
     <div class="full-section-title"><span>COLLECTION</span><h2>${d.sectionLabel}</h2></div>
-    <div class="editorial-category-list">${d.categories.map((x,i)=>`<div><b>0${i+1}</b><span>${x}</span></div>`).join("")}</div>
-    <div class="editorial-product-list">${d.items.map((it,i)=>`<article><span>0${i+1}</span><img src="${it[3]}" loading="lazy" decoding="async"><div><small>${it[4]}</small><h3>${it[0]}</h3><p>${it[1]}</p></div><strong>${it[2]}</strong></article>`).join("")}</div>
+    <div class="editorial-category-list"><button type="button" class="active" data-menu-filter="الكل"><b>00</b><span>الكل</span></button>${d.categories.map((x,i)=>`<button type="button" data-menu-filter="${x}"><b>0${i+1}</b><span>${x}</span></button>`).join("")}</div>
+    <div class="editorial-product-list">${d.items.map((it,i)=>`<article data-category="${it[4]}"><span>0${i+1}</span><img src="${it[3]}" loading="lazy" decoding="async"><div><small>${it[4]}</small><h3>${it[0]}</h3><p>${it[1]}</p></div><strong>${it[2]}</strong></article>`).join("")}</div>
   </section>
   ${c.offer}${industrySection(type,d)}${c.gallery}${c.reviews}${c.contact}
   <footer class="full-footer editorial"><b>${t.name}</b><span>Designed as a full business website</span></footer>
@@ -322,4 +336,5 @@ function renderDemoPage(){
   document.getElementById("demoToolbarTitle").textContent=t.name+" — موقع كامل";
   let html=t.layout==="luxe"?luxePage(type,d,t):t.layout==="app"?appPage(type,d,t):editorialPage(type,d,t);
   document.getElementById("demoRoot").innerHTML=html;
+  bindCategoryFilters(document.getElementById("demoRoot"));
 }
