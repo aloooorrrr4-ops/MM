@@ -156,6 +156,22 @@ const SITE_DATA = {
   }
 };
 
+function lazyBackgrounds(root=document){
+  const els=[...root.querySelectorAll('.lazy-bg[data-bg]')];
+  const load=el=>{
+    if(el.dataset.loaded)return;
+    el.style.backgroundImage='url("'+el.dataset.bg+'")';
+    el.dataset.loaded='1';
+    el.classList.add('loaded');
+  };
+  if(!('IntersectionObserver' in window)){els.forEach(load);return;}
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){load(e.target);io.unobserve(e.target);}
+    });
+  },{rootMargin:'160px 0px'});
+  els.forEach(el=>io.observe(el));
+}
 function q(n){return new URLSearchParams(location.search).get(n)}
 function dataFor(t){return SITE_DATA[t]||SITE_DATA.restaurants}
 function navLinks(d){
@@ -204,7 +220,7 @@ function renderCategoryPage(){
   document.getElementById("catDesc").textContent=d.intro;
   document.getElementById("templatesGrid").innerHTML=d.templates.map(t=>`
     <article class="template-card layout-${t.layout}">
-      <div class="template-preview" style="background-image:url('${t.img}')">
+      <div class="template-preview lazy-bg" data-bg="${t.img}">
         <div><span class="template-no">0${t.id}</span><h3>${t.name}</h3><p>${t.style}</p></div>
       </div>
       <div class="template-body">
@@ -213,6 +229,7 @@ function renderCategoryPage(){
         <a class="template-btn" href="demo.html?type=${type}&style=${t.id}">فتح الموقع كاملًا</a>
       </div>
     </article>`).join("");
+  lazyBackgrounds(document.getElementById("templatesGrid"));
 }
 
 
