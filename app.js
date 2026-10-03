@@ -9,25 +9,25 @@ const SITE_DATA = {
     aboutTitle: "قصة المكان",
     aboutText: "نمزج بين الوصفات المألوفة والتقديم العصري، ونبني تجربة تبدأ من أول زيارة للموقع وتستمر حتى آخر لقمة.",
     templates: [
-      {id:1,name:"ليالي",style:"Luxury Dining",layout:"luxe",desc:"مطعم راقٍ بهوية داكنة وصور سينمائية.",img:"https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1400&q=85"},
-      {id:2,name:"Quick Bite",style:"Order App",layout:"app",desc:"واجهة سريعة تشبه تطبيقات الطلب والتوصيل.",img:"https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1400&q=85"},
-      {id:3,name:"سُفرة",style:"Editorial Story",layout:"editorial",desc:"موقع بصري يبيع تجربة المطعم وقصته.",img:"https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1400&q=85"}
+      {id:1,name:"ليالي",style:"Luxury Dining",layout:"luxe",desc:"مطعم راقٍ بهوية داكنة وصور سينمائية.",img:"https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=60"},
+      {id:2,name:"Quick Bite",style:"Order App",layout:"app",desc:"واجهة سريعة تشبه تطبيقات الطلب والتوصيل.",img:"https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=900&q=60"},
+      {id:3,name:"سُفرة",style:"Editorial Story",layout:"editorial",desc:"موقع بصري يبيع تجربة المطعم وقصته.",img:"https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=900&q=60"}
     ],
     categories:["الأكثر طلبًا","المقبلات","الأطباق الرئيسية","البرجر","المشروبات","الحلويات"],
     items:[
-      ["ستيك مشوي","لحم مختار مع صوص خاص وخضار موسمية.","79 ر.س","https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80","الأطباق الرئيسية"],
-      ["برجر كلاسيك","لحم مشوي، جبنة، خس وصوص المنزل.","24 ر.س","https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80","البرجر"],
-      ["بيتزا خاصة","موزاريلا، طماطم وإضافات مختارة.","31 ر.س","https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=800&q=80","الأطباق الرئيسية"],
-      ["سلطة سيزر","خس طازج، دجاج، بارميزان وصوص سيزر.","22 ر.س","https://images.unsplash.com/photo-1546793665-c74683f339c1?auto=format&fit=crop&w=800&q=80","المقبلات"],
-      ["لاتيه بارد","إسبريسو مع الحليب والثلج.","16 ر.س","https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=800&q=80","المشروبات"],
-      ["تشيز كيك","تشيز كيك كريمي مع صوص التوت.","19 ر.س","https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=800&q=80","الحلويات"]
+      ["ستيك مشوي","لحم مختار مع صوص خاص وخضار موسمية.","79 ر.س","https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=55","الأطباق الرئيسية"],
+      ["برجر كلاسيك","لحم مشوي، جبنة، خس وصوص المنزل.","24 ر.س","https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=55","البرجر"],
+      ["بيتزا خاصة","موزاريلا، طماطم وإضافات مختارة.","31 ر.س","https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=600&q=55","الأطباق الرئيسية"],
+      ["سلطة سيزر","خس طازج، دجاج، بارميزان وصوص سيزر.","22 ر.س","https://images.unsplash.com/photo-1546793665-c74683f339c1?auto=format&fit=crop&w=600&q=55","المقبلات"],
+      ["لاتيه بارد","إسبريسو مع الحليب والثلج.","16 ر.س","https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=600&q=55","المشروبات"],
+      ["تشيز كيك","تشيز كيك كريمي مع صوص التوت.","19 ر.س","https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=600&q=55","الحلويات"]
     ],
     offer:["عرض العائلة","4 وجبات + بطاطس + مشروبات","99 ر.س"],
     gallery:[
-      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80"
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=700&q=55",
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=700&q=55",
+      "https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=700&q=55",
+      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=700&q=55"
     ]
   },
 
@@ -40,25 +40,25 @@ const SITE_DATA = {
     aboutTitle:"سريع، طازج، واضح",
     aboutText:"واجهة مناسبة للطلب اليومي؛ توصل العميل إلى الوجبة والسعر ورقم الطلب بأقل عدد من الخطوات.",
     templates:[
-      {id:1,name:"Street Bite",style:"Bold Fast Food",layout:"luxe",desc:"تصميم قوي للوجبات السريعة والعروض.",img:"https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=1400&q=85"},
-      {id:2,name:"لقمة",style:"Quick Order",layout:"app",desc:"طلب سريع وتصنيفات واضحة على الجوال.",img:"https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1400&q=85"},
-      {id:3,name:"صباح",style:"Breakfast Editorial",layout:"editorial",desc:"تصميم هادئ للفطور والقهوة.",img:"https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=1400&q=85"}
+      {id:1,name:"Street Bite",style:"Bold Fast Food",layout:"luxe",desc:"تصميم قوي للوجبات السريعة والعروض.",img:"https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=900&q=60"},
+      {id:2,name:"لقمة",style:"Quick Order",layout:"app",desc:"طلب سريع وتصنيفات واضحة على الجوال.",img:"https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=60"},
+      {id:3,name:"صباح",style:"Breakfast Editorial",layout:"editorial",desc:"تصميم هادئ للفطور والقهوة.",img:"https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=900&q=60"}
     ],
     categories:["الفطور","السندوتشات","البرجر","العصائر","القهوة"],
     items:[
-      ["ساندوتش دجاج","دجاج متبل وخضار وصوص خاص.","12 ر.س","https://images.unsplash.com/photo-1553909489-cd47e0907980?auto=format&fit=crop&w=800&q=80","السندوتشات"],
-      ["برجر دجاج","دجاج مقرمش مع جبنة وصوص.","15 ر.س","https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=800&q=80","البرجر"],
-      ["فطور عربي","بيض، جبنة، فول وخبز طازج.","18 ر.س","https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=800&q=80","الفطور"],
-      ["عصير مانجو","مانجو طازج محضر يوميًا.","8 ر.س","https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?auto=format&fit=crop&w=800&q=80","العصائر"],
-      ["قهوة اليوم","قهوة سوداء طازجة.","7 ر.س","https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80","القهوة"],
-      ["ساندوتش بيض","بيض وجبن وخضار.","9 ر.س","https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&w=800&q=80","الفطور"]
+      ["ساندوتش دجاج","دجاج متبل وخضار وصوص خاص.","12 ر.س","https://images.unsplash.com/photo-1553909489-cd47e0907980?auto=format&fit=crop&w=600&q=55","السندوتشات"],
+      ["برجر دجاج","دجاج مقرمش مع جبنة وصوص.","15 ر.س","https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=600&q=55","البرجر"],
+      ["فطور عربي","بيض، جبنة، فول وخبز طازج.","18 ر.س","https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=600&q=55","الفطور"],
+      ["عصير مانجو","مانجو طازج محضر يوميًا.","8 ر.س","https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?auto=format&fit=crop&w=600&q=55","العصائر"],
+      ["قهوة اليوم","قهوة سوداء طازجة.","7 ر.س","https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=600&q=55","القهوة"],
+      ["ساندوتش بيض","بيض وجبن وخضار.","9 ر.س","https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&w=600&q=55","الفطور"]
     ],
     offer:["عرض الصباح","فطور + قهوة + عصير","25 ر.س"],
     gallery:[
-      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1484723091739-30a097e8f929?auto=format&fit=crop&w=900&q=80"
+      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=700&q=55",
+      "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=700&q=55",
+      "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?auto=format&fit=crop&w=700&q=55",
+      "https://images.unsplash.com/photo-1484723091739-30a097e8f929?auto=format&fit=crop&w=700&q=55"
     ]
   },
 
@@ -71,25 +71,25 @@ const SITE_DATA = {
     aboutTitle:"الجمال في التفاصيل",
     aboutText:"نقدم تجربة عناية متكاملة تبدأ باختيار الخدمة وتنتهي بحجز الموعد مباشرة من الموقع.",
     templates:[
-      {id:1,name:"لمسة",style:"Beauty Luxe",layout:"luxe",desc:"هوية أنثوية فاخرة مع صور كبيرة.",img:"https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1400&q=85"},
-      {id:2,name:"ستايل",style:"Booking App",layout:"app",desc:"خدمات وأسعار وحجز سريع من الجوال.",img:"https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1400&q=85"},
-      {id:3,name:"Serenity",style:"Spa Editorial",layout:"editorial",desc:"تصميم هادئ للباقات والعناية والسبا.",img:"https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1400&q=85"}
+      {id:1,name:"لمسة",style:"Beauty Luxe",layout:"luxe",desc:"هوية أنثوية فاخرة مع صور كبيرة.",img:"https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=900&q=60"},
+      {id:2,name:"ستايل",style:"Booking App",layout:"app",desc:"خدمات وأسعار وحجز سريع من الجوال.",img:"https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=900&q=60"},
+      {id:3,name:"Serenity",style:"Spa Editorial",layout:"editorial",desc:"تصميم هادئ للباقات والعناية والسبا.",img:"https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=900&q=60"}
     ],
     categories:["قص وتصفيف","عناية الشعر","الصبغات","المكياج","الباقات"],
     items:[
-      ["قص وتصفيف","جلسة قص وتصفيف كاملة.","60 ر.س","https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=800&q=80","قص وتصفيف"],
-      ["عناية بالشعر","جلسة ترطيب وعناية مكثفة.","85 ر.س","https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80","عناية الشعر"],
-      ["صبغة كاملة","اختيار لون واستشارة قبل التنفيذ.","180 ر.س","https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=800&q=80","الصبغات"],
-      ["مكياج سهرة","مكياج كامل للمناسبات.","150 ر.س","https://images.unsplash.com/photo-1487412912498-0447578fcca8?auto=format&fit=crop&w=800&q=80","المكياج"],
-      ["باقة العروس","تجهيز شامل للعروس.","650 ر.س","https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=800&q=80","الباقات"],
-      ["سبا شعر","غسيل وعلاج وترطيب.","110 ر.س","https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80","عناية الشعر"]
+      ["قص وتصفيف","جلسة قص وتصفيف كاملة.","60 ر.س","https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=600&q=55","قص وتصفيف"],
+      ["عناية بالشعر","جلسة ترطيب وعناية مكثفة.","85 ر.س","https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=55","عناية الشعر"],
+      ["صبغة كاملة","اختيار لون واستشارة قبل التنفيذ.","180 ر.س","https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=600&q=55","الصبغات"],
+      ["مكياج سهرة","مكياج كامل للمناسبات.","150 ر.س","https://images.unsplash.com/photo-1487412912498-0447578fcca8?auto=format&fit=crop&w=600&q=55","المكياج"],
+      ["باقة العروس","تجهيز شامل للعروس.","650 ر.س","https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=600&q=55","الباقات"],
+      ["سبا شعر","غسيل وعلاج وترطيب.","110 ر.س","https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=600&q=55","عناية الشعر"]
     ],
     offer:["باقة المناسبات","شعر + مكياج + عناية","299 ر.س"],
     gallery:[
-      "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=900&q=80"
+      "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=700&q=55",
+      "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=700&q=55",
+      "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=700&q=55",
+      "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=700&q=55"
     ]
   },
 
@@ -102,25 +102,25 @@ const SITE_DATA = {
     aboutTitle:"احتياجاتك اليومية في مكان واحد",
     aboutText:"واجهة خفيفة وسريعة تعرض الأقسام والمنتجات والعروض اليومية مع إمكانية الطلب المباشر.",
     templates:[
-      {id:1,name:"الخير",style:"Fresh Market",layout:"luxe",desc:"تصميم بصري للأقسام والمنتجات الطازجة.",img:"https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1400&q=85"},
-      {id:2,name:"ماركت 24",style:"Quick Cart",layout:"app",desc:"متجر جوال سريع مع سلة وتصنيفات.",img:"https://images.unsplash.com/photo-1578916171728-46686eac8d58?auto=format&fit=crop&w=1400&q=85"},
-      {id:3,name:"سلة",style:"Weekly Deals",layout:"editorial",desc:"واجهة عروض وخصومات أسبوعية.",img:"https://images.unsplash.com/photo-1604719312566-8912e9227c6a?auto=format&fit=crop&w=1400&q=85"}
+      {id:1,name:"الخير",style:"Fresh Market",layout:"luxe",desc:"تصميم بصري للأقسام والمنتجات الطازجة.",img:"https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=900&q=60"},
+      {id:2,name:"ماركت 24",style:"Quick Cart",layout:"app",desc:"متجر جوال سريع مع سلة وتصنيفات.",img:"https://images.unsplash.com/photo-1578916171728-46686eac8d58?auto=format&fit=crop&w=900&q=60"},
+      {id:3,name:"سلة",style:"Weekly Deals",layout:"editorial",desc:"واجهة عروض وخصومات أسبوعية.",img:"https://images.unsplash.com/photo-1604719312566-8912e9227c6a?auto=format&fit=crop&w=900&q=60"}
     ],
     categories:["العروض","المشروبات","الألبان","المعلبات","المنظفات"],
     items:[
-      ["مياه 24 حبة","كرتون مياه شرب.","12 ر.س","https://images.unsplash.com/photo-1564419320461-6870880221ad?auto=format&fit=crop&w=800&q=80","المشروبات"],
-      ["حليب طازج","حليب كامل الدسم.","7 ر.س","https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=800&q=80","الألبان"],
-      ["قهوة عربية","عبوة قهوة محمصة.","22 ر.س","https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=800&q=80","العروض"],
-      ["منظف منزلي","منظف متعدد الاستخدام.","14 ر.س","https://images.unsplash.com/photo-1583947215259-38e31be8751f?auto=format&fit=crop&w=800&q=80","المنظفات"],
-      ["عصير برتقال","عبوة عصير بارد.","8 ر.س","https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=800&q=80","المشروبات"],
-      ["تونة","تونة معلبة.","6 ر.س","https://images.unsplash.com/photo-1584263347416-85a696b4eda7?auto=format&fit=crop&w=800&q=80","المعلبات"]
+      ["مياه 24 حبة","كرتون مياه شرب.","12 ر.س","https://images.unsplash.com/photo-1564419320461-6870880221ad?auto=format&fit=crop&w=600&q=55","المشروبات"],
+      ["حليب طازج","حليب كامل الدسم.","7 ر.س","https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=600&q=55","الألبان"],
+      ["قهوة عربية","عبوة قهوة محمصة.","22 ر.س","https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=600&q=55","العروض"],
+      ["منظف منزلي","منظف متعدد الاستخدام.","14 ر.س","https://images.unsplash.com/photo-1583947215259-38e31be8751f?auto=format&fit=crop&w=600&q=55","المنظفات"],
+      ["عصير برتقال","عبوة عصير بارد.","8 ر.س","https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=600&q=55","المشروبات"],
+      ["تونة","تونة معلبة.","6 ر.س","https://images.unsplash.com/photo-1584263347416-85a696b4eda7?auto=format&fit=crop&w=600&q=55","المعلبات"]
     ],
     offer:["عروض الأسبوع","خصومات حتى 30%","وفر الآن"],
     gallery:[
-      "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1578916171728-46686eac8d58?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1534723452862-4c874018d66d?auto=format&fit=crop&w=900&q=80"
+      "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=700&q=55",
+      "https://images.unsplash.com/photo-1578916171728-46686eac8d58?auto=format&fit=crop&w=700&q=55",
+      "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?auto=format&fit=crop&w=700&q=55",
+      "https://images.unsplash.com/photo-1534723452862-4c874018d66d?auto=format&fit=crop&w=700&q=55"
     ]
   },
 
@@ -133,25 +133,25 @@ const SITE_DATA = {
     aboutTitle:"تفصيل يليق بذوقك",
     aboutText:"نحوّل خبرة الخياط إلى معرض رقمي يعرض الموديلات والأقمشة والخدمات ويختصر رحلة حجز القياس.",
     templates:[
-      {id:1,name:"Atelier",style:"Tailor Luxe",layout:"luxe",desc:"هوية فاخرة للتفصيل والبدلات.",img:"https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1400&q=85"},
-      {id:2,name:"إبرة وخيط",style:"Measurement App",layout:"app",desc:"خدمات وأسعار وحجز قياس سريع.",img:"https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=1400&q=85"},
-      {id:3,name:"Lookbook",style:"Fashion Editorial",layout:"editorial",desc:"معرض موديلات بصري مثل مجلات الأزياء.",img:"https://images.unsplash.com/photo-1520975954732-35dd22299614?auto=format&fit=crop&w=1400&q=85"}
+      {id:1,name:"Atelier",style:"Tailor Luxe",layout:"luxe",desc:"هوية فاخرة للتفصيل والبدلات.",img:"https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=900&q=60"},
+      {id:2,name:"إبرة وخيط",style:"Measurement App",layout:"app",desc:"خدمات وأسعار وحجز قياس سريع.",img:"https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=900&q=60"},
+      {id:3,name:"Lookbook",style:"Fashion Editorial",layout:"editorial",desc:"معرض موديلات بصري مثل مجلات الأزياء.",img:"https://images.unsplash.com/photo-1520975954732-35dd22299614?auto=format&fit=crop&w=900&q=60"}
     ],
     categories:["تفصيل الثياب","البدلات","التعديلات","الأقمشة","مواعيد القياس"],
     items:[
-      ["تفصيل ثوب","تفصيل حسب المقاس مع خيارات متعددة.","180 ر.س","https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=800&q=80","تفصيل الثياب"],
-      ["تفصيل بدلة","بدلة مفصلة حسب القياس.","450 ر.س","https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80","البدلات"],
-      ["تعديل مقاس","تقصير وتوسيع وتعديل احترافي.","35 ر.س","https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80","التعديلات"],
-      ["قماش فاخر","تشكيلة أقمشة موسمية.","حسب النوع","https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=800&q=80","الأقمشة"],
-      ["موعد قياس","احجز موعد القياس مباشرة.","مجاني","https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80","مواعيد القياس"],
-      ["تفصيل جاكيت","جاكيت رجالي حسب الطلب.","320 ر.س","https://images.unsplash.com/photo-1555069519-127aadedf1ee?auto=format&fit=crop&w=800&q=80","البدلات"]
+      ["تفصيل ثوب","تفصيل حسب المقاس مع خيارات متعددة.","180 ر.س","https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=600&q=55","تفصيل الثياب"],
+      ["تفصيل بدلة","بدلة مفصلة حسب القياس.","450 ر.س","https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&q=55","البدلات"],
+      ["تعديل مقاس","تقصير وتوسيع وتعديل احترافي.","35 ر.س","https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=55","التعديلات"],
+      ["قماش فاخر","تشكيلة أقمشة موسمية.","حسب النوع","https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=600&q=55","الأقمشة"],
+      ["موعد قياس","احجز موعد القياس مباشرة.","مجاني","https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=600&q=55","مواعيد القياس"],
+      ["تفصيل جاكيت","جاكيت رجالي حسب الطلب.","320 ر.س","https://images.unsplash.com/photo-1555069519-127aadedf1ee?auto=format&fit=crop&w=600&q=55","البدلات"]
     ],
     offer:["عرض الموسم","تفصيل ثوبين بسعر خاص","وفر 15%"],
     gallery:[
-      "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1520975954732-35dd22299614?auto=format&fit=crop&w=900&q=80"
+      "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=700&q=55",
+      "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=700&q=55",
+      "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=700&q=55",
+      "https://images.unsplash.com/photo-1520975954732-35dd22299614?auto=format&fit=crop&w=700&q=55"
     ]
   }
 };
@@ -180,7 +180,7 @@ function commonSections(d, variant){
     </section>`,
     gallery:`<section id="gallery" class="full-gallery ${variant}">
       <div class="full-section-title"><span>GALLERY</span><h2>المعرض</h2></div>
-      <div class="gallery-grid">${d.gallery.map((x,i)=>`<img src="${x}" alt="صورة ${i+1}">`).join("")}</div>
+      <div class="gallery-grid">${d.gallery.map((x,i)=>`<img src="${x}" alt="صورة ${i+1}" loading="lazy" decoding="async">`).join("")}</div>
     </section>`,
     reviews:`<section id="reviews" class="full-reviews ${variant}">
       <div class="full-section-title"><span>REVIEWS</span><h2>آراء العملاء</h2></div>
@@ -254,7 +254,7 @@ function luxePage(type,d,t){
   <section id="sections" class="full-products v-luxe">
     <div class="full-section-title"><span>EXPLORE</span><h2>${d.sectionLabel}</h2></div>
     <div class="category-band">${d.categories.map(x=>`<span>${x}</span>`).join("")}</div>
-    <div class="luxe-product-grid">${d.items.map(it=>`<article><img src="${it[3]}"><div><small>${it[4]}</small><h3>${it[0]}</h3><p>${it[1]}</p><strong>${it[2]}</strong></div></article>`).join("")}</div>
+    <div class="luxe-product-grid">${d.items.map(it=>`<article><img src="${it[3]}" loading="lazy" decoding="async"><div><small>${it[4]}</small><h3>${it[0]}</h3><p>${it[1]}</p><strong>${it[2]}</strong></div></article>`).join("")}</div>
   </section>
   ${c.offer}${industrySection(type,d)}${c.gallery}${c.reviews}${c.contact}
   <footer class="full-footer"><b>${t.name}</b><span>© 2026</span></footer>
@@ -266,14 +266,14 @@ function appPage(type,d,t){
  return `<section class="full-demo app-full type-${type}">
   <header class="app-full-head"><div><b>${t.name}</b><small>● متاح الآن</small></div><a href="#contact">${d.actionLabel}</a></header>
   <section id="home" class="app-full-home">
-    <div class="app-promo"><div><span>عرض اليوم</span><h1>${d.offer[0]}</h1><p>${d.offer[1]}</p><a href="#sections">ابدأ التصفح</a></div><img src="${t.img}"></div>
+    <div class="app-promo"><div><span>عرض اليوم</span><h1>${d.offer[0]}</h1><p>${d.offer[1]}</p><a href="#sections">ابدأ التصفح</a></div><img src="${t.img}" decoding="async" fetchpriority="high"></div>
     <div class="app-search">⌕ ابحث داخل الموقع…</div>
     <div class="app-cat-scroll">${d.categories.map(x=>`<span>${x}</span>`).join("")}</div>
   </section>
   ${c.about}
   <section id="sections" class="app-products">
     <div class="full-section-title"><span>POPULAR</span><h2>${d.sectionLabel}</h2></div>
-    <div class="app-product-grid">${d.items.map(it=>`<article><img src="${it[3]}"><div><small>${it[4]}</small><h3>${it[0]}</h3><p>${it[1]}</p><footer><strong>${it[2]}</strong><button>+</button></footer></div></article>`).join("")}</div>
+    <div class="app-product-grid">${d.items.map(it=>`<article><img src="${it[3]}" loading="lazy" decoding="async"><div><small>${it[4]}</small><h3>${it[0]}</h3><p>${it[1]}</p><footer><strong>${it[2]}</strong><button>+</button></footer></div></article>`).join("")}</div>
   </section>
   ${c.offer}${industrySection(type,d)}${c.gallery}${c.reviews}${c.contact}
   <div class="app-bottom-nav"><a href="#home">الرئيسية</a><a href="#sections">الأقسام</a><a href="#offers">العروض</a><a href="#contact">تواصل</a></div>
@@ -292,7 +292,7 @@ function editorialPage(type,d,t){
   <section id="sections" class="editorial-products">
     <div class="full-section-title"><span>COLLECTION</span><h2>${d.sectionLabel}</h2></div>
     <div class="editorial-category-list">${d.categories.map((x,i)=>`<div><b>0${i+1}</b><span>${x}</span></div>`).join("")}</div>
-    <div class="editorial-product-list">${d.items.map((it,i)=>`<article><span>0${i+1}</span><img src="${it[3]}"><div><small>${it[4]}</small><h3>${it[0]}</h3><p>${it[1]}</p></div><strong>${it[2]}</strong></article>`).join("")}</div>
+    <div class="editorial-product-list">${d.items.map((it,i)=>`<article><span>0${i+1}</span><img src="${it[3]}" loading="lazy" decoding="async"><div><small>${it[4]}</small><h3>${it[0]}</h3><p>${it[1]}</p></div><strong>${it[2]}</strong></article>`).join("")}</div>
   </section>
   ${c.offer}${industrySection(type,d)}${c.gallery}${c.reviews}${c.contact}
   <footer class="full-footer editorial"><b>${t.name}</b><span>Designed as a full business website</span></footer>
