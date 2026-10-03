@@ -11,7 +11,8 @@ const SITE_DATA = {
     templates: [
       {id:1,name:"ليالي",style:"Luxury Dining",layout:"luxe",desc:"مطعم راقٍ بهوية داكنة وصور سينمائية.",img:"https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=60"},
       {id:2,name:"Quick Bite",style:"Order App",layout:"app",desc:"واجهة سريعة تشبه تطبيقات الطلب والتوصيل.",img:"https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=900&q=60"},
-      {id:3,name:"سُفرة",style:"Editorial Story",layout:"editorial",desc:"موقع بصري يبيع تجربة المطعم وقصته.",img:"https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=900&q=60"}
+      {id:3,name:"سُفرة",style:"Editorial Story",layout:"editorial",desc:"موقع بصري يبيع تجربة المطعم وقصته.",img:"https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=900&q=60"},
+      {id:4,name:"دونر ستريت",style:"Menu Board",layout:"board",desc:"لوحة منيو سوداء وحمراء تعرض الأقسام والأسعار بكثافة مثل منيو المطاعم السريعة.",img:"https://images.unsplash.com/photo-1529006557810-274b9b2fc783?auto=format&fit=crop&w=900&q=60"}
     ],
     categories:["الأكثر طلبًا","المقبلات","الأطباق الرئيسية","البرجر","المشروبات","الحلويات"],
     items:[
@@ -55,16 +56,30 @@ const SITE_DATA = {
     templates:[
       {id:1,name:"Street Bite",style:"Bold Fast Food",layout:"luxe",desc:"تصميم قوي للوجبات السريعة والعروض.",img:"https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=900&q=60"},
       {id:2,name:"لقمة",style:"Quick Order",layout:"app",desc:"طلب سريع وتصنيفات واضحة على الجوال.",img:"https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=60"},
-      {id:3,name:"صباح",style:"Breakfast Editorial",layout:"editorial",desc:"تصميم هادئ للفطور والقهوة.",img:"https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=900&q=60"}
+      {id:3,name:"صباح",style:"Breakfast Editorial",layout:"editorial",desc:"تصميم هادئ للفطور والقهوة.",img:"https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=900&q=60"},
+      {id:4,name:"مطبخ الشيخ",style:"Poster Menu",layout:"board",desc:"منيو خشبي وبرتقالي مضغوط للفطور والسندوتشات والمشروبات.",img:"https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=900&q=60"}
     ],
     categories:["الفطور","السندوتشات","البرجر","العصائر","القهوة"],
     items:[
-      ["ساندوتش دجاج","دجاج متبل وخضار وصوص خاص.","12 ر.س","https://images.unsplash.com/photo-1553909489-cd47e0907980?auto=format&fit=crop&w=600&q=55","السندوتشات"],
-      ["برجر دجاج","دجاج مقرمش مع جبنة وصوص.","15 ر.س","https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=600&q=55","البرجر"],
-      ["فطور عربي","بيض، جبنة، فول وخبز طازج.","18 ر.س","https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=600&q=55","الفطور"],
-      ["عصير مانجو","مانجو طازج محضر يوميًا.","8 ر.س","https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?auto=format&fit=crop&w=600&q=55","العصائر"],
-      ["قهوة اليوم","قهوة سوداء طازجة.","7 ر.س","https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=600&q=55","القهوة"],
-      ["ساندوتش بيض","بيض وجبن وخضار.","9 ر.س","https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&w=600&q=55","الفطور"]
+      ["فطور عربي","بيض، جبنة، فول وخبز طازج.","18 ر.س","https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=520&q=45","الفطور",true],
+      ["شكشوكة","بيض بالطماطم والفلفل والبهارات.","14 ر.س","https://images.unsplash.com/photo-1565299507177-b0ac66763828?auto=format&fit=crop&w=520&q=45","الفطور",false],
+      ["فول خاص","فول مع طحينة وزيت زيتون.","10 ر.س","https://images.unsplash.com/photo-1577805947697-89e18249d767?auto=format&fit=crop&w=520&q=45","الفطور",true],
+
+      ["ساندوتش دجاج","دجاج متبل وخضار وصوص خاص.","12 ر.س","https://images.unsplash.com/photo-1553909489-cd47e0907980?auto=format&fit=crop&w=520&q=45","السندوتشات",true],
+      ["ساندوتش شاورما","شاورما دجاج، ثوم ومخلل.","11 ر.س","https://images.unsplash.com/photo-1529006557810-274b9b2fc783?auto=format&fit=crop&w=520&q=45","السندوتشات",true],
+      ["ساندوتش بيض","بيض وجبن وخضار.","9 ر.س","https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&w=520&q=45","السندوتشات",false],
+
+      ["برجر دجاج","دجاج مقرمش مع جبنة وصوص.","15 ر.س","https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=520&q=45","البرجر",true],
+      ["برجر لحم","لحم مشوي مع جبنة وخضار.","17 ر.س","https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=520&q=45","البرجر",false],
+      ["برجر دبل","قطعتا لحم وصوص خاص.","22 ر.س","https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=520&q=45","البرجر",true],
+
+      ["عصير مانجو","مانجو طازج محضر يوميًا.","8 ر.س","https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?auto=format&fit=crop&w=520&q=45","العصائر",true],
+      ["عصير برتقال","برتقال طبيعي طازج.","7 ر.س","https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=520&q=45","العصائر",false],
+      ["ليمون نعناع","ليمون ونعناع بارد.","9 ر.س","https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=520&q=45","العصائر",false],
+
+      ["قهوة اليوم","قهوة سوداء طازجة.","7 ر.س","https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=520&q=45","القهوة",true],
+      ["كابتشينو","إسبريسو وحليب مبخر.","12 ر.س","https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=520&q=45","القهوة",false],
+      ["شاي حليب","شاي بالحليب والهيل.","6 ر.س","https://images.unsplash.com/photo-1571934811356-5cc061b6821f?auto=format&fit=crop&w=520&q=45","القهوة",false]
     ],
     offer:["عرض الصباح","فطور + قهوة + عصير","25 ر.س"],
     gallery:[
@@ -345,11 +360,49 @@ function editorialPage(type,d,t){
  </section>`;
 }
 
+
+function boardPage(type,d,t){
+  const isRestaurant=type==="restaurants";
+  const grouped=d.categories
+    .filter(x=>x!=="الأكثر طلبًا")
+    .map((cat,idx)=>{
+      const rows=d.items.filter(it=>it[4]===cat).slice(0,5);
+      if(!rows.length)return "";
+      return `<section class="board-group">
+        <header><span>${idx+1}</span><h3>${cat}</h3></header>
+        <div class="board-rows">${rows.map(it=>`<div class="board-row"><b>${it[0]}</b><span>${it[2]}</span></div>`).join("")}</div>
+        ${idx<3&&rows[0]?`<img src="${rows[0][3]}" alt="${rows[0][0]}" loading="lazy" decoding="async">`:""}
+      </section>`;
+    }).join("");
+  return `<section class="full-demo board-site ${isRestaurant?"board-red":"board-orange"}">
+    <header class="board-top">
+      <div class="board-brand"><small>MENU • 2026</small><h1>${t.name}</h1><p>${isRestaurant?"FOOD & DRINKS":"فطور • ساندوتشات • مشروبات"}</p></div>
+      <a href="#contact">${d.actionLabel}</a>
+    </header>
+    <section class="board-hero" id="home">
+      <div><span>${isRestaurant?"SPECIAL MENU":"منيو يومي"}</span><h2>${isRestaurant?"طعم قوي. منيو واضح.":"سريع، واضح، وأسعاره أمامك."}</h2><p>${t.desc}</p></div>
+      <img src="${t.img}" alt="${t.name}" decoding="async" fetchpriority="high">
+    </section>
+    <section id="sections" class="board-menu">
+      <div class="board-menu-title"><span>FULL MENU</span><h2>${d.sectionLabel}</h2><p>كل الأقسام والأسعار في صفحة واحدة مثل لوحات المنيو، لكن متجاوبة مع الجوال.</p></div>
+      <div class="board-grid">${grouped}</div>
+    </section>
+    <section id="offers" class="board-offer">
+      <div><small>عرض اليوم</small><h2>${d.offer[0]}</h2><p>${d.offer[1]}</p></div><strong>${d.offer[2]}</strong>
+    </section>
+    <section id="contact" class="board-contact">
+      <div><small>للطلب والتواصل</small><h2>05XXXXXXXX</h2><p>📍 الموقع • يوميًا 9 ص — 12 ص</p></div>
+      <a href="https://wa.me/" target="_blank">واتساب</a>
+    </section>
+    <footer class="board-footer"><span>${t.name}</span><span>MENU BOARD</span></footer>
+  </section>`;
+}
+
 function renderDemoPage(){
   const type=q("type")||"restaurants",style=Number(q("style")||1),d=dataFor(type),t=d.templates[(style-1)%d.templates.length];
   document.title=t.name+" | MM Studio";
   document.getElementById("demoToolbarTitle").textContent=t.name+" — موقع كامل";
-  let html=t.layout==="luxe"?luxePage(type,d,t):t.layout==="app"?appPage(type,d,t):editorialPage(type,d,t);
+  let html=t.layout==="luxe"?luxePage(type,d,t):t.layout==="app"?appPage(type,d,t):t.layout==="board"?boardPage(type,d,t):editorialPage(type,d,t);
   document.getElementById("demoRoot").innerHTML=html;
   bindCategoryFilters(document.getElementById("demoRoot"));
 }
