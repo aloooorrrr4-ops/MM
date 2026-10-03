@@ -60,23 +60,23 @@
 
   <div class="sector-grid">
     <a class="sector-card sector-restaurant" href="category.html?type=restaurants">
-      <div class="sector-image"></div><div class="sector-overlay"></div>
+      <div class="sector-image lazy-bg" data-bg="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=700&q=45"></div><div class="sector-overlay"></div>
       <div class="sector-content"><span>01</span><h3>المطاعم</h3><p>فاخر · تطبيق طلب · مجلة بصرية</p><b>3 نماذج مختلفة ←</b></div>
     </a>
     <a class="sector-card sector-salon" href="category.html?type=salons">
-      <div class="sector-image"></div><div class="sector-overlay"></div>
+      <div class="sector-image lazy-bg" data-bg="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=700&q=45"></div><div class="sector-overlay"></div>
       <div class="sector-content"><span>02</span><h3>الصوالين</h3><p>Beauty · Barbershop · Spa</p><b>استعراض ←</b></div>
     </a>
     <a class="sector-card sector-grocery" href="category.html?type=groceries">
-      <div class="sector-image"></div><div class="sector-overlay"></div>
+      <div class="sector-image lazy-bg" data-bg="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=700&q=45"></div><div class="sector-overlay"></div>
       <div class="sector-content"><span>03</span><h3>البقالات</h3><p>متجر · عروض · طلب سريع</p><b>استعراض ←</b></div>
     </a>
     <a class="sector-card sector-buffet" href="category.html?type=buffets">
-      <div class="sector-image"></div><div class="sector-overlay"></div>
+      <div class="sector-image lazy-bg" data-bg="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=700&q=45"></div><div class="sector-overlay"></div>
       <div class="sector-content"><span>04</span><h3>البوفيهات</h3><p>فطور · وجبات سريعة · مشروبات</p><b>استعراض ←</b></div>
     </a>
     <a class="sector-card sector-tailor" href="category.html?type=tailors">
-      <div class="sector-image"></div><div class="sector-overlay"></div>
+      <div class="sector-image lazy-bg" data-bg="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=700&q=45"></div><div class="sector-overlay"></div>
       <div class="sector-content"><span>05</span><h3>الخياطة</h3><p>Lookbook · خدمات · حجز قياس</p><b>استعراض ←</b></div>
     </a>
   </div>
@@ -95,4 +95,23 @@
 </main>
 
 <footer class="market-footer"><div class="container"><b>MM Studio</b><span>معرض مواقع الأعمال — 2026</span></div></footer>
+
+<script>
+(function(){
+  const els=[...document.querySelectorAll('.lazy-bg[data-bg]')];
+  const load=el=>{
+    if(el.dataset.loaded)return;
+    el.style.backgroundImage='url("'+el.dataset.bg+'")';
+    el.dataset.loaded='1';
+    el.classList.add('loaded');
+  };
+  if(!('IntersectionObserver' in window)){els.forEach(load);return;}
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){load(e.target);io.unobserve(e.target);}
+    });
+  },{rootMargin:'180px 0px'});
+  els.forEach(el=>io.observe(el));
+})();
+</script>
 </body></html>
