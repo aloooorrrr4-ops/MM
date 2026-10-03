@@ -1,117 +1,59 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MM Studio | معرض مواقع الأعمال</title>
-<link rel="stylesheet" href="styles.css">
-<meta name="theme-color" content="#0d0d0f">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MM Studio | معرض المواقع</title>
+<meta name="theme-color" content="#111111">
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Tahoma,Arial,sans-serif;background:#f5f2ec;color:#171719}.wrap{width:min(1080px,calc(100% - 28px));margin:auto}a{text-decoration:none;color:inherit}
+header{height:64px;display:flex;align-items:center;border-bottom:1px solid #ded9d1;background:#f5f2ec}.nav{display:flex;align-items:center;justify-content:space-between}.logo{font-weight:900;font-size:22px}.logo span{font-weight:400;color:#8d6b49}.browse{font-size:12px;background:#111;color:#fff;padding:10px 14px;border-radius:999px}
+.hero{background:#111;color:#fff;padding:68px 0 58px}.tag{font-size:10px;letter-spacing:2px;color:#c8a47b}.hero h1{font-size:clamp(42px,10vw,76px);line-height:1.03;margin:14px 0 20px;letter-spacing:-2px}.hero h1 em{font-style:normal;color:#c8a47b}.hero p{color:#b9b9bc;line-height:1.9;font-size:16px;max-width:680px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}.btn{padding:13px 17px;border-radius:12px;font-size:13px;font-weight:800}.primary{background:#fff;color:#111}.secondary{border:1px solid #3a3a3d;color:#fff}.stats{display:flex;gap:28px;margin-top:35px}.stats div{display:flex;flex-direction:column}.stats b{font-size:22px}.stats span{font-size:10px;color:#888}
+.categories{padding:60px 0}.head{margin-bottom:25px}.head span{font-size:10px;color:#8d6b49;font-weight:900}.head h2{font-size:36px;line-height:1.15;margin:8px 0}.head p{color:#6f6b66;line-height:1.8}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.card{position:relative;min-height:220px;border-radius:22px;overflow:hidden;background:#d8d1c8;color:#fff}.pic{position:absolute;inset:0;background:#d4cec5 center/cover no-repeat;opacity:.25;transition:opacity .25s}.pic.ready{opacity:1}.shade{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.82),rgba(0,0,0,.08))}.content{position:absolute;inset:0;padding:20px;display:flex;flex-direction:column;justify-content:end}.content small{position:absolute;top:18px;right:18px;background:rgba(255,255,255,.17);padding:6px 8px;border-radius:99px}.content h3{font-size:30px;margin:0 0 6px}.content p{font-size:12px;color:#ddd;margin:0 0 13px}.content b{font-size:11px}.wide{grid-column:1/-1}
+.how{background:#191919;color:#fff;padding:55px 0}.how h2{font-size:34px;margin:0 0 24px}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.step{border:1px solid #303033;border-radius:17px;padding:18px}.step b{color:#c8a47b}.step p{font-size:12px;line-height:1.7;color:#aaa;margin-bottom:0}footer{padding:25px 0;text-align:center;font-size:11px;color:#777}
+@media(max-width:650px){.hero{padding:48px 0 42px}.hero h1{font-size:44px}.grid,.steps{grid-template-columns:1fr}.wide{grid-column:auto}.card{min-height:190px}.stats{gap:18px}.head h2{font-size:31px}}
+</style>
 </head>
-<body class="market-body">
-<header class="market-nav">
-  <div class="container nav">
-    <a class="studio-brand" href="index.html"><b>MM</b><span>Studio</span></a>
-    <div class="nav-links"><a href="#categories">القطاعات</a><a href="category.html?type=restaurants">أحدث النماذج</a></div>
-    <a class="nav-cta" href="#categories">تصفح المعرض</a>
-  </div>
-</header>
+<body>
+<header><div class="wrap nav"><a class="logo" href="index.html">MM <span>Studio</span></a><a class="browse" href="#categories">تصفح النماذج</a></div></header>
 
 <main>
-<section class="market-hero">
-  <div class="container hero-market-grid">
-    <div class="hero-copy">
-      <span class="kicker">معرض مواقع جاهزة للأعمال</span>
-      <h1>لا نبيع قالبًا واحدًا<br><em>بألوان مختلفة.</em></h1>
-      <p>كل نشاط له أسلوب بصري مختلف. اختر التصميم الذي يشبه مشروعك، ثم نخصص الاسم والصور والخدمات والأسعار والدومين.</p>
-      <div class="hero-market-actions">
-        <a class="market-btn solid" href="#categories">استكشف التصاميم</a>
-        <a class="market-btn line" href="category.html?type=restaurants">شاهد المطاعم</a>
-      </div>
-      <div class="hero-stats"><div><b>15+</b><span>نموذج</span></div><div><b>5</b><span>قطاعات</span></div><div><b>100%</b><span>متجاوب</span></div></div>
+<section class="hero">
+  <div class="wrap">
+    <span class="tag">BUSINESS WEBSITE TEMPLATES</span>
+    <h1>مواقع أعمال<br><em>مختلفة فعلًا.</em></h1>
+    <p>اختر نشاطك ثم شاهد عدة نماذج كاملة. كل نموذج يحتوي أقسام الموقع والخدمات والعروض والتواصل، ونخصصه باسم العميل وصوره وأسعاره.</p>
+    <div class="actions">
+      <a class="btn primary" href="#categories">اختر نشاطك</a>
+      <a class="btn secondary" href="category.html?type=restaurants">نماذج المطاعم</a>
     </div>
-
-    <div class="showcase-stack" aria-hidden="true">
-      <div class="shot shot-a">
-        <div class="shot-label">LUXURY DINING</div>
-        <strong>ليالي</strong><small>Fine dining menu</small>
-      </div>
-      <div class="shot shot-b">
-        <div class="delivery-top">● QUICK BITE</div>
-        <div class="delivery-search">ابحث في المنيو…</div>
-        <div class="delivery-row"><i></i><i></i><i></i></div>
-      </div>
-      <div class="shot shot-c">
-        <span>EDITORIAL</span><b>سُفرة</b><small>قصة، أطباق، تجربة</small>
-      </div>
-    </div>
+    <div class="stats"><div><b>5</b><span>قطاعات</span></div><div><b>15</b><span>نموذج</span></div><div><b>100%</b><span>للجوال</span></div></div>
   </div>
 </section>
 
-<section class="featured-strip">
-  <div class="container">
-    <span>تصاميم مختلفة فعليًا</span><span>•</span><span>Luxury</span><span>•</span><span>Delivery App</span><span>•</span><span>Editorial</span><span>•</span><span>Storefront</span>
+<section id="categories" class="categories wrap">
+  <div class="head"><span>اختر القطاع</span><h2>من أين نبدأ؟</h2><p>الصور لا تُحمّل عند فتح الصفحة؛ تظهر تدريجيًا فقط عندما تصل إلى هذا الجزء.</p></div>
+  <div class="grid">
+    <a class="card" href="category.html?type=restaurants"><div class="pic lazy" data-bg="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=520&q=38"></div><div class="shade"></div><div class="content"><small>01</small><h3>المطاعم</h3><p>فاخر · طلب سريع · Editorial</p><b>3 نماذج ←</b></div></a>
+    <a class="card" href="category.html?type=salons"><div class="pic lazy" data-bg="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=520&q=38"></div><div class="shade"></div><div class="content"><small>02</small><h3>الصوالين</h3><p>Beauty · Booking · Spa</p><b>3 نماذج ←</b></div></a>
+    <a class="card" href="category.html?type=groceries"><div class="pic lazy" data-bg="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=520&q=38"></div><div class="shade"></div><div class="content"><small>03</small><h3>البقالات</h3><p>متجر · سلة · عروض</p><b>3 نماذج ←</b></div></a>
+    <a class="card" href="category.html?type=buffets"><div class="pic lazy" data-bg="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=520&q=38"></div><div class="shade"></div><div class="content"><small>04</small><h3>البوفيهات</h3><p>فطور · وجبات · طلب سريع</p><b>3 نماذج ←</b></div></a>
+    <a class="card wide" href="category.html?type=tailors"><div class="pic lazy" data-bg="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=620&q=38"></div><div class="shade"></div><div class="content"><small>05</small><h3>الخياطة</h3><p>موديلات · قياسات · Lookbook</p><b>3 نماذج ←</b></div></a>
   </div>
 </section>
 
-<section id="categories" class="market-section container">
-  <div class="market-heading">
-    <div><span class="section-tag">اختر المجال</span><h2>ادخل على قطاعك وشاهد أفكارًا مختلفة.</h2></div>
-    <p>كل بطاقة تفتح مجموعة نماذج مستقلة في الشكل وطريقة العرض، وليس مجرد تغيير لون.</p>
-  </div>
-
-  <div class="sector-grid">
-    <a class="sector-card sector-restaurant" href="category.html?type=restaurants">
-      <div class="sector-image lazy-bg" data-bg="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=700&q=45"></div><div class="sector-overlay"></div>
-      <div class="sector-content"><span>01</span><h3>المطاعم</h3><p>فاخر · تطبيق طلب · مجلة بصرية</p><b>3 نماذج مختلفة ←</b></div>
-    </a>
-    <a class="sector-card sector-salon" href="category.html?type=salons">
-      <div class="sector-image lazy-bg" data-bg="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=700&q=45"></div><div class="sector-overlay"></div>
-      <div class="sector-content"><span>02</span><h3>الصوالين</h3><p>Beauty · Barbershop · Spa</p><b>استعراض ←</b></div>
-    </a>
-    <a class="sector-card sector-grocery" href="category.html?type=groceries">
-      <div class="sector-image lazy-bg" data-bg="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=700&q=45"></div><div class="sector-overlay"></div>
-      <div class="sector-content"><span>03</span><h3>البقالات</h3><p>متجر · عروض · طلب سريع</p><b>استعراض ←</b></div>
-    </a>
-    <a class="sector-card sector-buffet" href="category.html?type=buffets">
-      <div class="sector-image lazy-bg" data-bg="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=700&q=45"></div><div class="sector-overlay"></div>
-      <div class="sector-content"><span>04</span><h3>البوفيهات</h3><p>فطور · وجبات سريعة · مشروبات</p><b>استعراض ←</b></div>
-    </a>
-    <a class="sector-card sector-tailor" href="category.html?type=tailors">
-      <div class="sector-image lazy-bg" data-bg="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=700&q=45"></div><div class="sector-overlay"></div>
-      <div class="sector-content"><span>05</span><h3>الخياطة</h3><p>Lookbook · خدمات · حجز قياس</p><b>استعراض ←</b></div>
-    </a>
-  </div>
-</section>
-
-<section class="process-dark">
-  <div class="container process-grid">
-    <div><span class="section-tag light">طريقة البيع</span><h2>العميل يرى التصميم قبل أن يدفع.</h2></div>
-    <div class="process-list">
-      <div><b>01</b><span>يفتح القسم ويختار الشكل الذي يعجبه.</span></div>
-      <div><b>02</b><span>نبدل الهوية والمحتوى والصور والأسعار.</span></div>
-      <div><b>03</b><span>ننشره على رابط خاص ثم نربط الدومين.</span></div>
-    </div>
-  </div>
-</section>
+<section class="how"><div class="wrap"><h2>كيف يعمل الموقع؟</h2><div class="steps"><div class="step"><b>01</b><p>اختر القطاع المناسب.</p></div><div class="step"><b>02</b><p>شاهد النماذج المختلفة كاملة.</p></div><div class="step"><b>03</b><p>نخصص النموذج وننشره للعميل.</p></div></div></div></section>
 </main>
-
-<footer class="market-footer"><div class="container"><b>MM Studio</b><span>معرض مواقع الأعمال — 2026</span></div></footer>
+<footer>MM Studio — 2026</footer>
 
 <script>
 (function(){
-  const els=[...document.querySelectorAll('.lazy-bg[data-bg]')];
-  const load=el=>{
-    if(el.dataset.loaded)return;
-    el.style.backgroundImage='url("'+el.dataset.bg+'")';
-    el.dataset.loaded='1';
-    el.classList.add('loaded');
-  };
-  if(!('IntersectionObserver' in window)){els.forEach(load);return;}
-  const io=new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){load(e.target);io.unobserve(e.target);}
-    });
-  },{rootMargin:'180px 0px'});
-  els.forEach(el=>io.observe(el));
+ const els=document.querySelectorAll('.lazy');
+ function load(el){if(el.dataset.done)return;el.style.backgroundImage='url("'+el.dataset.bg+'")';el.dataset.done='1';el.classList.add('ready')}
+ if(!('IntersectionObserver' in window)){for(const el of els)load(el);return}
+ const io=new IntersectionObserver(es=>{for(const e of es){if(e.isIntersecting){load(e.target);io.unobserve(e.target)}}},{rootMargin:'100px'});
+ for(const el of els)io.observe(el);
 })();
 </script>
-</body></html>
+</body>
+</html>
