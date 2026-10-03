@@ -111,3 +111,78 @@ img{max-width:100%}
 .editorial-category-list button b{color:#9a8d7e}
 .editorial-category-list button.active span{font-weight:900}
 .editorial-category-list button.active{background:rgba(0,0,0,.035)}
+
+
+/* ===== Menu-board / poster templates ===== */
+.board-site{min-height:100vh;background:#0b0b0c;color:#fff}
+.board-top{position:sticky;top:68px;z-index:34;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:14px 4vw;background:rgba(11,11,12,.95);border-bottom:1px solid rgba(255,255,255,.08)}
+.board-brand small{font-size:8px;letter-spacing:2px}.board-brand h1{font-size:20px;margin:2px 0}.board-brand p{margin:0;font-size:9px;color:#aaa;letter-spacing:1px}
+.board-top>a{padding:10px 14px;border-radius:999px;background:#fff;color:#111;font-size:10px;font-weight:800}
+.board-hero{min-height:420px;display:grid;grid-template-columns:1fr 1fr;align-items:stretch;border-bottom:1px solid rgba(255,255,255,.1)}
+.board-hero>div{padding:55px 6vw;display:flex;flex-direction:column;justify-content:center}
+.board-hero span{font-size:9px;letter-spacing:3px;font-weight:900}
+.board-hero h2{font-size:clamp(42px,7vw,84px);line-height:.98;margin:12px 0 16px;max-width:760px}
+.board-hero p{line-height:1.8;color:#c7c7c7;max-width:620px}
+.board-hero img{width:100%;height:100%;min-height:420px;object-fit:cover}
+.board-menu{padding:70px 4vw 90px}
+.board-menu-title{max-width:760px;margin-bottom:28px}.board-menu-title span{font-size:9px;letter-spacing:3px}.board-menu-title h2{font-size:46px;margin:8px 0}.board-menu-title p{color:#aaa;line-height:1.8}
+.board-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.board-group{position:relative;min-height:330px;border:2px solid currentColor;border-radius:18px;padding:15px;overflow:hidden}
+.board-group header{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.board-group header>span{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;font-weight:900}
+.board-group h3{font-size:22px;margin:0}.board-rows{position:relative;z-index:2}
+.board-row{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:10px 0;border-bottom:1px dashed rgba(255,255,255,.18)}
+.board-row b{font-size:12px}.board-row span{font-size:12px;font-weight:900;white-space:nowrap}
+.board-group img{position:absolute;left:-22px;bottom:-18px;width:145px;height:145px;border-radius:50%;object-fit:cover;opacity:.96;border:5px solid #0b0b0c}
+.board-offer{margin:0 4vw 70px;padding:34px 38px;border-radius:18px;display:flex;justify-content:space-between;align-items:center;gap:24px}
+.board-offer h2{font-size:40px;margin:5px 0}.board-offer p{margin:0}.board-offer strong{font-size:38px}
+.board-contact{padding:55px 6vw;display:flex;align-items:center;justify-content:space-between;gap:30px;border-top:1px solid rgba(255,255,255,.1)}
+.board-contact small{letter-spacing:2px}.board-contact h2{font-size:38px;margin:7px 0}.board-contact p{color:#aaa}
+.board-contact>a{background:#fff;color:#111;padding:13px 18px;border-radius:999px;font-weight:900}
+.board-footer{padding:20px 4vw;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;font-size:10px;letter-spacing:2px;color:#777}
+
+/* restaurant: black + red like street/doner boards */
+.board-red{--accent:#ef2b2d}
+.board-red .board-top{border-bottom-color:#3d1516}
+.board-red .board-brand small,.board-red .board-hero span,.board-red .board-menu-title span{color:#ff5557}
+.board-red .board-group{border-color:#662022;background:linear-gradient(180deg,#111,#0b0b0c)}
+.board-red .board-group header{border-bottom:3px solid var(--accent);padding-bottom:9px}
+.board-red .board-group header>span{background:var(--accent);color:#fff}
+.board-red .board-row span{color:#ff6567}
+.board-red .board-offer{background:var(--accent);color:#fff}
+.board-red .board-contact>a{background:var(--accent);color:#fff}
+
+/* buffet: warm wood/orange poster */
+.board-orange{background:#2a160e;color:#fff7ef}
+.board-orange{--accent:#f3912f}
+.board-orange .board-top{background:rgba(42,22,14,.96);border-bottom-color:#5c321e}
+.board-orange .board-brand small,.board-orange .board-hero span,.board-orange .board-menu-title span{color:#ffb35f}
+.board-orange .board-hero{background:linear-gradient(135deg,#2a160e,#4a2818)}
+.board-orange .board-group{border-color:#a45b28;background:linear-gradient(180deg,#3b2014,#2b170f)}
+.board-orange .board-group header{background:var(--accent);color:#2b170f;margin:-15px -15px 14px;padding:10px 15px}
+.board-orange .board-group header>span{background:#2b170f;color:#fff}
+.board-orange .board-row{border-bottom-color:rgba(255,255,255,.14)}
+.board-orange .board-row span{color:#ffc47f}
+.board-orange .board-group img{border-color:#2a160e}
+.board-orange .board-offer{background:#f3912f;color:#2a160e}
+.board-orange .board-contact>a{background:#f3912f;color:#2a160e}
+
+@media(max-width:900px){
+  .board-grid{grid-template-columns:1fr 1fr}
+  .board-hero{grid-template-columns:1fr}
+  .board-hero img{min-height:280px;max-height:360px}
+}
+@media(max-width:620px){
+  .board-top{top:68px;padding:11px 12px}
+  .board-brand p{display:none}
+  .board-hero>div{padding:38px 20px}
+  .board-hero h2{font-size:48px}
+  .board-menu{padding:50px 16px 65px}
+  .board-menu-title h2{font-size:36px}
+  .board-grid{grid-template-columns:1fr}
+  .board-group{min-height:280px}
+  .board-group img{width:120px;height:120px}
+  .board-offer{margin:0 16px 50px;padding:24px;display:block}
+  .board-offer h2{font-size:32px}.board-offer strong{display:block;margin-top:14px;font-size:28px}
+  .board-contact{padding:40px 18px;display:block}.board-contact>a{display:inline-block;margin-top:15px}
+}
