@@ -132,7 +132,8 @@ const SITE_DATA = {
     templates:[
       {id:1,name:"الخير",style:"Fresh Market",layout:"luxe",desc:"تصميم بصري للأقسام والمنتجات الطازجة.",img:"https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=900&q=60"},
       {id:2,name:"ماركت 24",style:"Quick Cart",layout:"app",desc:"متجر جوال سريع مع سلة وتصنيفات.",img:"https://images.unsplash.com/photo-1578916171728-46686eac8d58?auto=format&fit=crop&w=900&q=60"},
-      {id:3,name:"سلة",style:"Weekly Deals",layout:"editorial",desc:"واجهة عروض وخصومات أسبوعية.",img:"https://images.unsplash.com/photo-1604719312566-8912e9227c6a?auto=format&fit=crop&w=900&q=60"}
+      {id:3,name:"سلة",style:"Weekly Deals",layout:"editorial",desc:"واجهة عروض وخصومات أسبوعية.",img:"https://images.unsplash.com/photo-1604719312566-8912e9227c6a?auto=format&fit=crop&w=900&q=60"},
+      {id:4,name:"متجر بلس",style:"E-Commerce Store",layout:"commerce",desc:"متجر كامل للجوال: بحث، أقسام جانبية، فلترة، منتجات وسلة.",img:"https://images.unsplash.com/photo-1578916171728-46686eac8d58?auto=format&fit=crop&w=900&q=60"}
     ],
     categories:["العروض","المشروبات","الألبان","المعلبات","المنظفات"],
     items:[
@@ -165,7 +166,7 @@ const SITE_DATA = {
       {id:1,name:"بنيان",style:"Industrial Luxe",layout:"luxe",desc:"واجهة قوية لمعرض مواد بناء ومشاريع كبيرة.",img:"https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=900&q=60"},
       {id:2,name:"مواد بلس",style:"Catalog App",layout:"app",desc:"كتالوج منتجات سريع مع أقسام وطلب كمية.",img:"https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=900&q=60"},
       {id:3,name:"المعمار",style:"Project Editorial",layout:"editorial",desc:"عرض راقٍ للمنتجات والمشاريع والعلامات التجارية.",img:"https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=60"},
-      {id:4,name:"مخزن برو",style:"Industrial Catalog",layout:"materials",desc:"كتالوج صناعي للكميات والأسعار وطلبات المشاريع.",img:"https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=900&q=60"}
+      {id:4,name:"مخزن برو",style:"Industrial Store",layout:"commerce",desc:"متجر مواد بناء كامل: أقسام جانبية، بحث، منتجات وطلبات كميات.",img:"https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=900&q=60"}
     ],
     categories:["الحديد","الأسمنت","البلوك","الأدوات الصحية","الكهرباء","العوازل"],
     items:[
@@ -531,6 +532,83 @@ function shareBar(title){
   return `<div class="share-strip"><span>مشاركة</span><a href="https://wa.me/?text=${txt}" target="_blank" rel="noopener">واتساب</a><a href="https://www.facebook.com/sharer/sharer.php?u=${u}" target="_blank" rel="noopener">فيسبوك</a><a href="https://t.me/share/url?url=${u}&text=${encodeURIComponent(title)}" target="_blank" rel="noopener">تليجرام</a><button type="button" onclick="navigator.share?navigator.share({title:'${title.replace(/'/g,"")} ',url:location.href}):navigator.clipboard&&navigator.clipboard.writeText(location.href)">مشاركة عامة</button></div>`;
 }
 
+
+function legalFooter(d,t,type){
+  const hotel=type==="hotels";
+  const commerce=type==="groceries"||type==="buildingmaterials";
+  return `<footer class="legal-footer">
+    <div class="legal-footer-main">
+      <div class="legal-brand"><b>${t.name}</b><p>${d.aboutText}</p><div class="legal-social"><a href="https://wa.me/" target="_blank">واتساب</a><a href="#" aria-label="Facebook">فيسبوك</a><a href="#" aria-label="Instagram">إنستغرام</a><a href="#" aria-label="Snapchat">سناب</a><a href="https://t.me/share/url?url=${encodeURIComponent(location.href)}" target="_blank">تليجرام</a></div></div>
+      <div class="legal-links"><h3>روابط مهمة</h3><a href="#home">الرئيسية</a><a href="#sections">الأقسام</a><a href="#contact">تواصل معنا</a><a href="#terms">الشروط والأحكام</a><a href="#privacy">سياسة الخصوصية</a></div>
+      <div class="legal-contact" id="footer-contact"><h3>تواصل معنا</h3><p>05XXXXXXXX</p><p>info@example.com</p><p>📍 عنوان المنشأة</p><p>يوميًا حسب أوقات العمل</p></div>
+    </div>
+    <div class="legal-policy-grid">
+      <details id="terms"><summary>الشروط والأحكام</summary><div><p>استخدام الموقع والخدمات يخضع لشروط المنشأة وسياسات الطلب أو الحجز المعتمدة.</p>${commerce?'<p>الأسعار والتوفر قابلة للتحديث، ويؤكد الطلب بعد مراجعة الكمية والتوصيل.</p>':""}${hotel?'<p>تخضع الحجوزات لسياسة الإلغاء ومواعيد الدخول والخروج الخاصة بالفندق.</p>':""}</div></details>
+      <details id="privacy"><summary>سياسة الخصوصية</summary><div><p>تُستخدم بيانات التواصل والطلب أو الحجز لتنفيذ الخدمة والتواصل مع العميل فقط وفق سياسة المنشأة.</p></div></details>
+      <details id="contact-policy"><summary>تواصل معنا</summary><div><p>للاستفسارات والدعم: واتساب، اتصال، بريد إلكتروني أو زيارة الموقع.</p></div></details>
+    </div>
+    <div class="legal-copy"><span>© 2026 ${t.name} — جميع الحقوق محفوظة</span><span>الشروط • الخصوصية • التواصل</span></div>
+  </footer>`;
+}
+
+function commercePage(type,d,t){
+  const isMaterials=type==="buildingmaterials";
+  const priceLabel=isMaterials?"طلب سعر":"السعر";
+  return `<section class="full-demo commerce-site ${isMaterials?"commerce-materials":"commerce-retail"}">
+    <header class="commerce-head">
+      <button class="commerce-menu-btn" type="button" aria-label="القائمة">☰</button>
+      <a class="commerce-brand" href="#home"><b>${t.name}</b><small>${isMaterials?"مواد بناء • توريد • أدوات":"متجر إلكتروني"}</small></a>
+      <div class="commerce-actions"><button type="button" aria-label="بحث">⌕</button><button type="button" aria-label="الحساب">♙</button><button type="button" class="commerce-cart" aria-label="السلة">🛒<span>0</span></button></div>
+    </header>
+    <aside class="commerce-drawer" aria-hidden="true">
+      <div class="commerce-drawer-head"><h2>القائمة الرئيسية</h2><button type="button" class="commerce-close">×</button></div>
+      <nav><a href="#home">الرئيسية</a><a href="#catalog">المنتجات</a>${d.categories.map((x,i)=>`<button type="button" data-menu-filter="${x}"><span class="drawer-icon">0${i+1}</span><b>${x}</b><i>‹</i></button>`).join("")}<a href="#offers">العروض</a><a href="#contact">تواصل معنا</a></nav>
+    </aside>
+    <div class="commerce-overlay"></div>
+
+    <section id="home" class="commerce-search-area">
+      <div class="commerce-breadcrumb">الرئيسية &nbsp;‹&nbsp; ${d.singular} &nbsp;‹&nbsp; المنتجات</div>
+      <div class="commerce-search"><input type="search" placeholder="ابحث عن منتج..." aria-label="بحث"><button type="button">بحث</button></div>
+    </section>
+
+    <section id="catalog" class="commerce-catalog">
+      <div class="commerce-catalog-head"><div><small>PRODUCTS</small><h1>${d.sectionLabel}</h1></div><div class="commerce-tools"><button type="button" class="commerce-filter">⌄ فلترة</button><select aria-label="ترتيب"><option>مقترحاتنا</option><option>السعر من الأقل</option><option>السعر من الأعلى</option><option>الأحدث</option></select></div></div>
+      <div class="commerce-cats"><button class="active" type="button" data-menu-filter="الكل">الكل</button>${d.categories.map(x=>`<button type="button" data-menu-filter="${x}">${x}</button>`).join("")}</div>
+      <div class="commerce-product-grid">${d.items.map((it,i)=>`<article data-category="${it[4]}" data-popular="${it[5]?"1":"0"}" data-search="${(it[0]+" "+it[1]+" "+it[4]).toLowerCase()}">
+        <div class="commerce-product-media"><img src="${it[3]}" alt="${it[0]}" loading="lazy" decoding="async"><button class="wish" type="button" aria-label="المفضلة">♡</button><button class="quick" type="button" aria-label="معاينة">⊙</button>${i%4===1&&!isMaterials?'<span class="discount">خصم 20%</span>':""}</div>
+        <div class="commerce-product-info"><small>${it[4]}</small><h3>${it[0]}</h3><p>${it[1]}</p><footer><strong>${it[2]}</strong><button type="button" class="add-cart">${isMaterials?"طلب تسعيرة":"أضف للسلة"}</button></footer></div>
+      </article>`).join("")}</div>
+    </section>
+
+    <section id="offers" class="commerce-offer"><div><small>${isMaterials?"للمقاولين والمشاريع":"عرض هذا الأسبوع"}</small><h2>${d.offer[0]}</h2><p>${d.offer[1]}</p></div><strong>${d.offer[2]}</strong></section>
+    <section class="commerce-benefits"><article><b>✓</b><div><h3>${isMaterials?"تسعير كميات":"منتجات مختارة"}</h3><p>${isMaterials?"عروض خاصة للمشاريع والكميات.":"منتجات مرتبة وأسعار واضحة."}</p></div></article><article><b>🚚</b><div><h3>توصيل</h3><p>إمكانية تحديد مناطق ورسوم التوصيل.</p></div></article><article><b>☎</b><div><h3>دعم مباشر</h3><p>واتساب واتصال من داخل الموقع.</p></div></article></section>
+    <section id="contact" class="commerce-contact"><div><small>CONTACT</small><h2>تحتاج مساعدة؟</h2><p>05XXXXXXXX • واتساب • البريد الإلكتروني</p></div><a href="https://wa.me/" target="_blank">تواصل واتساب</a></section>
+    ${shareBar(t.name)}
+  </section>`;
+}
+
+function bindCommerceUI(root=document){
+  const site=root.querySelector(".commerce-site");
+  if(!site)return;
+  const drawer=site.querySelector(".commerce-drawer"),overlay=site.querySelector(".commerce-overlay");
+  const open=()=>{drawer.classList.add("open");overlay.classList.add("open");drawer.setAttribute("aria-hidden","false");};
+  const close=()=>{drawer.classList.remove("open");overlay.classList.remove("open");drawer.setAttribute("aria-hidden","true");};
+  site.querySelector(".commerce-menu-btn")?.addEventListener("click",open);
+  site.querySelector(".commerce-close")?.addEventListener("click",close);
+  overlay?.addEventListener("click",close);
+  drawer?.querySelectorAll("[data-menu-filter]").forEach(btn=>btn.addEventListener("click",close));
+  const input=site.querySelector(".commerce-search input");
+  input?.addEventListener("input",()=>{
+    const term=input.value.trim().toLowerCase();
+    site.querySelectorAll(".commerce-product-grid [data-search]").forEach(card=>{
+      card.hidden=term && !card.dataset.search.includes(term);
+    });
+  });
+  site.querySelectorAll(".add-cart").forEach(btn=>btn.addEventListener("click",()=>{
+    const n=site.querySelector(".commerce-cart span"); if(n)n.textContent=String((Number(n.textContent)||0)+1);
+  }));
+}
+
 function materialsPage(type,d,t){
   const featured=d.items.filter(x=>x[5]).slice(0,6);
   return `<section class="full-demo materials-site">
@@ -589,7 +667,8 @@ function renderDemoPage(){
   const type=q("type")||"restaurants",style=Number(q("style")||1),d=dataFor(type),t=d.templates[(style-1)%d.templates.length];
   document.title=t.name+" | MM Studio";
   document.getElementById("demoToolbarTitle").textContent=t.name+" — موقع كامل";
-  let html=t.layout==="luxe"?luxePage(type,d,t):t.layout==="app"?appPage(type,d,t):t.layout==="board"?boardPage(type,d,t):t.layout==="materials"?materialsPage(type,d,t):t.layout==="projects"?projectsPage(type,d,t):t.layout==="booking"?bookingPage(type,d,t):editorialPage(type,d,t);
-  document.getElementById("demoRoot").innerHTML=html;
+  let html=t.layout==="luxe"?luxePage(type,d,t):t.layout==="app"?appPage(type,d,t):t.layout==="board"?boardPage(type,d,t):t.layout==="materials"?materialsPage(type,d,t):t.layout==="projects"?projectsPage(type,d,t):t.layout==="booking"?bookingPage(type,d,t):t.layout==="commerce"?commercePage(type,d,t):editorialPage(type,d,t);
+  document.getElementById("demoRoot").innerHTML=html+legalFooter(d,t,type);
   bindCategoryFilters(document.getElementById("demoRoot"));
+  bindCommerceUI(document.getElementById("demoRoot"));
 }
