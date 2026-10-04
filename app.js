@@ -527,18 +527,42 @@ function boardPage(type,d,t){
 }
 
 
-function shareBar(title){
-  const u=encodeURIComponent(location.href),txt=encodeURIComponent(title+" - "+location.href);
-  return `<div class="share-strip"><span>مشاركة</span><a href="https://wa.me/?text=${txt}" target="_blank" rel="noopener">واتساب</a><a href="https://www.facebook.com/sharer/sharer.php?u=${u}" target="_blank" rel="noopener">فيسبوك</a><a href="https://t.me/share/url?url=${u}&text=${encodeURIComponent(title)}" target="_blank" rel="noopener">تليجرام</a><button type="button" onclick="navigator.share?navigator.share({title:'${title.replace(/'/g,"")} ',url:location.href}):navigator.clipboard&&navigator.clipboard.writeText(location.href)">مشاركة عامة</button></div>`;
+
+function socialIcon(name){
+  const icons={
+    whatsapp:`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.7 11.7 0 0 0 12.1 0C5.6 0 .3 5.2.3 11.7c0 2.1.6 4.1 1.6 5.9L0 24l6.6-1.7a11.8 11.8 0 0 0 5.5 1.4h.1c6.5 0 11.8-5.2 11.8-11.7 0-3.1-1.2-6.1-3.5-8.5Zm-8.4 18.2a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.9 1 1-3.8-.3-.4a9.7 9.7 0 1 1 8.6 4.8Zm5.4-7.3c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.2-.2.3-.8.9-1 1.1-.2.2-.4.2-.7.1-1.8-.9-3-1.6-4.2-3.6-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.6l-.9-2.1c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.4 1.4 3.6c.2.2 2.4 3.7 5.9 5.2.8.4 1.5.6 2 .7.8.3 1.6.2 2.2.1.7-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3Z"/></svg>`,
+    facebook:`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.8 24v-10h3.4l.5-3.9h-3.9V7.6c0-1.1.3-1.9 2-1.9h2.1V2.2c-.4 0-1.6-.2-3.1-.2-3.1 0-5.2 1.9-5.2 5.3v2.8H6.1V14h3.5v10h4.2Z"/></svg>`,
+    instagram:`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.1 0h9.8C20.8 0 24 3.2 24 7.1v9.8c0 3.9-3.2 7.1-7.1 7.1H7.1A7.1 7.1 0 0 1 0 16.9V7.1A7.1 7.1 0 0 1 7.1 0Zm-.2 2.2A4.7 4.7 0 0 0 2.2 6.9v10.2a4.7 4.7 0 0 0 4.7 4.7h10.2a4.7 4.7 0 0 0 4.7-4.7V6.9a4.7 4.7 0 0 0-4.7-4.7H6.9Zm10.5 1.7a1.7 1.7 0 1 1 0 3.4 1.7 1.7 0 0 1 0-3.4ZM12 5.8A6.2 6.2 0 1 1 12 18a6.2 6.2 0 0 1 0-12.2Zm0 2.2a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>`,
+    snapchat:`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.7c-3.2 0-5.3 2.3-5.3 5.5 0 1.2.2 2.1.1 2.8-.2.9-.8 1.5-1.7 1.9-.9.4-1.5.6-1.5 1.2 0 .6.7.9 1.8 1.1.6.1.9.4.9.7 0 .3-.2.7-.4 1-.2.4 0 .8.5.9.5.1.9.1 1.1.5.3.4.3.9.6 1.2.5.2 1.1-.2 2.5-.2h.3c1.4 0 2 .4 2.5.2.3-.2.3-.7.6-1.2.2-.4.6-.4 1.1-.5.5-.1.7-.5.5-.9-.2-.3-.4-.7-.4-1 0-.3.3-.6.9-.7 1.1-.2 1.8-.5 1.8-1.1 0-.6-.6-.8-1.5-1.2-.9-.4-1.5-1-1.7-1.9-.1-.7.1-1.6.1-2.8 0-3.2-2.1-5.5-5.3-5.5Z"/></svg>`,
+    telegram:`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.4 1.7 19.9 22c-.3 1.4-1 1.7-2.1 1.1l-5.3-3.9-2.6 2.5c-.3.3-.5.5-1 .5l.4-5.4 9.8-8.9c.4-.4-.1-.6-.7-.2L6.3 15.3 1.1 13.7c-1.1-.4-1.2-1.1.2-1.6L21.6.4c.9-.4 1.8.2 1.8 1.3Z"/></svg>`
+  };
+  return icons[name]||"";
 }
 
+function shareBar(title){
+  const u=encodeURIComponent(location.href),txt=encodeURIComponent(title+" - "+location.href);
+  return `<div class="share-strip" aria-label="مشاركة">
+    <span>شارك</span>
+    <a class="social-icon whatsapp" href="https://wa.me/?text=${txt}" target="_blank" rel="noopener" aria-label="واتساب" title="واتساب">${socialIcon("whatsapp")}</a>
+    <a class="social-icon facebook" href="https://www.facebook.com/sharer/sharer.php?u=${u}" target="_blank" rel="noopener" aria-label="فيسبوك" title="فيسبوك">${socialIcon("facebook")}</a>
+    <a class="social-icon instagram native-share" href="#" aria-label="إنستغرام" title="إنستغرام" data-share-title="${title}">${socialIcon("instagram")}</a>
+    <a class="social-icon snapchat native-share" href="#" aria-label="سناب شات" title="سناب شات" data-share-title="${title}">${socialIcon("snapchat")}</a>
+    <a class="social-icon telegram" href="https://t.me/share/url?url=${u}&text=${encodeURIComponent(title)}" target="_blank" rel="noopener" aria-label="تليجرام" title="تليجرام">${socialIcon("telegram")}</a>
+  </div>`;
+}
 
 function legalFooter(d,t,type){
   const hotel=type==="hotels";
   const commerce=type==="groceries"||type==="buildingmaterials";
   return `<footer class="legal-footer">
     <div class="legal-footer-main">
-      <div class="legal-brand"><b>${t.name}</b><p>${d.aboutText}</p><div class="legal-social"><a href="https://wa.me/" target="_blank">واتساب</a><a href="#" aria-label="Facebook">فيسبوك</a><a href="#" aria-label="Instagram">إنستغرام</a><a href="#" aria-label="Snapchat">سناب</a><a href="https://t.me/share/url?url=${encodeURIComponent(location.href)}" target="_blank">تليجرام</a></div></div>
+      <div class="legal-brand"><b>${t.name}</b><p>${d.aboutText}</p><div class="legal-social">
+        <a class="social-icon whatsapp" href="https://wa.me/" target="_blank" aria-label="واتساب" title="واتساب">${socialIcon("whatsapp")}</a>
+        <a class="social-icon facebook" href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(location.href)}" target="_blank" aria-label="فيسبوك" title="فيسبوك">${socialIcon("facebook")}</a>
+        <a class="social-icon instagram native-share" href="#" aria-label="إنستغرام" title="إنستغرام" data-share-title="${t.name}">${socialIcon("instagram")}</a>
+        <a class="social-icon snapchat native-share" href="#" aria-label="سناب شات" title="سناب شات" data-share-title="${t.name}">${socialIcon("snapchat")}</a>
+        <a class="social-icon telegram" href="https://t.me/share/url?url=${encodeURIComponent(location.href)}" target="_blank" aria-label="تليجرام" title="تليجرام">${socialIcon("telegram")}</a>
+      </div></div>
       <div class="legal-links"><h3>روابط مهمة</h3><a href="#home">الرئيسية</a><a href="#sections">الأقسام</a><a href="#contact">تواصل معنا</a><a href="#terms">الشروط والأحكام</a><a href="#privacy">سياسة الخصوصية</a></div>
       <div class="legal-contact" id="footer-contact"><h3>تواصل معنا</h3><p>05XXXXXXXX</p><p>info@example.com</p><p>📍 عنوان المنشأة</p><p>يوميًا حسب أوقات العمل</p></div>
     </div>
@@ -671,4 +695,10 @@ function renderDemoPage(){
   document.getElementById("demoRoot").innerHTML=html+legalFooter(d,t,type);
   bindCategoryFilters(document.getElementById("demoRoot"));
   bindCommerceUI(document.getElementById("demoRoot"));
+  document.getElementById("demoRoot").querySelectorAll(".native-share").forEach(el=>el.addEventListener("click",async e=>{
+    e.preventDefault();
+    const title=el.dataset.shareTitle||document.title;
+    if(navigator.share){try{await navigator.share({title,url:location.href});}catch(_){}}
+    else if(navigator.clipboard){navigator.clipboard.writeText(location.href);}
+  }));
 }
