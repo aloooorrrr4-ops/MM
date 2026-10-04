@@ -11,7 +11,9 @@ header{height:64px;display:flex;align-items:center;border-bottom:1px solid #ded9
 .hero{background:#111;color:#fff;padding:68px 0 58px}.tag{font-size:10px;letter-spacing:2px;color:#c8a47b}.hero h1{font-size:clamp(42px,10vw,76px);line-height:1.03;margin:14px 0 20px;letter-spacing:-2px}.hero h1 em{font-style:normal;color:#c8a47b}.hero p{color:#b9b9bc;line-height:1.9;font-size:16px;max-width:680px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}.btn{padding:13px 17px;border-radius:12px;font-size:13px;font-weight:800}.primary{background:#fff;color:#111}.secondary{border:1px solid #3a3a3d;color:#fff}.stats{display:flex;gap:28px;margin-top:35px}.stats div{display:flex;flex-direction:column}.stats b{font-size:22px}.stats span{font-size:10px;color:#888}
 .categories{padding:60px 0}.head{margin-bottom:25px}.head span{font-size:10px;color:#8d6b49;font-weight:900}.head h2{font-size:36px;line-height:1.15;margin:8px 0}.head p{color:#6f6b66;line-height:1.8}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.card{position:relative;min-height:220px;border-radius:22px;overflow:hidden;background:#d8d1c8;color:#fff}.pic{position:absolute;inset:0;background:#d4cec5 center/cover no-repeat;opacity:.25;transition:opacity .25s}.pic.ready{opacity:1}.shade{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.82),rgba(0,0,0,.08))}.content{position:absolute;inset:0;padding:20px;display:flex;flex-direction:column;justify-content:end}.content small{position:absolute;top:18px;right:18px;background:rgba(255,255,255,.17);padding:6px 8px;border-radius:99px}.content h3{font-size:30px;margin:0 0 6px}.content p{font-size:12px;color:#ddd;margin:0 0 13px}.content b{font-size:11px}.wide{grid-column:1/-1}
 .how{background:#191919;color:#fff;padding:55px 0}.how h2{font-size:34px;margin:0 0 24px}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.step{border:1px solid #303033;border-radius:17px;padding:18px}.step b{color:#c8a47b}.step p{font-size:12px;line-height:1.7;color:#aaa;margin-bottom:0}footer{padding:25px 0;text-align:center;font-size:11px;color:#777}
+.featured{padding:48px 0 8px}.featured-card{display:grid;grid-template-columns:1fr 1fr;overflow:hidden;border-radius:24px;background:#241d20;color:#fff}.featured-copy{padding:36px;display:flex;flex-direction:column;justify-content:center}.featured-copy small{color:#d8a4bb;letter-spacing:2px}.featured-copy h2{font-size:38px;margin:12px 0}.featured-copy p{font-size:15px;line-height:1.9;color:#dacdd2}.featured-copy a{align-self:flex-start;background:#ca6f92;padding:13px 18px;border-radius:999px;font-size:13px;font-weight:800}.featured-image{min-height:310px;background:url('https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1000&q=72') center/cover}
 @media(max-width:650px){.hero{padding:48px 0 42px}.hero h1{font-size:44px}.grid,.steps{grid-template-columns:1fr}.wide{grid-column:auto}.card{min-height:190px}.stats{gap:18px}.head h2{font-size:31px}}
+@media(max-width:650px){.featured{padding:28px 0 0}.featured-card{grid-template-columns:1fr}.featured-image{min-height:200px;order:-1}.featured-copy{padding:26px}.featured-copy h2{font-size:29px}}
 </style>
 </head>
 <body>
@@ -31,11 +33,18 @@ header{height:64px;display:flex;align-items:center;border-bottom:1px solid #ded9
   </div>
 </section>
 
+<section class="featured wrap" id="catalogs">
+  <div class="featured-card">
+    <div class="featured-copy"><small>كتالوج + لوحة تحرير</small><h2>كتالوج مشغل 1</h2><p>موقع صالون متكامل للباقات والخدمات والصور والحجز. نخصص نسخة مستقلة باسم كل مشغل، مع لوحة تحرير لمحتواه.</p><a href="ramz-alonotha.html">عرض الكتالوج</a></div>
+    <div class="featured-image" role="img" aria-label="صورة صالون نسائي"></div>
+  </div>
+</section>
+
 <section id="categories" class="categories wrap">
   <div class="head"><span>اختر القطاع</span><h2>من أين نبدأ؟</h2><p>الصور لا تُحمّل عند فتح الصفحة؛ تظهر تدريجيًا فقط عندما تصل إلى هذا الجزء.</p></div>
   <div class="grid">
     <a class="card" href="category.html?type=restaurants"><div class="pic lazy" data-bg="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=520&q=38"></div><div class="shade"></div><div class="content"><small>01</small><h3>المطاعم</h3><p>فاخر · طلب سريع · Editorial</p><b>3 نماذج ←</b></div></a>
-    <a class="card" href="category.html?type=salons"><div class="pic lazy" data-bg="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=520&q=38"></div><div class="shade"></div><div class="content"><small>02</small><h3>الصوالين</h3><p>Beauty · Booking · Spa</p><b>3 نماذج ←</b></div></a>
+    <a class="card" href="category.html?type=salons"><div class="pic lazy" data-bg="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=520&q=38"></div><div class="shade"></div><div class="content"><small>02</small><h3>الصوالين</h3><p>Beauty · Booking · Spa</p><b>4 نماذج ←</b></div></a>
     <a class="card" href="category.html?type=groceries"><div class="pic lazy" data-bg="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=520&q=38"></div><div class="shade"></div><div class="content"><small>03</small><h3>البقالات</h3><p>متجر · سلة · عروض</p><b>3 نماذج ←</b></div></a>
     <a class="card" href="category.html?type=buffets"><div class="pic lazy" data-bg="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=520&q=38"></div><div class="shade"></div><div class="content"><small>04</small><h3>البوفيهات</h3><p>فطور · وجبات · طلب سريع</p><b>3 نماذج ←</b></div></a>
     <a class="card" href="category.html?type=tailors"><div class="pic lazy" data-bg="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=520&q=38"></div><div class="shade"></div><div class="content"><small>05</small><h3>الخياطة</h3><p>موديلات · قياسات · Lookbook</p><b>3 نماذج ←</b></div></a>
