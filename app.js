@@ -102,7 +102,7 @@ const SITE_DATA = {
       {id:1,name:"لمسة",style:"Beauty Luxe",layout:"luxe",desc:"هوية أنثوية فاخرة مع صور كبيرة.",img:"https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=900&q=60"},
       {id:2,name:"ستايل",style:"Booking App",layout:"app",desc:"خدمات وأسعار وحجز سريع من الجوال.",img:"https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=900&q=60"},
       {id:3,name:"Serenity",style:"Spa Editorial",layout:"editorial",desc:"تصميم هادئ للباقات والعناية والسبا.",img:"https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=900&q=60"},
-      {id:4,name:"رمز الأنوثة",style:"Salon Signature",layout:"salonpro",url:"ramz-alonotha.html",desc:"نموذج صالون نسائي فاخر مخصص لرمز الأنوثة في جازان.",img:"https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=900&q=60"}
+      {id:4,name:"كتالوج مشغل 1",style:"Catalog + Editor",layout:"salonpro",url:"ramz-alonotha.html",desc:"كتالوج صالون متكامل مع لوحة تحرير للاسم والوصف والأسعار والصور والباقات.",img:"https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=900&q=60"}
     ],
     categories:["قص وتصفيف","عناية الشعر","الصبغات","المكياج","الباقات"],
     items:[
