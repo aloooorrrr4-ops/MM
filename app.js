@@ -101,7 +101,8 @@ const SITE_DATA = {
     templates:[
       {id:1,name:"لمسة",style:"Beauty Luxe",layout:"luxe",desc:"هوية أنثوية فاخرة مع صور كبيرة.",img:"https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=900&q=60"},
       {id:2,name:"ستايل",style:"Booking App",layout:"app",desc:"خدمات وأسعار وحجز سريع من الجوال.",img:"https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=900&q=60"},
-      {id:3,name:"Serenity",style:"Spa Editorial",layout:"editorial",desc:"تصميم هادئ للباقات والعناية والسبا.",img:"https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=900&q=60"}
+      {id:3,name:"Serenity",style:"Spa Editorial",layout:"editorial",desc:"تصميم هادئ للباقات والعناية والسبا.",img:"https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=900&q=60"},
+      {id:4,name:"رمز الأنوثة",style:"Salon Signature",layout:"salonpro",url:"ramz-alonotha.html",desc:"نموذج صالون نسائي فاخر مخصص لرمز الأنوثة في جازان.",img:"https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=900&q=60"}
     ],
     categories:["قص وتصفيف","عناية الشعر","الصبغات","المكياج","الباقات"],
     items:[
@@ -386,7 +387,7 @@ function renderCategoryPage(){
       <div class="template-body">
         <p class="template-desc">${t.desc}</p>
         <div class="template-sections"><span>الرئيسية</span><span>من نحن</span><span>${d.sectionLabel}</span><span>العروض</span><span>المعرض</span><span>الآراء</span><span>التواصل</span></div>
-        <a class="template-btn" href="demo.html?type=${type}&style=${t.id}">فتح الموقع كاملًا</a>
+        <a class="template-btn" href="${t.url||(`demo.html?type=${type}&style=${t.id}`)}">فتح الموقع كاملًا</a>
       </div>
     </article>`).join("");
   lazyBackgrounds(document.getElementById("templatesGrid"));
