@@ -6,6 +6,8 @@
   const changes = new Map();
   const imageFiles = new Map();
   const deletedImages = new Map();
+  const addedPackages = new Set();
+  const deletedPackages = new Set();
   let accessToken = '';
   let publishing = false;
   document.body.classList.add('salon-admin');
@@ -40,16 +42,87 @@
   addPhotoButton.className = 'admin-add-photo';
   addPhotoButton.textContent = '+ إضافة صورة للمعرض';
   document.querySelector('#gallery .title').append(addPhotoButton);
+  const packageActions = document.createElement('div');
+  packageActions.className = 'admin-package-actions';
+  packageActions.innerHTML = '<button type="button" class="admin-add-photo admin-add-package">+ إضافة باقة</button><button type="button" class="admin-add-photo admin-delete-package">حذف هذه الباقة</button>';
+  document.querySelector('.package-book').append(packageActions);
+  css.textContent += '.admin-package-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:10px auto}.admin-delete-package{background:#35292e}.salon-admin .hero-img[data-edit-field="image"]{min-height:380px}@media(max-width:600px){.admin-package-actions button{font-size:13px;padding:10px 14px}}';
 
   function setStatus(message) { status.textContent = message; }
   function editId(node) { return node.closest('[data-edit-id]').getAttribute('data-edit-id'); }
-  document.querySelectorAll('[data-edit-id] [data-edit-field]:not([data-edit-field="image"])').forEach(node => {
+  function bindText(node) {
     node.contentEditable = 'true';
     node.setAttribute('spellcheck', 'false');
     node.addEventListener('input', () => {
-      changes.set(editId(node) + ':' + node.dataset.editField, node.textContent.trim());
+      const value = node.textContent.trim();
+      changes.set(editId(node) + ':' + node.dataset.editField, value);
+      if (node.dataset.global) {
+        document.querySelectorAll('[data-global="' + node.dataset.global + '"]').forEach(other => {
+          if (other !== node) other.textContent = value;
+          changes.set(editId(other) + ':' + other.dataset.editField, value);
+        });
+      }
       setStatus('تغييرات غير منشورة — راجعيها ثم اضغطي نشر التعديلات.');
     });
+  }
+  document.querySelectorAll('[data-edit-id] [data-edit-field]:not([data-edit-field="image"])').forEach(bindText);
+
+  function refreshPackages(index) {
+    window.refreshSalonPackages(index);
+    packageActions.querySelector('.admin-delete-package').disabled = document.querySelectorAll('.package-page').length <= 1;
+  }
+  let nextPackageNumber = document.querySelectorAll('.package-page').length + 1;
+  packageActions.querySelector('.admin-add-package').addEventListener('click', () => {
+    const pages = [...document.querySelectorAll('.package-page')];
+    const card = pages[0].cloneNode(true);
+    const id = 'package-new-' + Date.now() + '-' + Math.random().toString(36).slice(2, 7);
+    const title = 'باقة جديدة ' + nextPackageNumber++;
+    card.dataset.editId = id;
+    card.dataset.originalTitle = title;
+    card.querySelector('.package-art').style.setProperty('--package-image', 'none');
+    card.querySelector('.package-art b').textContent = String(pages.length + 1).padStart(2, '0');
+    card.querySelector('[data-edit-field="title"]').textContent = title;
+    card.querySelector('[data-edit-field="description"]').textContent = 'اكتبي وصف الباقة هنا.';
+    card.querySelector('[data-edit-field="price"]').textContent = 'السعر عند الاستفسار';
+    card.querySelector('a[data-package]').dataset.package = title;
+    document.getElementById('packageStack').append(card);
+    const option = document.createElement('option');
+    option.value = title;
+    option.textContent = title;
+    document.getElementById('service').append(option);
+    card.querySelector('a[data-package]').addEventListener('click', () => {
+      const select = document.getElementById('service');
+      select.value = card.querySelector('a[data-package]').dataset.package;
+      select.dispatchEvent(new Event('change'));
+    });
+    addedPackages.add(id);
+    for (const field of ['title','description','price']) {
+      const node = card.querySelector('[data-edit-field="' + field + '"]');
+      changes.set(id + ':' + field, node.textContent);
+      bindText(node);
+    }
+    bindImage(card.querySelector('[data-edit-field="image"]'));
+    refreshPackages(pages.length);
+    card.scrollIntoView({block:'center',behavior:'smooth'});
+    setStatus('أضيفت الباقة في المعاينة. عدلي الاسم والوصف والسعر ثم اضغطي الصورة لإضافتها.');
+  });
+  packageActions.querySelector('.admin-delete-package').addEventListener('click', () => {
+    const pages = [...document.querySelectorAll('.package-page')];
+    if (pages.length <= 1) return;
+    const active = pages.findIndex(page => page.classList.contains('is-active'));
+    const card = pages[active < 0 ? 0 : active];
+    if (!confirm('حذف هذه الباقة من الموقع عند النشر؟')) return;
+    const id = card.dataset.editId;
+    const title = card.querySelector('a[data-package]').dataset.package;
+    [...document.querySelectorAll('#service option')].find(option => option.value === title)?.remove();
+    if (addedPackages.has(id)) addedPackages.delete(id);
+    else deletedPackages.add(id);
+    imageFiles.delete(id);
+    deletedImages.delete(id);
+    for (const key of [...changes.keys()]) if (key.startsWith(id + ':')) changes.delete(key);
+    card.remove();
+    refreshPackages(Math.min(active, pages.length - 2));
+    setStatus('حُذفت الباقة من المعاينة. اضغطي نشر التعديلات لحفظ الحذف.');
   });
 
   const placeholder = 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500"><rect width="800" height="500" fill="#f4e9ed"/><text x="400" y="260" fill="#9d4f6f" font-size="35" font-family="Arial" text-anchor="middle">أضيفي صورة للخدمة</text></svg>');
@@ -80,7 +153,7 @@
       chooseFile();
     } else if (imageMenu.returnValue === 'delete') {
       const id = editId(imageTarget);
-      const kind = id.startsWith('gallery-') ? 'gallery' : id.startsWith('package-') ? 'package' : 'service';
+      const kind = id.startsWith('gallery-') ? 'gallery' : id.startsWith('package-') ? 'package' : id === 'hero-photo' ? 'hero' : 'service';
       imageFiles.delete(id);
       if (kind === 'gallery' && id.startsWith('gallery-new-')) {
         imageTarget.remove();
@@ -88,6 +161,7 @@
         deletedImages.set(id, kind);
         if (kind === 'gallery') imageTarget.remove();
         else if (kind === 'package') imageTarget.style.setProperty('--package-image', 'none');
+        else if (kind === 'hero') imageTarget.style.backgroundImage = 'none';
         else imageTarget.src = placeholder;
       }
       setStatus('تم حذف الصورة من المعاينة. اضغطي نشر التعديلات لحفظ الحذف.');
@@ -114,6 +188,7 @@
     const id = editId(imageTarget);
     const url = URL.createObjectURL(file);
     if (imageTarget.tagName === 'IMG') imageTarget.src = url;
+    else if (id === 'hero-photo') imageTarget.style.backgroundImage = 'url("' + url + '")';
     else imageTarget.style.setProperty('--package-image', 'url("' + url + '")');
     imageFiles.set(id, file);
     deletedImages.delete(id);
@@ -121,7 +196,7 @@
   });
 
   toolbar.querySelector('.admin-exit').addEventListener('click', () => {
-    if ((changes.size || imageFiles.size || deletedImages.size) && !confirm('الخروج سيلغي التعديلات غير المنشورة. هل تريدين الخروج؟')) return;
+    if ((changes.size || imageFiles.size || deletedImages.size || deletedPackages.size) && !confirm('الخروج سيلغي التعديلات غير المنشورة. هل تريدين الخروج؟')) return;
     location.href = location.pathname + location.hash;
   });
 
@@ -222,6 +297,64 @@
       const photo = card.querySelector('img[data-edit-field="image"]');
       if (photo && changes.has(id + ':title')) photo.alt = 'صورة توضيحية: ' + title;
     }
+    if ([...changes.keys()].some(key => key.endsWith(':phone') || key.endsWith(':address'))) {
+      const phone = doc.querySelector('[data-global="phone"]').textContent.trim();
+      const arabic = '٠١٢٣٤٥٦٧٨٩';
+      const eastern = '۰۱۲۳۴۵۶۷۸۹';
+      let digits = phone.replace(/[٠-٩۰-۹]/g, digit => String((arabic + eastern).indexOf(digit) % 10)).replace(/\D/g, '');
+      if (/^05\d{8}$/.test(digits)) digits = '966' + digits.slice(1);
+      if (!/^9665\d{8}$/.test(digits)) throw new Error('رقم المشغل يجب أن يكون رقم جوال سعودي صحيحًا.');
+      doc.querySelectorAll('a[href^="tel:"]').forEach(link => link.href = 'tel:+' + digits);
+      doc.querySelectorAll('a[href^="https://wa.me/"]').forEach(link => {
+        if (/wa\.me\/\+?\d/.test(link.href)) link.href = 'https://wa.me/' + digits;
+      });
+      const script = doc.querySelector('script:not([src]):not([type])');
+      script.textContent = script.textContent.replace(/wa\.me\/966\d{9}/g, 'wa.me/' + digits);
+      const schema = doc.querySelector('script[type="application/ld+json"]');
+      const data = JSON.parse(schema.textContent);
+      data.telephone = '+' + digits;
+      data.address.streetAddress = doc.querySelector('[data-global="address"]').textContent.trim();
+      schema.textContent = JSON.stringify(data);
+    }
+  }
+
+  function applyPackages(doc) {
+    const stack = doc.getElementById('packageStack');
+    const template = stack.querySelector('.package-page').cloneNode(true);
+    for (const id of deletedPackages) {
+      const card = stack.querySelector('[data-edit-id="' + id + '"]');
+      if (!card) throw new Error('تغيرت الباقات. أعيدي تحميل الصفحة قبل النشر.');
+      const title = card.querySelector('a[data-package]').dataset.package;
+      [...doc.querySelectorAll('#service option')].find(option => option.value === title)?.remove();
+      card.remove();
+    }
+    for (const id of addedPackages) {
+      const preview = document.querySelector('[data-edit-id="' + id + '"]');
+      if (!preview) throw new Error('لم أجد الباقة الجديدة في المعاينة.');
+      const initialTitle = preview.dataset.originalTitle;
+      const card = template.cloneNode(true);
+      card.dataset.editId = id;
+      card.querySelector('[data-edit-field="image"]').style.setProperty('--package-image', 'none');
+      card.querySelector('[data-edit-field="title"]').textContent = initialTitle;
+      card.querySelector('[data-edit-field="description"]').textContent = 'اكتبي وصف الباقة هنا.';
+      card.querySelector('[data-edit-field="price"]').textContent = 'السعر عند الاستفسار';
+      card.querySelector('a[data-package]').dataset.package = initialTitle;
+      stack.append(card);
+      const option = doc.createElement('option');
+      option.value = initialTitle;
+      option.textContent = initialTitle;
+      doc.querySelector('#service').append(option);
+    }
+    const pages = [...stack.querySelectorAll('.package-page')];
+    if (!pages.length) throw new Error('يجب إبقاء باقة واحدة على الأقل.');
+    pages.forEach((page, i) => {
+      page.classList.remove('is-active','turn-out-next','turn-in-next','turn-out-prev','turn-in-prev');
+      page.querySelector('.package-art b').textContent = String(i + 1).padStart(2, '0');
+      page.setAttribute('aria-hidden', i === 0 ? 'false' : 'true');
+      if (i === 0) { page.classList.add('is-active'); page.removeAttribute('inert'); }
+      else page.setAttribute('inert', '');
+    });
+    doc.getElementById('packagePosition').textContent = '01 / ' + String(pages.length).padStart(2, '0');
   }
 
   function applyDeletedImages(doc) {
@@ -231,13 +364,14 @@
       if (!node) throw new Error('تغيرت الصور في الصفحة. أعيدي تحميل الصفحة قبل النشر.');
       if (kind === 'gallery') node.remove();
       else if (kind === 'package') node.style.setProperty('--package-image', 'none');
+      else if (kind === 'hero') node.style.backgroundImage = 'none';
       else node.setAttribute('src', placeholder);
     }
   }
 
   saveButton.addEventListener('click', async () => {
     if (publishing) return;
-    if (!changes.size && !imageFiles.size && !deletedImages.size) { setStatus('لا توجد تغييرات للنشر.'); return; }
+    if (!changes.size && !imageFiles.size && !deletedImages.size && !deletedPackages.size) { setStatus('لا توجد تغييرات للنشر.'); return; }
     if (!await requestToken()) return;
     publishing = true;
     saveButton.disabled = true;
@@ -245,6 +379,7 @@
       setStatus('أتحقق من أحدث نسخة للصفحة...');
       const current = await api(pagePath + '?ref=main', 'GET');
       const doc = new DOMParser().parseFromString(decodeBase64(current.content), 'text/html');
+      applyPackages(doc);
       applyText(doc);
       applyDeletedImages(doc);
       let uploaded = 0;
@@ -263,6 +398,7 @@
         }
         if (!node) throw new Error('لم أجد موضع الصورة في النسخة المنشورة.');
         if (node.tagName === 'IMG') node.setAttribute('src', name);
+        else if (id === 'hero-photo') node.style.backgroundImage = 'url("' + name + '")';
         else node.style.setProperty('--package-image', 'url("' + name + '")');
       }
       setStatus('جاري نشر الصفحة...');
@@ -271,6 +407,8 @@
       changes.clear();
       imageFiles.clear();
       deletedImages.clear();
+      addedPackages.clear();
+      deletedPackages.clear();
       setStatus('تم النشر. قد يستغرق ظهور التحديث للزوار نحو دقيقة.');
     } catch (error) {
       setStatus(error.message || 'تعذر النشر. التعديلات ما زالت في المعاينة.');
