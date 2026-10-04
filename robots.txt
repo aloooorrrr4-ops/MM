@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://aloooorrrr4-ops.github.io/MM/sitemap.xml
