@@ -2,7 +2,8 @@
   if (new URLSearchParams(location.search).get('edit') !== '1') return;
 
   const repository = 'aloooorrrr4-ops/MM';
-  const pagePath = 'ramz-alonotha.html';
+  const pagePath = decodeURIComponent(location.pathname.split('/').pop());
+  if (!/^[a-z0-9][a-z0-9.-]*\.html$/i.test(pagePath)) return;
   const changes = new Map();
   const imageFiles = new Map();
   const deletedImages = new Map();
@@ -20,8 +21,9 @@
 
   const toolbar = document.createElement('div');
   toolbar.className = 'admin-toolbar';
-  toolbar.innerHTML = '<strong>تحرير صفحة رمز الأنوثة</strong><small id="adminStatus" role="status">المسي الاسم أو الوصف أو السعر لتعديله، واضغطي الصورة لتغييرها أو حذفها.</small><button type="button" class="admin-save">نشر التعديلات</button><button type="button" class="admin-exit">خروج</button>';
+  toolbar.innerHTML = '<strong></strong><small id="adminStatus" role="status">المسي الاسم أو الوصف أو السعر لتعديله، واضغطي الصورة لتغييرها أو حذفها.</small><button type="button" class="admin-save">نشر التعديلات</button><button type="button" class="admin-exit">خروج</button>';
   document.body.append(toolbar);
+  toolbar.querySelector('strong').textContent = 'تحرير ' + document.querySelector('.brand b').textContent.trim();
   const status = toolbar.querySelector('#adminStatus');
   const saveButton = toolbar.querySelector('.admin-save');
   const imageInput = document.createElement('input');
@@ -311,12 +313,9 @@
       let digits = phone.replace(/[٠-٩۰-۹]/g, digit => String((arabic + eastern).indexOf(digit) % 10)).replace(/\D/g, '');
       if (/^05\d{8}$/.test(digits)) digits = '966' + digits.slice(1);
       if (!/^9665\d{8}$/.test(digits)) throw new Error('رقم المشغل يجب أن يكون رقم جوال سعودي صحيحًا.');
-      doc.querySelectorAll('a[href^="tel:"]').forEach(link => link.href = 'tel:+' + digits);
-      doc.querySelectorAll('a[href^="https://wa.me/"]').forEach(link => {
-        if (/wa\.me\/\+?\d/.test(link.href)) link.href = 'https://wa.me/' + digits;
-      });
-      const script = doc.querySelector('script:not([src]):not([type])');
-      script.textContent = script.textContent.replace(/wa\.me\/966\d{9}/g, 'wa.me/' + digits);
+      doc.body.dataset.salonPhone = digits;
+      doc.querySelectorAll('[data-business-call]').forEach(link => link.href = 'tel:+' + digits);
+      doc.querySelectorAll('[data-business-wa]').forEach(link => link.href = 'https://wa.me/' + digits);
       const schema = doc.querySelector('script[type="application/ld+json"]');
       const data = JSON.parse(schema.textContent);
       data.telephone = '+' + digits;
