@@ -46,13 +46,18 @@
   packageActions.className = 'admin-package-actions';
   packageActions.innerHTML = '<button type="button" class="admin-add-photo admin-add-package">+ إضافة باقة</button><button type="button" class="admin-add-photo admin-delete-package">حذف هذه الباقة</button>';
   document.querySelector('.package-book').append(packageActions);
-  css.textContent += '.admin-package-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:10px auto}.admin-delete-package{background:#35292e}.salon-admin .hero-img[data-edit-field="image"]{min-height:380px}@media(max-width:600px){.admin-package-actions button{font-size:13px;padding:10px 14px}}';
+  css.textContent += '.admin-package-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:10px auto}.admin-delete-package{background:#35292e}.salon-admin .hero-img[data-edit-field="image"]{min-height:380px}.salon-admin .hero-img[data-edit-field="image"]:before{content:"اضغطي لتعديل صورة المقدمة";position:absolute;right:18px;bottom:18px;z-index:2;background:#241d20;color:#fff;padding:9px 14px;border-radius:999px;font:12px Tahoma,Arial,sans-serif;pointer-events:none}@media(max-width:600px){.admin-package-actions button{font-size:13px;padding:10px 14px}}';
 
   function setStatus(message) { status.textContent = message; }
   function editId(node) { return node.closest('[data-edit-id]').getAttribute('data-edit-id'); }
   function bindText(node) {
     node.contentEditable = 'true';
     node.setAttribute('spellcheck', 'false');
+    if (node.closest('a')) node.addEventListener('click', event => {
+      event.preventDefault();
+      event.stopPropagation();
+      node.focus();
+    });
     node.addEventListener('input', () => {
       const value = node.textContent.trim();
       changes.set(editId(node) + ':' + node.dataset.editField, value);
@@ -315,6 +320,10 @@
       data.telephone = '+' + digits;
       data.address.streetAddress = doc.querySelector('[data-global="address"]').textContent.trim();
       schema.textContent = JSON.stringify(data);
+      if ([...changes.keys()].some(key => key.endsWith(':address'))) {
+        const map = doc.querySelector('.contact-list a[href*="google.com/maps/search"]');
+        map.href = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(data.address.streetAddress);
+      }
     }
   }
 
