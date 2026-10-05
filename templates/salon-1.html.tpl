@@ -43,6 +43,7 @@ body[data-salon-phone=""] .floating-wa{display:none}body[data-salon-phone=""] [d
 
 .service{padding:0;overflow:hidden;display:flex;flex-direction:column;min-height:0}.service img{width:100%;height:185px;object-fit:cover;display:block;background:#eadbe0}.service-body{padding:20px;display:flex;flex:1;flex-direction:column}.service h3{margin:12px 0 8px}.service p{font-size:13px;margin:0 0 18px}.service footer{margin-top:auto;padding-top:14px;gap:12px}.service footer strong{font-size:15px}.service footer a{font-size:12px;white-space:nowrap}.price-source a{color:#9d4f6f;text-decoration:underline;text-underline-offset:4px}.booking-steps{margin:0 0 16px;padding:0 20px 0 0;color:#66545d;line-height:1.9;font-size:13px}.booking-notice,.booking-price{grid-column:1/-1;background:#faf0f3;border:1px solid #ead1db;border-radius:12px;padding:12px;color:#74485b;font-size:13px;line-height:1.7;margin:0}.booking-price{background:#fff;border-style:dashed}.form input:focus,.form select:focus,.form textarea:focus{outline:2px solid #c67a98;outline-offset:1px}@media(max-width:560px){.service img{height:205px}.service-body{padding:20px}.package-art{background-position:center}}
 .phone-number{direction:ltr;unicode-bidi:isolate;display:inline-block;text-align:left}.about-card .phone-number{color:#baaab1}.contact-list .phone-number{color:#796d72;font-size:11px}
+.form button:disabled{opacity:.55;cursor:not-allowed}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BeautySalon","name":"{{SALON_NAME}}","telephone":"{{PHONE_E164}}","address":{"@type":"PostalAddress","addressLocality":"{{CITY}}","addressRegion":"{{CITY}}","streetAddress":"{{ADDRESS}}","addressCountry":"SA"},"url":"{{PAGE_URL}}"}
@@ -110,6 +111,12 @@ stack.addEventListener('touchstart',e=>{touchStartX=e.changedTouches[0].clientX}
 stack.addEventListener('touchend',e=>{const delta=e.changedTouches[0].clientX-touchStartX;if(Math.abs(delta)>50)turnPackage(delta<0?'next':'prev')},{passive:true});
 document.querySelector('.package-book').addEventListener('keydown',e=>{if(e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();turnPackage(e.key==='ArrowLeft'?'next':'prev')}});
 const bookingService=document.getElementById('service');
+if(!/^9665\d{8}$/.test(document.body.dataset.salonPhone||'')){
+ const bookingButton=document.querySelector('#bookingForm button[type="submit"]');
+ bookingButton.disabled=true;
+ bookingButton.textContent='الحجز متاح بعد إضافة رقم المشغل';
+ document.querySelector('#bookingForm .booking-notice').textContent='هذه معاينة للكتالوج. يبدأ استقبال طلبات الحجز بعد إضافة رقم المشغل.';
+}
 function updateBookingPrice(){const price=bookingService.selectedOptions[0]?.dataset.price;document.getElementById('bookingPrice').textContent=price?'السعر المنشور: '+price+' — يؤكد المشغل السعر النهائي.':'السعر يحدده المشغل عند التواصل.'}
 bookingService.addEventListener('change',updateBookingPrice);
 document.querySelectorAll('[data-package],[data-service]').forEach(a=>a.addEventListener('click',()=>{bookingService.value=a.dataset.package||a.dataset.service;updateBookingPrice()}));
