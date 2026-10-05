@@ -55,9 +55,8 @@ html = html.replace(/\{\{([A-Z0-9_]+)\}\}/g, (_, key) => {
 if (html.includes('{{')) throw new Error('بقيت حقول لم تُملأ في القالب.');
 
 if (!digits) {
-  html = html.replaceAll('data-business-wa href="https://wa.me/"', 'data-business-wa href="#contact"');
-  html = html.replaceAll('data-business-call href="tel:"', 'data-business-call href="#contact"');
-  html = html.replaceAll('data-business-wa href="#contact" target="_blank"', 'data-business-wa href="#contact"');
+  html = html.replace(/data-business-wa href="https:\/\/wa\.me\/"(?: target="_blank")?(?: rel="noopener")?/g, 'data-business-wa aria-disabled="true"');
+  html = html.replaceAll('data-business-call href="tel:"', 'data-business-call aria-disabled="true"');
   html = html.replace('<head>', '<head>\n<meta name="robots" content="noindex,nofollow">');
 }
 
