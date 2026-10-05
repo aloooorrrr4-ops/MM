@@ -2,7 +2,7 @@
 
 ## كتالوج مشغل 1
 
-- المعرض: `index.html#catalogs` وقسم الصوالين في `category.html?type=salons`.
+- المعرض: داخل قسم الصوالين في `category.html?type=salons`.
 - نموذج العرض العام دون رقم: `salon-catalog-1.html`.
 - لوحة تحرير النموذج: `salon-catalog-1.html?edit=1`.
 - صفحة مشغل رمز الأنوثة المنفصلة: `ramz-alonotha.html`.
