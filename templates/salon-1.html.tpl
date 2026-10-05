@@ -126,5 +126,5 @@ document.getElementById('bookingForm').addEventListener('submit',e=>{
 });
 document.querySelectorAll('[data-native]').forEach(a=>a.addEventListener('click',async e=>{e.preventDefault();if(navigator.share){try{await navigator.share({title:'{{SALON_NAME}}',url:location.href})}catch(_){}}else if(navigator.clipboard){navigator.clipboard.writeText(location.href)}}));
 </script>
-<script src="salon-admin.js?v=5" defer></script>
+<script src="salon-admin.js?v=6" defer></script>
 </body></html>
