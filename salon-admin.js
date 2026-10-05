@@ -314,8 +314,15 @@
       if (/^05\d{8}$/.test(digits)) digits = '966' + digits.slice(1);
       if (!/^9665\d{8}$/.test(digits)) throw new Error('رقم المشغل يجب أن يكون رقم جوال سعودي صحيحًا.');
       doc.body.dataset.salonPhone = digits;
+      doc.querySelector('meta[name="robots"][content="noindex,nofollow"]')?.remove();
       doc.querySelectorAll('[data-business-call]').forEach(link => link.href = 'tel:+' + digits);
-      doc.querySelectorAll('[data-business-wa]').forEach(link => link.href = 'https://wa.me/' + digits);
+      doc.querySelectorAll('[data-business-wa]').forEach(link => {
+        link.href = 'https://wa.me/' + digits;
+        link.target = '_blank';
+        link.rel = 'noopener';
+        link.removeAttribute('aria-disabled');
+      });
+      doc.querySelectorAll('[data-business-call]').forEach(link => link.removeAttribute('aria-disabled'));
       const schema = doc.querySelector('script[type="application/ld+json"]');
       const data = JSON.parse(schema.textContent);
       data.telephone = '+' + digits;
