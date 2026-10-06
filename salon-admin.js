@@ -314,6 +314,13 @@
       if (/^05\d{8}$/.test(digits)) digits = '966' + digits.slice(1);
       if (!/^9665\d{8}$/.test(digits)) throw new Error('رقم المشغل يجب أن يكون رقم جوال سعودي صحيحًا.');
       doc.body.dataset.salonPhone = digits;
+      const bookingButton = doc.querySelector('#bookingForm button[type="submit"]');
+      if (bookingButton) {
+        bookingButton.disabled = false;
+        bookingButton.textContent = 'افتحي واتساب لإرسال طلب الموعد';
+      }
+      const bookingNotice = doc.querySelector('#bookingForm .booking-notice');
+      if (bookingNotice) bookingNotice.textContent = 'هذا طلب موعد عبر واتساب. لا يتم الحجز أو الدفع تلقائيًا، ويؤكد المشغل التوافر والسعر النهائي في الرد.';
       doc.querySelector('meta[name="robots"][content="noindex,nofollow"]')?.remove();
       doc.querySelectorAll('[data-business-call]').forEach(link => link.href = 'tel:+' + digits);
       doc.querySelectorAll('[data-business-wa]').forEach(link => {
@@ -326,11 +333,12 @@
       const schema = doc.querySelector('script[type="application/ld+json"]');
       const data = JSON.parse(schema.textContent);
       data.telephone = '+' + digits;
-      data.address.streetAddress = doc.querySelector('[data-global="address"]').textContent.trim();
+      const address = doc.querySelector('[data-global="address"]').textContent.trim();
+      if (data.address) data.address.streetAddress = address;
       schema.textContent = JSON.stringify(data);
       if ([...changes.keys()].some(key => key.endsWith(':address'))) {
         const map = doc.querySelector('.contact-list a[href*="google.com/maps/search"]');
-        map.href = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(data.address.streetAddress);
+        if (map) map.href = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(address);
       }
     }
   }
